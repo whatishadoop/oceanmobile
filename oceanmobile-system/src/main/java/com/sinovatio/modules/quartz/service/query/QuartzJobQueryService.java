@@ -1,0 +1,62 @@
+package com.sinovatio.modules.quartz.service.query;
+
+import com.sinovatio.modules.quartz.domain.QuartzJob;
+import com.sinovatio.modules.quartz.repository.QuartzJobRepository;
+import com.sinovatio.utils.PageUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+* @ClassName: QuartzJobQueryService
+* @Description: 普通任务定时器查询服务
+* @Author JinLu
+* @Date 2019/4/3 16:33
+* @Version 1.0
+*/
+@Service
+@CacheConfig(cacheNames = "quartzJob")
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+public class QuartzJobQueryService {
+
+    @Autowired
+    private QuartzJobRepository quartzJobRepository;
+
+    @Cacheable(keyGenerator = "keyGenerator")
+    public Object queryAll(QuartzJob quartzJob, Pageable pageable){
+        return PageUtil.toPage(quartzJobRepository.findAll(new Spec(quartzJob),pageable));
+    }
+
+    class Spec implements Specification<QuartzJob> {
+        private QuartzJob quartzJob;
+        public Spec(QuartzJob quartzJob){
+            this.quartzJob = quartzJob;
+        }
+
+        @Override
+        public Predicate toPredicate(Root<QuartzJob> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+            List<Predicate> list = new ArrayList<Predicate>();
+            if(!ObjectUtils.isEmpty(quartzJob.getJobName())){
+
+                /**
+                 * 模糊
+                 */
+                list.add(cb.like(root.get("jobName").as(String.class),"%"+quartzJob.getJobName()+"%"));
+            }
+            Predicate[] p = new Predicate[list.size()];
+            return cb.and(list.toArray(p));
+        }
+    }
+}
