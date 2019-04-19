@@ -6,9 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: Log
+* @Description: 日志注释接口
+* @Author JinLu
+* @Date 2019/4/19 14:28
+* @Version 1.0
+*/
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Log {

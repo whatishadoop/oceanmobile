@@ -14,9 +14,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: RoleController
+* @Description: 角色服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:51
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class RoleController {

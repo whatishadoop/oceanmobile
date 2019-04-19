@@ -7,9 +7,12 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: EntityExistException
+* @Description: 实体存在异常
+* @Author JinLu
+* @Date 2019/4/19 14:14
+* @Version 1.0
+*/
 public class EntityExistException extends RuntimeException {
 
     public EntityExistException(Class clazz, Object... saveBodyParamsMap) {

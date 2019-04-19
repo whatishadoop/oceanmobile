@@ -24,9 +24,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-11-22
- */
+* @ClassName: UserQueryService
+* @Description: 用户查询服务
+* @Author JinLu
+* @Date 2019/4/19 15:58
+* @Version 1.0
+*/
 @Service
 @CacheConfig(cacheNames = "user")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

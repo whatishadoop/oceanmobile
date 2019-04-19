@@ -18,6 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+* @ClassName: JwtAuthorizationTokenFilter
+* @Description: 自定义认证过滤器
+* @Author JinLu
+* @Date 2019/4/19 15:39
+* @Version 1.0
+*/
 @Slf4j
 @Component
 public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {

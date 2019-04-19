@@ -4,8 +4,11 @@ import com.sinovatio.domain.EmailConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: EmailRepository
+* @Description: email操作jpa
+* @Author JinLu
+* @Date 2019/4/19 16:11
+* @Version 1.0
+*/
 public interface EmailRepository extends JpaRepository<EmailConfig,Long> {
 }

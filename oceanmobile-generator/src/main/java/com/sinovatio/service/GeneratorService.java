@@ -5,9 +5,12 @@ import com.sinovatio.domain.vo.ColumnInfo;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2019-01-02
- */
+* @ClassName: GeneratorService
+* @Description: 代码生成
+* @Author JinLu
+* @Date 2019/4/19 14:27
+* @Version 1.0
+*/
 public interface GeneratorService {
 
     /**

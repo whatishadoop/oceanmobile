@@ -5,11 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * 获取当前登录的用户名
- *
- * @author jie
- * @date 2019-01-17
- */
+* @ClassName: SecurityContextHolder
+* @Description: 获取当前登录的用户名
+* @Author JinLu
+* @Date 2019/4/19 14:22
+* @Version 1.0
+*/
 public class SecurityContextHolder {
 
     public static UserDetails getUserDetails() {

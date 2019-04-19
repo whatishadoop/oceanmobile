@@ -17,9 +17,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzJobController
+* @Description: 定时任务服务接口
+* @Author JinLu
+* @Date 2019/4/19 14:41
+* @Version 1.0
+*/
 @Slf4j
 @RestController
 @RequestMapping("/api")

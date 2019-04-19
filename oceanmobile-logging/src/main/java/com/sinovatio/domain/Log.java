@@ -7,9 +7,12 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: Log
+* @Description: 日志对象
+* @Author JinLu
+* @Date 2019/4/19 14:29
+* @Version 1.0
+*/
 @Entity
 @Data
 @Table(name = "log")

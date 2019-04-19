@@ -11,7 +11,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-
+/**
+* @ClassName: JwtTokenUtil
+* @Description: JwtToken工具类
+* @Author JinLu
+* @Date 2019/4/19 15:43
+* @Version 1.0
+*/
 @Component
 public class JwtTokenUtil implements Serializable {
 

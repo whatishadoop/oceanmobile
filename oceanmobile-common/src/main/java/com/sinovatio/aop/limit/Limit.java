@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 /**  
 * @ClassName: Limit
-* @Description: TODO
+* @Description: 限流接口
 * @Author JinLu
 * @Date 2019/4/19 11:46
 * @Version 1.0

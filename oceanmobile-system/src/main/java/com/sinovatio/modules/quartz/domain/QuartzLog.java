@@ -8,9 +8,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzLog
+* @Description: 定时任务日志
+* @Author JinLu
+* @Date 2019/4/19 14:40
+* @Version 1.0
+*/
 @Entity
 @Data
 @Table(name = "quartz_log")

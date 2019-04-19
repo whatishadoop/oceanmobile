@@ -23,9 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: DictQueryService
+* @Description: 字典查询服务
+* @Author JinLu
+* @Date 2019/4/19 15:57
+* @Version 1.0
+*/
 @Service
 @CacheConfig(cacheNames = "dict")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

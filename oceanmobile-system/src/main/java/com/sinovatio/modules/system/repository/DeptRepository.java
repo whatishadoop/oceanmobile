@@ -8,8 +8,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: DeptRepository
+* @Description: 部门jpa操作
+* @Author JinLu
+* @Date 2019/4/19 15:46
+* @Version 1.0
 */
 public interface DeptRepository extends JpaRepository<Dept, Long>, JpaSpecificationExecutor {
 

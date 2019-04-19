@@ -17,9 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author jie
- * @date 2018-12-31
- */
+* @ClassName: AlipayServiceImpl
+* @Description: 阿里支付服务
+* @Author JinLu
+* @Date 2019/4/19 16:15
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class AlipayServiceImpl implements AlipayService {

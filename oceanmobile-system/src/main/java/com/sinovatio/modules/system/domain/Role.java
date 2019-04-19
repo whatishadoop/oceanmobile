@@ -13,10 +13,12 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * 角色
- * @author jie
- * @date 2018-11-22
- */
+* @ClassName: Role
+* @Description: 角色
+* @Author JinLu
+* @Date 2019/4/19 15:45
+* @Version 1.0
+*/
 @Entity
 @Table(name = "role")
 @Getter

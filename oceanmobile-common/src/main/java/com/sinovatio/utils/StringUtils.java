@@ -1,13 +1,16 @@
 package com.sinovatio.utils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
- */
+* @ClassName: StringUtils
+* @Description: 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
+* @Author JinLu
+* @Date 2019/4/19 14:22
+* @Version 1.0
+*/
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     private static final char SEPARATOR = '_';

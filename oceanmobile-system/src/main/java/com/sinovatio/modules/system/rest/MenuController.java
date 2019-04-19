@@ -21,9 +21,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: MenuController
+* @Description: 菜单服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:51
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class MenuController {

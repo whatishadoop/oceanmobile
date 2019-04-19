@@ -1,17 +1,19 @@
 package com.sinovatio.modules.system.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 /**
-* @author jie
-* @date 2019-04-10
+* @ClassName: Dict
+* @Description: 数据字典对象
+* @Author JinLu
+* @Date 2019/4/19 15:44
+* @Version 1.0
 */
 @Entity
 @Data

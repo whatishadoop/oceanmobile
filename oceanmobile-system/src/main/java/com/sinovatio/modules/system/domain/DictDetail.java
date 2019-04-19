@@ -6,8 +6,11 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
-* @author jie
-* @date 2019-04-10
+* @ClassName: DictDetail
+* @Description: 字典信息详情
+* @Author JinLu
+* @Date 2019/4/19 15:44
+* @Version 1.0
 */
 @Entity
 @Data

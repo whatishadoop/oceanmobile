@@ -11,8 +11,11 @@ import java.sql.Timestamp;
 import java.io.Serializable;
 
 /**
-* @author jie
-* @date 2019-03-29
+* @ClassName: Job
+* @Description: 定时任务对象
+* @Author JinLu
+* @Date 2019/4/19 15:45
+* @Version 1.0
 */
 @Entity
 @Data

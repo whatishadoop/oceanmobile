@@ -18,9 +18,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author jie
- * @date 2018-12-13
- */
+* @ClassName: VisitsServiceImpl
+* @Description: 用户访问服务
+* @Author JinLu
+* @Date 2019/4/19 14:35
+* @Version 1.0
+*/
 @Slf4j
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

@@ -9,9 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzJobRepository
+* @Description: 定时任务jpa操作
+* @Author JinLu
+* @Date 2019/4/19 14:40
+* @Version 1.0
+*/
 public interface QuartzJobRepository extends JpaRepository<QuartzJob,Long>, JpaSpecificationExecutor {
 
     /**

@@ -17,11 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * api页面 /swagger-ui.html
- * @author jie
- * @date 2018-11-23
- */
-
+* @ClassName: SwaggerConfig
+* @Description: api页面 /swagger-ui.html
+* @Author JinLu
+* @Date 2019/4/19 14:16
+* @Version 1.0
+*/
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

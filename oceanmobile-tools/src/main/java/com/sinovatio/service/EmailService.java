@@ -8,9 +8,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: EmailService
+* @Description: 邮件服务
+* @Author JinLu
+* @Date 2019/4/19 16:17
+* @Version 1.0
+*/
 @CacheConfig(cacheNames = "email")
 public interface EmailService {
 

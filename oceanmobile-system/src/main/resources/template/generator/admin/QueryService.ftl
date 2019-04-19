@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @author ${author}
+* @date ${date}
+*/
 @Service
 @CacheConfig(cacheNames = "${changeClassName}")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

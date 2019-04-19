@@ -7,9 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: LogRepository
+* @Description: 日志jpa层操作
+* @Author JinLu
+* @Date 2019/4/19 14:29
+* @Version 1.0
+*/
 @Repository
 public interface LogRepository extends JpaRepository<Log,Long>, JpaSpecificationExecutor {
 

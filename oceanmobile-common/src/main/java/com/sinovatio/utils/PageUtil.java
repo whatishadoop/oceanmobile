@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 分页工具
- * @author jie
- * @date 2018-12-10
- */
+* @ClassName: PageUtil
+* @Description: 分页工具
+* @Author JinLu
+* @Date 2019/4/19 14:22
+* @Version 1.0
+*/
 public class PageUtil extends cn.hutool.core.util.PageUtil {
 
     /**

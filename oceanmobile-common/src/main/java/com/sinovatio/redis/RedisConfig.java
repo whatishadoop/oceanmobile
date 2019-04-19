@@ -24,9 +24,12 @@ import redis.clients.jedis.JedisPoolConfig;
 import java.time.Duration;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: RedisConfig
+* @Description: redis缓存配置
+* @Author JinLu
+* @Date 2019/4/19 14:16
+* @Version 1.0
+*/
 @Slf4j
 @Configuration
 @EnableCaching

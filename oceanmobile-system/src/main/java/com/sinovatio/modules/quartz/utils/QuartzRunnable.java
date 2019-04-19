@@ -7,9 +7,12 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Method;
 
 /**
- * 执行定时任务
- * @author
- */
+* @ClassName: QuartzRunnable
+* @Description: 执行定时任务
+* @Author JinLu
+* @Date 2019/4/19 14:45
+* @Version 1.0
+*/
 @Slf4j
 public class QuartzRunnable implements Runnable {
 

@@ -2,11 +2,11 @@ package com.sinovatio.modules.system.service.impl;
 
 import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.modules.system.domain.Dept;
-import com.sinovatio.utils.ValidationUtil;
 import com.sinovatio.modules.system.repository.DeptRepository;
 import com.sinovatio.modules.system.service.DeptService;
 import com.sinovatio.modules.system.service.dto.DeptDTO;
 import com.sinovatio.modules.system.service.mapper.DeptMapper;
+import com.sinovatio.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -14,11 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: DeptServiceImpl
+* @Description: 部门服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:54
+* @Version 1.0
 */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

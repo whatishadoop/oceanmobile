@@ -5,9 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzLogRepository
+* @Description: 定时任务日志jpa操作
+* @Author JinLu
+* @Date 2019/4/19 14:41
+* @Version 1.0
+*/
 public interface QuartzLogRepository extends JpaRepository<QuartzLog,Long>, JpaSpecificationExecutor {
 
 }

@@ -19,6 +19,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+* @ClassName: MenuServiceImpl
+* @Description: 菜单服务
+* @Author JinLu
+* @Date 2019/4/19 15:55
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class MenuServiceImpl implements MenuService {

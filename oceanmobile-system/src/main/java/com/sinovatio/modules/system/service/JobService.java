@@ -7,8 +7,11 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 
 /**
-* @author jie
-* @date 2019-03-29
+* @ClassName: JobService
+* @Description: 岗位服务
+* @Author JinLu
+* @Date 2019/4/19 15:59
+* @Version 1.0
 */
 @CacheConfig(cacheNames = "job")
 public interface JobService {

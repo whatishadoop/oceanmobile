@@ -6,9 +6,12 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: ApiError
+* @Description: 接口api错误信息
+* @Author JinLu
+* @Date 2019/4/19 14:08
+* @Version 1.0
+*/
 @Data
 class ApiError {
 

@@ -4,9 +4,12 @@ import com.sinovatio.domain.VerificationCode;
 import com.sinovatio.domain.vo.EmailVo;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: VerificationCodeService
+* @Description: 验证码服务
+* @Author JinLu
+* @Date 2019/4/19 16:17
+* @Version 1.0
+*/
 public interface VerificationCodeService {
 
     /**

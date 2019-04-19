@@ -9,8 +9,11 @@ import org.springframework.cache.annotation.Cacheable;
 import java.util.List;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: DeptService
+* @Description: 部门查询接口
+* @Author JinLu
+* @Date 2019/4/19 15:59
+* @Version 1.0
 */
 @CacheConfig(cacheNames = "dept")
 public interface DeptService {

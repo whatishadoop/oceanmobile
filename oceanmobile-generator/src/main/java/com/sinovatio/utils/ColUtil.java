@@ -3,11 +3,12 @@ package com.sinovatio.utils;
 import org.apache.commons.configuration.*;
 
 /**
- * sql字段转java
- *
- * @author jie
- * @date 2019-01-03
- */
+* @ClassName: ColUtil
+* @Description: sql字段转java
+* @Author JinLu
+* @Date 2019/4/19 14:27
+* @Version 1.0
+*/
 public class ColUtil {
 
     /**

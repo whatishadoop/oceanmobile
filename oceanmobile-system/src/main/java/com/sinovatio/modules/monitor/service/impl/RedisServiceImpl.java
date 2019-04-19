@@ -14,9 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-10
- */
+* @ClassName: RedisServiceImpl
+* @Description: redis缓存服务
+* @Author JinLu
+* @Date 2019/4/19 14:35
+* @Version 1.0
+*/
 @Service
 public class RedisServiceImpl implements RedisService {
 

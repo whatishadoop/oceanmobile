@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import static org.springframework.http.HttpStatus.*;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: GlobalExceptionHandler
+* @Description: 统一异常处理
+* @Author JinLu
+* @Date 2019/4/19 14:13
+* @Version 1.0
+*/
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {

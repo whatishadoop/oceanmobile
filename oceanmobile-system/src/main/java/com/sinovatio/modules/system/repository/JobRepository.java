@@ -5,8 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
-* @author jie
-* @date 2019-03-29
+* @ClassName: JobRepository
+* @Description: 岗位jpa
+* @Author JinLu
+* @Date 2019/4/19 15:47
+* @Version 1.0
 */
 public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificationExecutor {
 }

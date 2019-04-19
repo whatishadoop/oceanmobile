@@ -5,9 +5,12 @@ import org.springframework.scheduling.annotation.Async;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author jie
- * @date 2018-12-13
- */
+* @ClassName: VisitsService
+* @Description: 用户访问信息统计
+* @Author JinLu
+* @Date 2019/4/19 14:36
+* @Version 1.0
+*/
 public interface VisitsService {
 
     /**

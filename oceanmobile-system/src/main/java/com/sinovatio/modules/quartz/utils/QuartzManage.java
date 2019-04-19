@@ -11,9 +11,12 @@ import java.util.Date;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzManage
+* @Description: 定时任务管理
+* @Author JinLu
+* @Date 2019/4/19 14:44
+* @Version 1.0
+*/
 @Slf4j
 @Component
 public class QuartzManage {

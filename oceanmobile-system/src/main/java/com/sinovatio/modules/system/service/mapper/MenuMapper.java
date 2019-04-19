@@ -7,9 +7,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
- * @author jie
- * @date 2018-12-17
- */
+* @ClassName: MenuMapper
+* @Description: 菜单映射
+* @Author JinLu
+* @Date 2019/4/19 15:56
+* @Version 1.0
+*/
 @Mapper(componentModel = "spring",uses = {},unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface MenuMapper extends EntityMapper<MenuDTO, Menu> {
 

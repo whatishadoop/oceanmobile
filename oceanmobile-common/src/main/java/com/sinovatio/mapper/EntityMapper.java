@@ -3,9 +3,12 @@ package com.sinovatio.mapper;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: EntityMapper
+* @Description: 实体映射接口
+* @Author JinLu
+* @Date 2019/4/19 14:15
+* @Version 1.0
+*/
 public interface EntityMapper<D, E> {
 
     /**

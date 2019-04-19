@@ -6,14 +6,17 @@ import com.sinovatio.modules.system.service.dto.MenuDTO;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-12-17
- */
+* @ClassName: MenuService
+* @Description: 菜单服务
+* @Author JinLu
+* @Date 2019/4/19 16:00
+* @Version 1.0
+*/
 @CacheConfig(cacheNames = "menu")
 public interface MenuService {
 

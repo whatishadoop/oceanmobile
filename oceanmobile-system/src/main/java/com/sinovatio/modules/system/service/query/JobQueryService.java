@@ -23,9 +23,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: JobQueryService
+* @Description: 岗位查询服务
+* @Author JinLu
+* @Date 2019/4/19 15:58
+* @Version 1.0
+*/
 @Service
 @CacheConfig(cacheNames = "job")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

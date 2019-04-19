@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- *
- * 接口限流测试类
- */
+* @ClassName: LimitController
+* @Description: 接口限流测试类
+* @Author JinLu
+* @Date 2019/4/19 14:34
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class LimitController {

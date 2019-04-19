@@ -7,11 +7,12 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * pv 与 ip 统计
- *
- * @author jie
- * @date 2018-12-13
- */
+* @ClassName: Visits
+* @Description: pv 与 ip 统计
+* @Author JinLu
+* @Date 2019/4/19 14:34
+* @Version 1.0
+*/
 @Entity
 @Data
 @Table(name = "visits")

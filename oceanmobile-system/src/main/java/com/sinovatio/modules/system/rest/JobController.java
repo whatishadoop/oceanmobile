@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 /**
-* @author jie
-* @date 2019-03-29
+* @ClassName: JobController
+* @Description: 岗位服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:49
+* @Version 1.0
 */
 @RestController
 @RequestMapping("api")

@@ -9,9 +9,12 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: UserDTO
+* @Description: 用户DTO
+* @Author JinLu
+* @Date 2019/4/19 15:54
+* @Version 1.0
+*/
 @Data
 public class UserDTO implements Serializable {
 

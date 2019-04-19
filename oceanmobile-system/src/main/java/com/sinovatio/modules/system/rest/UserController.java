@@ -27,9 +27,12 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.*;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: UserController
+* @Description: 用户服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:51
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class UserController {
@@ -172,7 +175,7 @@ public class UserController {
         if(!userDetails.getPassword().equals(EncryptUtils.encryptPassword(user.getPassword()))){
             throw new BadRequestException("密码错误");
         }
-        VerificationCode verificationCode = new VerificationCode(code, ElAdminConstant.RESET_MAIL,"email",user.getEmail());
+        VerificationCode verificationCode = new VerificationCode(code, OceanMobileConstant.RESET_MAIL,"email",user.getEmail());
         verificationCodeService.validated(verificationCode);
         userService.updateEmail(userDetails.getUsername(),user.getEmail());
         return new ResponseEntity(HttpStatus.OK);

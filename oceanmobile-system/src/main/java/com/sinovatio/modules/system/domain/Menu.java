@@ -12,9 +12,12 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-12-17
- */
+* @ClassName: Menu
+* @Description: 菜单对象
+* @Author JinLu
+* @Date 2019/4/19 15:45
+* @Version 1.0
+*/
 @Entity
 @Getter
 @Setter

@@ -6,10 +6,12 @@ import org.springframework.http.HttpStatus;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 /**
- * @author jie
- * @date 2018-11-23
- * 统一异常处理
- */
+* @ClassName: BadRequestException
+* @Description: 通用异常处理
+* @Author JinLu
+* @Date 2019/4/19 14:14
+* @Version 1.0
+*/
 @Getter
 public class BadRequestException extends RuntimeException{
 

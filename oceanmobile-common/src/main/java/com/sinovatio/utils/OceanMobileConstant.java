@@ -1,12 +1,13 @@
 package com.sinovatio.utils;
 
 /**
- * 常用静态常量
- * @author jie
- * @date 2018-12-26
- */
-public class ElAdminConstant {
-
+* @ClassName: OceanMobileConstant
+* @Description: 常用静态常量
+* @Author JinLu
+* @Date 2019/4/19 14:18
+* @Version 1.0
+*/
+public class OceanMobileConstant {
     public static final String RESET_PASS = "重置密码";
 
     public static final String RESET_MAIL = "重置邮箱";

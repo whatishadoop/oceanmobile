@@ -9,9 +9,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author jie
- * @date 2018-12-31
- */
+* @ClassName: QiNiuService
+* @Description: 七牛云服务
+* @Author JinLu
+* @Date 2019/4/19 16:17
+* @Version 1.0
+*/
 @CacheConfig(cacheNames = "qiNiu")
 public interface QiNiuService {
 

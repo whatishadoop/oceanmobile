@@ -4,7 +4,7 @@ import com.sinovatio.domain.VerificationCode;
 import com.sinovatio.domain.vo.EmailVo;
 import com.sinovatio.service.EmailService;
 import com.sinovatio.service.VerificationCodeService;
-import com.sinovatio.utils.ElAdminConstant;
+import com.sinovatio.utils.OceanMobileConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -13,9 +13,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: VerificationCodeController
+* @Description: 验证码校验服务
+* @Author JinLu
+* @Date 2019/4/19 16:13
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class VerificationCodeController {
@@ -32,7 +35,7 @@ public class VerificationCodeController {
 
     @PostMapping(value = "/code/resetEmail")
     public ResponseEntity resetEmail(@RequestBody VerificationCode code) throws Exception {
-        code.setScenes(ElAdminConstant.RESET_MAIL);
+        code.setScenes(OceanMobileConstant.RESET_MAIL);
         EmailVo emailVo = verificationCodeService.sendEmail(code);
         emailService.send(emailVo,emailService.find());
         return new ResponseEntity(HttpStatus.OK);
@@ -43,7 +46,7 @@ public class VerificationCodeController {
         VerificationCode code = new VerificationCode();
         code.setType("email");
         code.setValue(email);
-        code.setScenes(ElAdminConstant.RESET_MAIL);
+        code.setScenes(OceanMobileConstant.RESET_MAIL);
         EmailVo emailVo = verificationCodeService.sendEmail(code);
         emailService.send(emailVo,emailService.find());
         return new ResponseEntity(HttpStatus.OK);

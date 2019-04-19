@@ -7,18 +7,21 @@ import com.sinovatio.domain.vo.EmailVo;
 import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.repository.EmailRepository;
 import com.sinovatio.service.EmailService;
-import com.sinovatio.utils.ElAdminConstant;
 import com.sinovatio.utils.EncryptUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: EmailServiceImpl
+* @Description: 邮件支付服务
+* @Author JinLu
+* @Date 2019/4/19 16:15
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class EmailServiceImpl implements EmailService {

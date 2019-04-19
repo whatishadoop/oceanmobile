@@ -15,9 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: DataScopeAspect
+* @Description: 定义日志注释的切面
+* @Author JinLu
+* @Date 2019/4/19 14:28
+* @Version 1.0
+*/
 @Component
 @Aspect
 @Slf4j

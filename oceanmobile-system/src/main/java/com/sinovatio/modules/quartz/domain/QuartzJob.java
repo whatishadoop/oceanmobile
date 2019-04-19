@@ -10,9 +10,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzJob
+* @Description: 定时任务定义
+* @Author JinLu
+* @Date 2019/4/19 14:40
+* @Version 1.0
+*/
 @Data
 @Entity
 @Table(name = "quartz_job")

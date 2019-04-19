@@ -18,9 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzLogQueryService
+* @Description: 定时任务日志查询
+* @Author JinLu
+* @Date 2019/4/19 14:42
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class QuartzLogQueryService {

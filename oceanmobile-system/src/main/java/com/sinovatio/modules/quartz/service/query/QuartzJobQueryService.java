@@ -20,9 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2019-01-07
- */
+* @ClassName: QuartzJobQueryService
+* @Description: 定时任务查询操作
+* @Author JinLu
+* @Date 2019/4/19 14:42
+* @Version 1.0
+*/
 @Service
 @CacheConfig(cacheNames = "quartzJob")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

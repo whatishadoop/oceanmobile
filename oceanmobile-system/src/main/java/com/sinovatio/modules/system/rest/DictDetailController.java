@@ -17,8 +17,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
-* @author jie
-* @date 2019-04-10
+* @ClassName: DictDetailController
+* @Description: 字典详情服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:49
+* @Version 1.0
 */
 @RestController
 @RequestMapping("api")

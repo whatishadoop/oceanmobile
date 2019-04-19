@@ -16,10 +16,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 代码生成
- * @author jie
- * @date 2019-01-02
- */
+* @ClassName: GenUtil
+* @Description: 代码生成
+* @Author JinLu
+* @Date 2019/4/19 14:27
+* @Version 1.0
+*/
 @Slf4j
 public class GenUtil {
 

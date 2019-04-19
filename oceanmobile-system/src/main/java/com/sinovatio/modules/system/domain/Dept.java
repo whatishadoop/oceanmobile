@@ -11,8 +11,11 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: Dept
+* @Description: 部门对象
+* @Author JinLu
+* @Date 2019/4/19 15:44
+* @Version 1.0
 */
 @Entity
 @Data

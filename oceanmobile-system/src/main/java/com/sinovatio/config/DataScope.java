@@ -8,18 +8,20 @@ import com.sinovatio.modules.system.service.RoleService;
 import com.sinovatio.modules.system.service.UserService;
 import com.sinovatio.utils.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 /**
- * 数据权限配置
- * @author jie
- * @date 2019-4-1
- */
+* @ClassName: DataScope
+* @Description: 数据权限配置
+* @Author JinLu
+* @Date 2019/4/19 14:32
+* @Version 1.0
+*/
 @Component
 public class DataScope {
 

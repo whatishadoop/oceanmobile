@@ -20,9 +20,12 @@ import java.util.Arrays;
 import java.util.concurrent.*;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: VerificationCodeServiceImpl
+* @Description: 验证码服务
+* @Author JinLu
+* @Date 2019/4/19 16:16
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class VerificationCodeServiceImpl implements VerificationCodeService {
@@ -45,12 +48,12 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
         if(verificationCode == null){
             code.setCode(RandomUtil.randomNumbers (6));
             content = template.render(Dict.create().set("code",code.getCode()));
-            emailVo = new EmailVo(Arrays.asList(code.getValue()),"eladmin后台管理系统",content);
+            emailVo = new EmailVo(Arrays.asList(code.getValue()),"oceanmobile后台管理系统",content);
             timedDestruction(verificationCodeRepository.save(code));
         // 存在就再次发送原来的验证码
         } else {
             content = template.render(Dict.create().set("code",verificationCode.getCode()));
-            emailVo = new EmailVo(Arrays.asList(verificationCode.getValue()),"eladmin后台管理系统",content);
+            emailVo = new EmailVo(Arrays.asList(verificationCode.getValue()),"oceanmobile后台管理系统",content);
         }
         return emailVo;
     }

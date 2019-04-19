@@ -4,10 +4,12 @@ import com.sinovatio.exception.BadRequestException;
 import java.util.Optional;
 
 /**
- * 验证工具
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: ValidationUtil
+* @Description: 验证工具
+* @Author JinLu
+* @Date 2019/4/19 14:23
+* @Version 1.0
+*/
 public class ValidationUtil{
 
     /**

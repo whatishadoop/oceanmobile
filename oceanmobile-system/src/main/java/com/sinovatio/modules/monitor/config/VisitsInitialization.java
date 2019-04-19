@@ -7,9 +7,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 /**
- * 初始化站点统计
- * @author jie
- */
+* @ClassName: VisitsInitialization
+* @Description: 初始化站点统计
+* @Author JinLu
+* @Date 2019/4/19 14:33
+* @Version 1.0
+*/
 @Component
 public class VisitsInitialization implements ApplicationRunner {
 

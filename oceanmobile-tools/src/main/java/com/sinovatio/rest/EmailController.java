@@ -12,10 +12,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 发送邮件
- * @author 郑杰
- * @date 2018/09/28 6:55:53
- */
+* @ClassName: EmailController
+* @Description: 发送邮件服务接口
+* @Author JinLu
+* @Date 2019/4/19 16:12
+* @Version 1.0
+*/
 @Slf4j
 @RestController
 @RequestMapping("api")

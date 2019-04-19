@@ -7,10 +7,12 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
- * 邮件配置类，数据存覆盖式存入数据存
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: EmailConfig
+* @Description: 邮件配置类，数据存覆盖式存入数据存
+* @Author JinLu
+* @Date 2019/4/19 16:09
+* @Version 1.0
+*/
 @Entity
 @Data
 @Table(name = "email_config")

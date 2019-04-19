@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * @author https://cloud.tencent.com/developer/article/1096792
- * @date 2018-12-24
- */
+* @ClassName: LogMessage
+* @Description: 日志消息对象
+* @Author JinLu
+* @Date 2019/4/19 14:33
+* @Version 1.0
+*/
 @Data
 @AllArgsConstructor
 public class LogMessage {

@@ -8,10 +8,12 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * 交易详情，按需应该存入数据库，这里存入数据库，仅供临时测试
- * @author jie
- * @date 2018-12-31
- */
+* @ClassName: TradeVo
+* @Description: 交易详情，按需应该存入数据库，这里存入数据库，仅供临时测试
+* @Author JinLu
+* @Date 2019/4/19 16:09
+* @Version 1.0
+*/
 @Data
 public class TradeVo {
 

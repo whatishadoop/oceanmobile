@@ -7,10 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 七牛云存储工具类
- * @author jie
- * @date 2018-12-31
- */
+* @ClassName: QiNiuUtil
+* @Description: 七牛云存储工具类
+* @Author JinLu
+* @Date 2019/4/19 16:18
+* @Version 1.0
+*/
 public class QiNiuUtil {
 
     public static final String HUAD = "华东";

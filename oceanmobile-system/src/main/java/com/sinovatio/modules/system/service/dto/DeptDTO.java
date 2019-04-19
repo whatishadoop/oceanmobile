@@ -9,8 +9,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: DeptDTO
+* @Description: 部门DTO对象
+* @Author JinLu
+* @Date 2019/4/19 15:52
+* @Version 1.0
 */
 @Data
 public class DeptDTO implements Serializable {

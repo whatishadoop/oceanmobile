@@ -6,9 +6,12 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: RoleDTO
+* @Description: 角色DTO
+* @Author JinLu
+* @Date 2019/4/19 15:53
+* @Version 1.0
+*/
 @Data
 public class RoleDTO implements Serializable {
 

@@ -7,8 +7,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
-* @author jie
-* @date 2019-04-10
+* @ClassName: DictMapper
+* @Description: 字典映射
+* @Author JinLu
+* @Date 2019/4/19 15:56
+* @Version 1.0
 */
 @Mapper(componentModel = "spring",uses = {},unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DictMapper extends EntityMapper<DictDTO, Dict> {

@@ -19,9 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-17
- */
+* @ClassName: MenuQueryService
+* @Description: 菜单查询服务
+* @Author JinLu
+* @Date 2019/4/19 15:58
+* @Version 1.0
+*/
 @Service
 @CacheConfig(cacheNames = "menu")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

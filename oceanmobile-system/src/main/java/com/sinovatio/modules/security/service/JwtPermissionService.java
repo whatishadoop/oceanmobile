@@ -15,7 +15,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-
+/**
+* @ClassName: JwtPermissionService
+* @Description: 用户权限查询
+* @Author JinLu
+* @Date 2019/4/19 15:42
+* @Version 1.0
+*/
 @Service
 @CacheConfig(cacheNames = "role")
 public class JwtPermissionService {

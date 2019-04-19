@@ -10,9 +10,12 @@ import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
 /**
- * @author jie
- * @date 2018-12-26
- */
+* @ClassName: VerificationCode
+* @Description: 验证码校验
+* @Author JinLu
+* @Date 2019/4/19 16:10
+* @Version 1.0
+*/
 @Data
 @Entity
 @AllArgsConstructor

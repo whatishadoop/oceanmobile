@@ -8,9 +8,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-13
- */
+* @ClassName: VisitsRepository
+* @Description: 访问信息jpa操作
+* @Author JinLu
+* @Date 2019/4/19 14:34
+* @Version 1.0
+*/
 @Repository
 public interface VisitsRepository extends JpaRepository<Visits,Long> {
 

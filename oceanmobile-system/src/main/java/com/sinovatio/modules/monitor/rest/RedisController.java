@@ -12,9 +12,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author jie
- * @date 2018-12-10
- */
+* @ClassName: RedisController
+* @Description: 缓存服务接口
+* @Author JinLu
+* @Date 2019/4/19 14:34
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class RedisController {

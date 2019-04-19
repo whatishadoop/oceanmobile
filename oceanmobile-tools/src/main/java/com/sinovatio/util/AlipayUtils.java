@@ -13,10 +13,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * 支付宝工具类
- * @author zhengjie
- * @date 2018/09/30 14:04:35
- */
+* @ClassName: AlipayUtils
+* @Description: 支付宝工具类
+* @Author JinLu
+* @Date 2019/4/19 16:18
+* @Version 1.0
+*/
 @Component
 public class AlipayUtils {
 

@@ -7,9 +7,12 @@ import javax.servlet.MultipartConfigElement;
 import java.io.File;
 
 /**
- * @date 2018-12-28
- * @author https://blog.csdn.net/llibin1024530411/article/details/79474953
- */
+* @ClassName: MultipartConfig
+* @Description: 文件上传配置
+* @Author JinLu
+* @Date 2019/4/19 16:08
+* @Version 1.0
+*/
 @Configuration
 public class MultipartConfig {
 
@@ -19,7 +22,7 @@ public class MultipartConfig {
     @Bean
     MultipartConfigElement multipartConfigElement() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
-        String location = System.getProperty("user.home") + "/.eladmin/file/tmp";
+        String location = System.getProperty("user.home") + "/.oceanmobile/file/tmp";
         File tmpFile = new File(location);
         if (!tmpFile.exists()) {
             tmpFile.mkdirs();

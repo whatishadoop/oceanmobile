@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50562
 Source Host           : localhost:3306
-Source Database       : eladmin
+Source Database       : oceanmobile
 
 Target Server Type    : MYSQL
 Target Server Version : 50562
@@ -55,7 +55,7 @@ CREATE TABLE `dept` (
 -- ----------------------------
 -- Records of dept
 -- ----------------------------
-INSERT INTO `dept` VALUES ('1', 'eladmin', '0', '2019-03-25 09:14:05', '');
+INSERT INTO `dept` VALUES ('1', 'oceanmobile', '0', '2019-03-25 09:14:05', '');
 INSERT INTO `dept` VALUES ('2', '研发部', '7', '2019-03-25 09:15:32', '');
 INSERT INTO `dept` VALUES ('5', '运维部', '7', '2019-03-25 09:20:44', '');
 INSERT INTO `dept` VALUES ('6', '测试部', '8', '2019-03-25 09:52:18', '');
@@ -141,7 +141,7 @@ CREATE TABLE `gen_config` (
 -- ----------------------------
 -- Records of gen_config
 -- ----------------------------
-INSERT INTO `gen_config` VALUES ('1', 'jie', '\0', 'eladmin-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
+INSERT INTO `gen_config` VALUES ('1', 'jie', '\0', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\oceanmobile-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\oceanmobile-qt\\src\\api');
 
 -- ----------------------------
 -- Table structure for job
@@ -226,7 +226,7 @@ INSERT INTO `menu` VALUES ('12', '2018-12-24 20:37:35', '\0', '实时控制台',
 INSERT INTO `menu` VALUES ('14', '2018-12-27 10:13:09', '\0', '邮件工具', 'tools/email/index', '36', '24', 'email', 'email');
 INSERT INTO `menu` VALUES ('15', '2018-12-27 11:58:25', '\0', '富文本', 'components/Editor', '10', '52', 'fwb', 'tinymce');
 INSERT INTO `menu` VALUES ('16', '2018-12-28 09:36:53', '\0', '图床管理', 'tools/picture/index', '36', '25', 'image', 'pictures');
-INSERT INTO `menu` VALUES ('17', '2018-12-28 15:09:49', '', '项目地址', '', '0', '0', 'github', 'https://github.com/elunez/eladmin');
+INSERT INTO `menu` VALUES ('17', '2018-12-28 15:09:49', '', '项目地址', '', '0', '0', 'github', 'https://github.com/elunez/oceanmobile');
 INSERT INTO `menu` VALUES ('18', '2018-12-31 11:12:15', '\0', '七牛云存储', 'tools/qiniu/index', '36', '26', 'qiniu', 'qiniu');
 INSERT INTO `menu` VALUES ('19', '2018-12-31 14:52:38', '\0', '支付宝工具', 'tools/aliPay/index', '36', '27', 'alipay', 'aliPay');
 INSERT INTO `menu` VALUES ('21', '2019-01-04 16:22:03', '\0', '多级菜单', '', '0', '900', 'menu', 'nested');
@@ -574,9 +574,9 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg', '2018-08-23 09:11:56', 'admin@eladmin.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-04-04 16:00:46', '2', '18888888888', '11');
-INSERT INTO `user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@eladmin.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
-INSERT INTO `user` VALUES ('5', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2019-04-02 10:07:12', 'hr@eladmin.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'hr', null, '11', '15555555555', '8');
+INSERT INTO `user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg', '2018-08-23 09:11:56', 'admin@oceanmobile.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-04-04 16:00:46', '2', '18888888888', '11');
+INSERT INTO `user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@oceanmobile.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
+INSERT INTO `user` VALUES ('5', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2019-04-02 10:07:12', 'hr@oceanmobile.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'hr', null, '11', '15555555555', '8');
 
 -- ----------------------------
 -- Table structure for users_roles

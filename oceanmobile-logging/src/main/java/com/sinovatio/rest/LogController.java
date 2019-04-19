@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: LogController
+* @Description: 日志服务接口
+* @Author JinLu
+* @Date 2019/4/19 14:30
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class LogController {

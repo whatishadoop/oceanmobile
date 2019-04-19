@@ -22,9 +22,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @author jie
- * @date 2018-11-22
- */
+* @ClassName: JwtUserDetailsService
+* @Description: 用户认证服务
+* @Author JinLu
+* @Date 2019/4/19 15:42
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class JwtUserDetailsService implements UserDetailsService {

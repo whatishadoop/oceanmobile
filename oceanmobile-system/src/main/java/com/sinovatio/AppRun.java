@@ -8,9 +8,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 
 /**
- * @author jie
- * @date 2018/11/15 9:20:19
- */
+* @ClassName: AppRun
+* @Description: Mobile平台启动主函数
+* @Author JinLu
+* @Date 2019/4/19 16:00
+* @Version 1.0
+*/
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableWebSocketMessageBroker

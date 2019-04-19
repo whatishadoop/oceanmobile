@@ -7,10 +7,12 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import java.nio.charset.Charset;
 
 /**
- * 重写序列化器
- *
- * @author /
- */
+* @ClassName: StringRedisSerializer
+* @Description: 重写序列化器
+* @Author JinLu
+* @Date 2019/4/19 14:16
+* @Version 1.0
+*/
 public class StringRedisSerializer implements RedisSerializer<Object> {
 
     private final Charset charset;

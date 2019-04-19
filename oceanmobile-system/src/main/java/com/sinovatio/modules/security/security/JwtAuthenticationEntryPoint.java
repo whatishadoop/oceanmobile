@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 
+/**
+* @ClassName: JwtAuthenticationEntryPoint
+* @Description: restful服务接口用户安全认证
+* @Author JinLu
+* @Date 2019/4/19 15:38
+* @Version 1.0
+*/
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 

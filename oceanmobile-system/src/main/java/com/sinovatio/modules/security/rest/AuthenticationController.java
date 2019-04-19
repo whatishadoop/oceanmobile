@@ -19,12 +19,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @ClassName: AuthenticationController
- * @Description: 授权、根据token获取用户详细信息
- * @Author JinLu
- * @Date 2019/4/3 16:51
- * @Version 1.0
- */
+* @ClassName: AuthenticationController
+* @Description: 授权、根据token获取用户详细信息
+* @Author JinLu
+* @Date 2019/4/19 14:47
+* @Version 1.0
+*/
 @Slf4j
 @RestController
 @RequestMapping("auth")

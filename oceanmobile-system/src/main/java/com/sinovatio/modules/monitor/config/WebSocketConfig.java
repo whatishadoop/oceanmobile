@@ -12,11 +12,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 配置WebSocket消息代理端点，即stomp服务端
- * @author jie
- * @reference https://cloud.tencent.com/developer/article/1096792
- * @date 2018-12-24
- */
+* @ClassName: WebSocketConfig
+* @Description: 配置WebSocket消息代理端点，即stomp服务端
+* @Author JinLu
+* @Date 2019/4/19 14:33
+* @Version 1.0
+*/
 @Slf4j
 @Configuration
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {

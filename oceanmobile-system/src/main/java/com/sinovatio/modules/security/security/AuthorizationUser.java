@@ -6,9 +6,12 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 
 /**
- * @author jie
- * @date 2018-11-30
- */
+* @ClassName: AuthorizationUser
+* @Description: 认证用户
+* @Author JinLu
+* @Date 2019/4/19 15:38
+* @Version 1.0
+*/
 @Getter
 @Setter
 public class AuthorizationUser {

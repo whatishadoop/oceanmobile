@@ -6,9 +6,12 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 
 /**
- * @author jie
- * @date 2019-01-14
- */
+* @ClassName: GenConfigService
+* @Description: 代码生成配置服务
+* @Author JinLu
+* @Date 2019/4/19 14:26
+* @Version 1.0
+*/
 @CacheConfig(cacheNames = "genConfig")
 public interface GenConfigService {
 

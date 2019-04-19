@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 表的数据信息
- * @author jie
- * @date 2019-01-02
- */
+* @ClassName: TableInfo
+* @Description: 表的数据信息
+* @Author JinLu
+* @Date 2019/4/19 14:23
+* @Version 1.0
+*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

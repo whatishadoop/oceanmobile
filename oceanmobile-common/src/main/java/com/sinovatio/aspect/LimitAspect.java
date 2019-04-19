@@ -17,13 +17,16 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
-
-
-
+/**
+* @ClassName: LimitAspect
+* @Description: 限流切面定义
+* @Author JinLu
+* @Date 2019/4/19 14:08
+* @Version 1.0
+*/
 @Aspect
 @Component
 public class LimitAspect {

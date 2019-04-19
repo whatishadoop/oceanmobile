@@ -5,8 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
-* @author jie
-* @date 2019-04-10
+* @ClassName: DictRepository
+* @Description: 字典jpa
+* @Author JinLu
+* @Date 2019/4/19 15:46
+* @Version 1.0
 */
 public interface DictRepository extends JpaRepository<Dict, Long>, JpaSpecificationExecutor {
 }

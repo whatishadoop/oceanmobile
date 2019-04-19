@@ -8,11 +8,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * sm.ms图床
- *
- * @author jie
- * @date 2018-12-27
- */
+* @ClassName: Picture
+* @Description: sm.ms图床
+* @Author JinLu
+* @Date 2019/4/19 16:09
+* @Version 1.0
+*/
 @Data
 @Entity
 @Table(name = "picture")

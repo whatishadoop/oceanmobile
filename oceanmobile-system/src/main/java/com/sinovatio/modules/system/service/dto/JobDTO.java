@@ -1,16 +1,17 @@
 package com.sinovatio.modules.system.service.dto;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.sql.Timestamp;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
-* @author jie
-* @date 2019-03-29
+* @ClassName: JobDTO
+* @Description: 岗位DTO
+* @Author JinLu
+* @Date 2019/4/19 15:53
+* @Version 1.0
 */
 @Data
 @NoArgsConstructor

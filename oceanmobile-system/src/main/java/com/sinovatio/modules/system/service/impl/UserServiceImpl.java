@@ -16,9 +16,12 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: UserServiceImpl
+* @Description: 用户服务
+* @Author JinLu
+* @Date 2019/4/19 15:55
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {

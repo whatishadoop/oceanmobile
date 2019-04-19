@@ -24,14 +24,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.time.LocalDate;
 import java.util.Optional;
 
-/**
- * @author jie
- * @date 2018-12-31
- */
+/**  
+* @ClassName: 七牛云存储服务
+* @Description: TODO
+* @Author JinLu
+* @Date 2019/4/19 16:18
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class QiNiuServiceImpl implements QiNiuService {

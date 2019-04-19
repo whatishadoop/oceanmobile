@@ -1,10 +1,12 @@
 package com.sinovatio.util;
 
 /**
- * 支付状态
- * @author zhengjie
- * @date 2018/08/01 16:45:43
- */
+* @ClassName: AliPayStatusEnum
+* @Description: 支付宝支付状态
+* @Author JinLu
+* @Date 2019/4/19 16:18
+* @Version 1.0
+*/
 public enum  AliPayStatusEnum {
 
     /**

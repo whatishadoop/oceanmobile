@@ -7,9 +7,12 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: RoleRepository
+* @Description: 角色jpa
+* @Author JinLu
+* @Date 2019/4/19 15:48
+* @Version 1.0
+*/
 public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificationExecutor {
 
     /**

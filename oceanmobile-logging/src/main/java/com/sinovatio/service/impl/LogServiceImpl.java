@@ -18,9 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: LogServiceImpl
+* @Description: 日志服务
+* @Author JinLu
+* @Date 2019/4/19 14:30
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class LogServiceImpl implements LogService {

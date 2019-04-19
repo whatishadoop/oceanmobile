@@ -5,9 +5,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author jie
- * @date 2018-12-20
- */
+* @ClassName: MenuMetaVo
+* @Description: 菜单元视图数据
+* @Author JinLu
+* @Date 2019/4/19 15:43
+* @Version 1.0
+*/
 @Data
 @AllArgsConstructor
 public class MenuMetaVo implements Serializable {

@@ -1,9 +1,8 @@
 package com.sinovatio.modules.system.service.impl;
 
+import com.sinovatio.exception.EntityExistException;
 import com.sinovatio.modules.system.domain.Menu;
 import com.sinovatio.modules.system.domain.Role;
-import com.sinovatio.exception.BadRequestException;
-import com.sinovatio.exception.EntityExistException;
 import com.sinovatio.modules.system.repository.RoleRepository;
 import com.sinovatio.modules.system.service.RoleService;
 import com.sinovatio.modules.system.service.dto.RoleDTO;
@@ -13,13 +12,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.*;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: RoleServiceImpl
+* @Description: 角色服务
+* @Author JinLu
+* @Date 2019/4/19 15:55
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class RoleServiceImpl implements RoleService {

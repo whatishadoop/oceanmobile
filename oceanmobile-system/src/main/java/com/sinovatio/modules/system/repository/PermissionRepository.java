@@ -5,14 +5,16 @@ import com.sinovatio.modules.system.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: PermissionRepository
+* @Description: 权限jpa
+* @Author JinLu
+* @Date 2019/4/19 15:48
+* @Version 1.0
+*/
 public interface PermissionRepository extends JpaRepository<Permission, Long>, JpaSpecificationExecutor {
 
     /**

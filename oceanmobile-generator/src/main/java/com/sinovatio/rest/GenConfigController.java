@@ -9,9 +9,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author jie
- * @date 2019-01-14
- */
+* @ClassName: GenConfigController
+* @Description: 代码生成配置服务接口
+* @Author JinLu
+* @Date 2019/4/19 14:25
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class GenConfigController {

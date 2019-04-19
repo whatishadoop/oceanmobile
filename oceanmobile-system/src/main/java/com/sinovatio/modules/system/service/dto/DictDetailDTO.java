@@ -4,8 +4,11 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
-* @author jie
-* @date 2019-04-10
+* @ClassName: DictDetailDTO
+* @Description: 字典详情DTO对象
+* @Author JinLu
+* @Date 2019/4/19 15:52
+* @Version 1.0
 */
 @Data
 public class DictDetailDTO implements Serializable {

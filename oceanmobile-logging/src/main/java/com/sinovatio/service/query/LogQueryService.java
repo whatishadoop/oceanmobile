@@ -18,9 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-11-24
- */
+* @ClassName: LogQueryService
+* @Description:  日志查询服务
+* @Author JinLu
+* @Date 2019/4/19 14:30
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class LogQueryService {

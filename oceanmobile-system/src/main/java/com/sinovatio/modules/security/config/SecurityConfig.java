@@ -20,6 +20,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+* @ClassName: SecurityConfig
+* @Description: Security安全认证配置
+* @Author JinLu
+* @Date 2019/4/19 14:45
+* @Version 1.0
+*/
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

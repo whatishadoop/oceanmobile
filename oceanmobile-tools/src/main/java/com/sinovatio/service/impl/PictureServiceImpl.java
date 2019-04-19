@@ -9,7 +9,7 @@ import com.sinovatio.domain.Picture;
 import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.repository.PictureRepository;
 import com.sinovatio.service.PictureService;
-import com.sinovatio.utils.ElAdminConstant;
+import com.sinovatio.utils.OceanMobileConstant;
 import com.sinovatio.utils.FileUtil;
 import com.sinovatio.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,12 @@ import java.util.HashMap;
 import java.util.Optional;
 
 /**
- * @author jie
- * @date 2018-12-27
- */
+* @ClassName: PictureServiceImpl
+* @Description: 图片服务
+* @Author JinLu
+* @Date 2019/4/19 16:15
+* @Version 1.0
+*/
 @Slf4j
 @Service(value = "pictureService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -47,7 +50,7 @@ public class PictureServiceImpl implements PictureService {
         HashMap<String, Object> paramMap = new HashMap<>();
 
         paramMap.put("smfile", file);
-        String result= HttpUtil.post(ElAdminConstant.Url.SM_MS_URL, paramMap);
+        String result= HttpUtil.post(OceanMobileConstant.Url.SM_MS_URL, paramMap);
 
         JSONObject jsonObject = JSONUtil.parseObj(result);
         Picture picture = null;

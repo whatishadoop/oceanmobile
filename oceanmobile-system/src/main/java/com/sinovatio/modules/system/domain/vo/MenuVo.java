@@ -7,10 +7,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 构建前端路由时用到
- * @author jie
- * @date 2018-12-20
- */
+* @ClassName: MenuVo
+* @Description: 构建前端路由时用到 菜单视图数据
+* @Author JinLu
+* @Date 2019/4/19 15:43
+* @Version 1.0
+*/
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MenuVo implements Serializable {

@@ -8,9 +8,12 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
- * @author jie
- * @date 2018-12-10
- */
+* @ClassName: RedisVo
+* @Description: RedisVo 视图对象
+* @Author JinLu
+* @Date 2019/4/19 14:33
+* @Version 1.0
+*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

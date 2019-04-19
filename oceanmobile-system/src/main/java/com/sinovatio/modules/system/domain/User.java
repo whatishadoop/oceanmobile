@@ -13,9 +13,12 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author jie
- * @date 2018-11-22
- */
+* @ClassName: User
+* @Description: 用户信息
+* @Author JinLu
+* @Date 2019/4/19 15:46
+* @Version 1.0
+*/
 @Entity
 @Getter
 @Setter

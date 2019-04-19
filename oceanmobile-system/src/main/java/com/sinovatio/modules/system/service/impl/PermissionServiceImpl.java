@@ -15,9 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: PermissionServiceImpl
+* @Description: 权限服务
+* @Author JinLu
+* @Date 2019/4/19 15:55
+* @Version 1.0
+*/
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class PermissionServiceImpl implements PermissionService {

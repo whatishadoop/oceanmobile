@@ -6,10 +6,12 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
- * 七牛云对象存储配置类
- * @author jie
- * @date 2018-12-31
- */
+* @ClassName: QiniuConfig
+* @Description: 七牛云对象存储配置类
+* @Author JinLu
+* @Date 2019/4/19 16:09
+* @Version 1.0
+*/
 @Data
 @Entity
 @Table(name = "qiniu_config")

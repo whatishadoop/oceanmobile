@@ -16,10 +16,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * 参考人人开源，https://gitee.com/renrenio/renren-security
- * @author
- * @date 2019-01-07
- */
+* @ClassName: ExecutionJob
+* @Description: 执行任务
+* @Author JinLu
+* @Date 2019/4/19 14:44
+* @Version 1.0
+*/
 @Async
 public class ExecutionJob extends QuartzJobBean {
 

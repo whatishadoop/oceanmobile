@@ -8,10 +8,12 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
 /**
- * 加密
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: EncryptUtils
+* @Description: 加密
+* @Author JinLu
+* @Date 2019/4/19 14:21
+* @Version 1.0
+*/
 public class EncryptUtils {
 
     private static String strKey = "Passw0rd", strParam = "Passw0rd";

@@ -5,10 +5,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 /**
- * 可自行扩展
- * @author jie
- * @date 2018-12-10
- */
+* @ClassName: RedisService
+* @Description: 缓存服务接口
+* @Author JinLu
+* @Date 2019/4/19 14:36
+* @Version 1.0
+*/
 public interface RedisService {
 
     /**

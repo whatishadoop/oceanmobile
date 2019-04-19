@@ -11,10 +11,12 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
- * 定时任务配置
- * @author
- * @date 2019-01-07
- */
+* @ClassName: QuartzConfig
+* @Description: 定时任务配置
+* @Author JinLu
+* @Date 2019/4/19 14:39
+* @Version 1.0
+*/
 @Configuration
 public class QuartzConfig {
 

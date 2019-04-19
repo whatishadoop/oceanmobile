@@ -17,8 +17,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: DeptController
+* @Description: 部门服务接口
+* @Author JinLu
+* @Date 2019/4/19 15:49
+* @Version 1.0
 */
 @RestController
 @RequestMapping("api")

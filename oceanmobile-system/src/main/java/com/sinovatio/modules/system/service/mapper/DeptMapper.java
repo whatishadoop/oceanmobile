@@ -7,8 +7,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
-* @author jie
-* @date 2019-03-25
+* @ClassName: DeptMapper
+* @Description: 部门映射
+* @Author JinLu
+* @Date 2019/4/19 15:55
+* @Version 1.0
 */
 @Mapper(componentModel = "spring",uses = {},unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DeptMapper extends EntityMapper<DeptDTO, Dept> {

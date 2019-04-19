@@ -7,9 +7,12 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
- * @author jie
- * @date 2018-11-23
- */
+* @ClassName: EntityNotFoundException
+* @Description: 实体没发现异常
+* @Author JinLu
+* @Date 2019/4/19 14:14
+* @Version 1.0
+*/
 public class EntityNotFoundException extends RuntimeException {
 
     public EntityNotFoundException(Class clazz, Object... searchParamsMap) {

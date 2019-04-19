@@ -1,30 +1,29 @@
 package com.sinovatio.rest;
 
-import lombok.extern.slf4j.Slf4j;
 import com.sinovatio.aop.log.Log;
 import com.sinovatio.domain.QiniuConfig;
 import com.sinovatio.domain.QiniuContent;
 import com.sinovatio.service.QiNiuService;
 import com.sinovatio.service.query.QiNiuQueryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 发送邮件
- * @author 郑杰
- * @date 2018/09/28 6:55:53
- */
+* @ClassName: QiniuController
+* @Description: 七牛云存储服务接口
+* @Author JinLu
+* @Date 2019/4/19 16:13
+* @Version 1.0
+*/
 @Slf4j
 @RestController
 @RequestMapping("api")

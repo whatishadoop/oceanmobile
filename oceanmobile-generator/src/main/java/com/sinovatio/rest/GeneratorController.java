@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2019-01-02
- */
+* @ClassName: GeneratorController
+* @Description: 代码生成
+* @Author JinLu
+* @Date 2019/4/19 14:25
+* @Version 1.0
+*/
 @RestController
 @RequestMapping("api")
 public class GeneratorController {

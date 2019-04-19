@@ -10,9 +10,12 @@ import org.springframework.cache.annotation.Cacheable;
 import java.util.List;
 
 /**
- * @author jie
- * @date 2018-12-03
- */
+* @ClassName: RoleService
+* @Description: 角色服务
+* @Author JinLu
+* @Date 2019/4/19 16:00
+* @Version 1.0
+*/
 @CacheConfig(cacheNames = "role")
 public interface RoleService {
 
