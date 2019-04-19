@@ -8,21 +8,23 @@ import com.sinovatio.service.QiNiuService;
 import com.sinovatio.service.query.QiNiuQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
-* @ClassName: QiniuController
-* @Description: 七牛云存储接口
-* @Author JinLu
-* @Date 2019/4/4 10:39
-* @Version 1.0
-*/
+ * 发送邮件
+ * @author 郑杰
+ * @date 2018/09/28 6:55:53
+ */
 @Slf4j
 @RestController
 @RequestMapping("api")
@@ -62,8 +64,8 @@ public class QiniuController {
     public ResponseEntity upload(@RequestParam MultipartFile file){
         QiniuContent qiniuContent = qiNiuService.upload(file,qiNiuService.find());
         Map map = new HashMap();
-        map.put("errno",0);
         map.put("id",qiniuContent.getId());
+        map.put("errno",0);
         map.put("data",new String[]{qiniuContent.getUrl()});
         return new ResponseEntity(map,HttpStatus.OK);
     }
@@ -89,7 +91,9 @@ public class QiniuController {
     @Log("下载文件")
     @GetMapping(value = "/qiNiuContent/download/{id}")
     public ResponseEntity download(@PathVariable Long id){
-        return new ResponseEntity(qiNiuService.download(qiNiuService.findByContentId(id),qiNiuService.find()),HttpStatus.OK);
+        Map map = new HashMap();
+        map.put("url", qiNiuService.download(qiNiuService.findByContentId(id),qiNiuService.find()));
+        return new ResponseEntity(map,HttpStatus.OK);
     }
 
     /**

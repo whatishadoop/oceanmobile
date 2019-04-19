@@ -13,6 +13,10 @@ import redis.clients.jedis.JedisPool;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author jie
+ * @date 2018-12-10
+ */
 @Service
 public class RedisServiceImpl implements RedisService {
 
@@ -26,7 +30,6 @@ public class RedisServiceImpl implements RedisService {
             jedis = pool.getResource();
             List<RedisVo> redisVos = new ArrayList<>();
 
-            // 模糊查询
             if(!key.equals("*")){
                 key = "*" + key + "*";
             }
@@ -41,7 +44,7 @@ public class RedisServiceImpl implements RedisService {
             return page;
         }finally{
             if(null != jedis){
-                jedis.close(); // 释放资源还给连接池，里面包含了dataSource.returnResource功能
+                jedis.close(); // 释放资源还给连接池
             }
         }
 
@@ -79,7 +82,7 @@ public class RedisServiceImpl implements RedisService {
         Jedis jedis = null;
         try{
             jedis = pool.getResource();
-            jedis.flushDB();  // 清空缓存
+            jedis.flushAll();
         }finally{
             if(null != jedis){
                 jedis.close(); // 释放资源还给连接池

@@ -7,12 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
-* @ClassName: QiNiuUtil
-* @Description: 七牛云存储工具类
-* @Author JinLu
-* @Date 2019/4/4 10:50
-* @Version 1.0
-*/
+ * 七牛云存储工具类
+ * @author jie
+ * @date 2018-12-31
+ */
 public class QiNiuUtil {
 
     public static final String HUAD = "华东";
@@ -54,6 +52,7 @@ public class QiNiuUtil {
         StringBuffer key = new StringBuffer(FileUtil.getFileNameNoEx(file));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = new Date();
+        key.append("-");
         key.append(sdf.format(date));
         key.append(".");
         key.append(FileUtil.getExtensionName(file));

@@ -6,12 +6,9 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @Author JinLu
- * @Description: 角色DTO
- * @param null
- * @Return
- * @Date 2019/4/3 17:15
-*/
+ * @author jie
+ * @date 2018-11-23
+ */
 @Data
 public class RoleDTO implements Serializable {
 
@@ -19,9 +16,15 @@ public class RoleDTO implements Serializable {
 
     private String name;
 
+    private String dataScope;
+
     private String remark;
 
     private Set<PermissionDTO> permissions;
+
+    private Set<MenuDTO> menus;
+
+    private Set<DeptDTO> depts;
 
     private Timestamp createTime;
 }

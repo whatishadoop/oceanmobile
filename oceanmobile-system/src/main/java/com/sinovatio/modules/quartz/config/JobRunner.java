@@ -7,15 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
-* @ClassName: JobRunner
-* @Description: 设置定时器任务
-* @Author JinLu
-* @Date 2019/4/3 16:23
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2019-01-07
+ */
 @Component
 public class JobRunner implements ApplicationRunner {
 
@@ -26,11 +24,10 @@ public class JobRunner implements ApplicationRunner {
     private QuartzManage quartzManage;
 
     /**
-     * @Author JinLu
-     * @Description: 项目启动时重新激活启用的定时任务
-     * @Return
-     * @Date 2019/4/3 16:24
-    */
+     * 项目启动时重新激活启用的定时任务
+     * @param applicationArguments
+     * @throws Exception
+     */
     @Override
     public void run(ApplicationArguments applicationArguments){
         System.out.println("--------------------注入定时任务---------------------");

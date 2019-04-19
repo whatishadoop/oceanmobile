@@ -5,16 +5,13 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.scheduling.annotation.Async;
 
 /**
-* @ClassName: LogService
-* @Description: 日志服务
-* @Author JinLu
-* @Date 2019/4/3 15:10
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-24
+ */
 public interface LogService {
 
     /**
-     * 新增日志,异步执行
+     * 新增日志
      * @param joinPoint
      * @param log
      */

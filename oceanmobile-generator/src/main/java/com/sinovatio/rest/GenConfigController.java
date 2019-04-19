@@ -8,13 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**  
-* @ClassName: GenConfigController
-* @Description: 接口配置服务
-* @Author JinLu
-* @Date 2019/4/3 13:56
-* @Version 1.0
-*/
+/**
+ * @author jie
+ * @date 2019-01-14
+ */
 @RestController
 @RequestMapping("api")
 public class GenConfigController {
@@ -23,11 +20,9 @@ public class GenConfigController {
     private GenConfigService genConfigService;
 
     /**
-     * @Author JinLu
-     * @Description: 查询生成器配置
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 14:35
-    */
+     * 查询生成器配置
+     * @return
+     */
     @GetMapping(value = "/genConfig")
     public ResponseEntity get(){
         return new ResponseEntity(genConfigService.find(), HttpStatus.OK);

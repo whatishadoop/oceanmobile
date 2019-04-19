@@ -17,16 +17,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
-/**
-* @ClassName: LimitAspect
-* @Description: 配置切面
-* @Author JinLu
-* @Date 2019/4/3 11:37
-* @Version 1.0
-*/
+
+
+
 @Aspect
 @Component
 public class LimitAspect {
@@ -34,8 +31,7 @@ public class LimitAspect {
     private RedisTemplate redisTemplate;
     private static final Logger logger = LoggerFactory.getLogger(LimitAspect.class);
 
-    // 方法一: "execution(public * com.example.demo.controller.*.*(..)) && @annotation(com.example.demo.controller.MyAnnotation)"，这样在controller包下，只有我们加上@MyAnnotation注解的方法切面方法才会起作用。
-    // 方法二: 加载切点注解类定义上，从而实现注解切面 ,此时只要加注解就实现切面功能
+
     @Pointcut("@annotation(com.sinovatio.aop.limit.Limit)")
     public void pointcut() {
     }
@@ -46,7 +42,7 @@ public class LimitAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method signatureMethod = signature.getMethod();
         Limit limit = signatureMethod.getAnnotation(Limit.class);
-        LimitType limitType = limit.limitType();
+        com.sinovatio.aspect.LimitType limitType = limit.limitType();
         String name = limit.name();
         String key = limit.key();
         if (StringUtils.isEmpty(key)) {
@@ -73,7 +69,7 @@ public class LimitAspect {
     }
 
     /**
-     * lua限流脚本
+     * 限流脚本
      */
     private String buildLuaScript() {
         return "local c" +

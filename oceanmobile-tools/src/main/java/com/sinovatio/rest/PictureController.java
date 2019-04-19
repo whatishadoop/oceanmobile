@@ -17,12 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-* @ClassName: PictureController
-* @Description: 图片接口
-* @Author JinLu
-* @Date 2019/4/4 10:39
-* @Version 1.0
-*/
+ * @author 郑杰
+ * @date 2018/09/20 14:13:32
+ */
 @RestController
 @RequestMapping("/api")
 public class PictureController {

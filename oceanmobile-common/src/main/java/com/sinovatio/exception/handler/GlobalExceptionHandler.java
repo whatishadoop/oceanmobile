@@ -7,19 +7,16 @@ import com.sinovatio.exception.EntityNotFoundException;
 import com.sinovatio.utils.ThrowableUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import java.nio.file.AccessDeniedException;
 import static org.springframework.http.HttpStatus.*;
 
 /**
-* @ClassName: GlobalExceptionHandler
-* @Description: 全局异常处理
-* @Author JinLu
-* @Date 2019/4/3 11:39
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-23
+ */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {

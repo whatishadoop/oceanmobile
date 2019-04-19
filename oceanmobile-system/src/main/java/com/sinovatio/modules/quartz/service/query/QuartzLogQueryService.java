@@ -18,11 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName: QuartzJobQueryService
- * @Description: 日誌任务定时器查询服务
- * @Author JinLu
- * @Date 2019/4/3 16:33
- * @Version 1.0
+ * @author jie
+ * @date 2019-01-07
  */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

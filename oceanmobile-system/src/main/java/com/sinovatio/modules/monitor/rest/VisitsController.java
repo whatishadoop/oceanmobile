@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
-* @ClassName: VisitsController
-* @Description: 用户访问统计服务接口
-* @Author JinLu
-* @Date 2019/4/3 16:16
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-13
+ */
 @RestController
 @RequestMapping("api")
 public class VisitsController {

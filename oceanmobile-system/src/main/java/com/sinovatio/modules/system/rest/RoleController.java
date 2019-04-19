@@ -14,11 +14,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @ClassName: MenuController
- * @Description: 角色服务接口
- * @Author JinLu
- * @Date 2019/4/3 17:06
- * @Version 1.0
+ * @author jie
+ * @date 2018-12-03
  */
 @RestController
 @RequestMapping("api")
@@ -32,13 +29,6 @@ public class RoleController {
 
     private static final String ENTITY_NAME = "role";
 
-    /**
-     * @Author JinLu
-     * @Description: 根据id查找对应角色
-     * @param id
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 17:11
-    */
     @GetMapping(value = "/roles/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_SELECT')")
     public ResponseEntity getRoles(@PathVariable Long id){
@@ -46,25 +36,15 @@ public class RoleController {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 返回全部的角色，新增用户时下拉选择
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 17:10
-    */
-    @GetMapping(value = "/roles/tree")
-    @PreAuthorize("hasAnyRole('ADMIN','MENU_ALL','MENU_SELECT','ROLES_ALL','USER_ALL','USER_SELECT')")
-    public ResponseEntity getRoleTree(){
-        return new ResponseEntity(roleService.getRoleTree(),HttpStatus.OK);
+     * 返回全部的角色，新增用户时下拉选择
+     * @return
+     */
+    @GetMapping(value = "/roles/all")
+    @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','USER_ALL','USER_CREATE','USER_EDIT')")
+    public ResponseEntity getAll(){
+        return new ResponseEntity(roleQueryService.queryAll(),HttpStatus.OK);
     }
 
-    /**
-     * @Author JinLu
-     * @Description: 查询角色
-     * @param name
-     * @param pageable
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 17:10
-    */
     @Log("查询角色")
     @GetMapping(value = "/roles")
     @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_SELECT')")
@@ -72,13 +52,6 @@ public class RoleController {
         return new ResponseEntity(roleQueryService.queryAll(name,pageable),HttpStatus.OK);
     }
 
-    /**
-     * @Author JinLu
-     * @Description: 新增角色
-     * @param resources
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 17:10
-    */
     @Log("新增角色")
     @PostMapping(value = "/roles")
     @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_CREATE')")
@@ -89,31 +62,30 @@ public class RoleController {
         return new ResponseEntity(roleService.create(resources),HttpStatus.CREATED);
     }
 
-    /**
-     * @Author JinLu
-     * @Description: 修改角色
-     * @param resources
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 17:10
-    */
     @Log("修改角色")
     @PutMapping(value = "/roles")
     @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_EDIT')")
-    public ResponseEntity update(@Validated @RequestBody Role resources){
-        if (resources.getId() == null) {
-            throw new BadRequestException(ENTITY_NAME +" ID Can not be empty");
-        }
+    public ResponseEntity update(@Validated(Role.Update.class) @RequestBody Role resources){
         roleService.update(resources);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    /**
-     * @Author JinLu
-     * @Description: 根据id删除角色
-     * @param id
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 17:10
-    */
+    @Log("修改角色权限")
+    @PutMapping(value = "/roles/permission")
+    @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_EDIT')")
+    public ResponseEntity updatePermission(@RequestBody Role resources){
+        roleService.updatePermission(resources,roleService.findById(resources.getId()));
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @Log("修改角色菜单")
+    @PutMapping(value = "/roles/menu")
+    @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_EDIT')")
+    public ResponseEntity updateMenu(@RequestBody Role resources){
+        roleService.updateMenu(resources,roleService.findById(resources.getId()));
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
     @Log("删除角色")
     @DeleteMapping(value = "/roles/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','ROLES_ALL','ROLES_DELETE')")

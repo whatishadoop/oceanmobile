@@ -1,18 +1,18 @@
 package com.sinovatio.modules.system.service;
 
+import com.sinovatio.modules.system.domain.Menu;
 import com.sinovatio.modules.system.domain.Role;
 import com.sinovatio.modules.system.service.dto.RoleDTO;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 
+import java.util.List;
+
 /**
-* @ClassName: RoleService
-* @Description: 角色业务服务
-* @Author JinLu
-* @Date 2019/4/3 17:26
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-03
+ */
 @CacheConfig(cacheNames = "role")
 public interface RoleService {
 
@@ -47,9 +47,29 @@ public interface RoleService {
     void delete(Long id);
 
     /**
-     * role tree
+     * findByUsers_Id
+     * @param id
      * @return
      */
-    @Cacheable(key = "'tree'")
-    Object getRoleTree();
+    @Cacheable(keyGenerator = "keyGenerator")
+    List<Role> findByUsers_Id(Long id);
+
+    /**
+     * updatePermission
+     * @param resources
+     * @param roleDTO
+     */
+    @CacheEvict(allEntries = true)
+    void updatePermission(Role resources, RoleDTO roleDTO);
+
+    /**
+     * updateMenu
+     * @param resources
+     * @param roleDTO
+     */
+    @CacheEvict(allEntries = true)
+    void updateMenu(Role resources, RoleDTO roleDTO);
+
+    @CacheEvict(allEntries = true)
+    void untiedMenu(Menu menu);
 }

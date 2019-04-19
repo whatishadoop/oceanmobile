@@ -17,6 +17,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author jie
+ * @date 2018-12-13
+ */
 @Slf4j
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -56,7 +60,6 @@ public class VisitsServiceImpl implements VisitsService {
     public Object get() {
         Map map = new HashMap();
         LocalDate localDate = LocalDate.now();
-        // 统计今天访问量
         Visits visits = visitsRepository.findByDate(localDate.toString());
         List<Visits> list = visitsRepository.findAllVisits(localDate.minusDays(6).toString(),localDate.plusDays(1).toString());
 
@@ -77,9 +80,7 @@ public class VisitsServiceImpl implements VisitsService {
         Map map = new HashMap();
         LocalDate localDate = LocalDate.now();
         List<Visits> list = visitsRepository.findAllVisits(localDate.minusDays(6).toString(),localDate.plusDays(1).toString());
-        // 横轴显示星期几
         map.put("weekDays",list.stream().map(Visits::getWeekDay).collect(Collectors.toList()));
-        // 纵轴显示访问量以及IP数
         map.put("visitsData",list.stream().map(Visits::getPvCounts).collect(Collectors.toList()));
         map.put("ipData",list.stream().map(Visits::getIpCounts).collect(Collectors.toList()));
         return map;

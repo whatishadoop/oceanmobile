@@ -1,11 +1,10 @@
 package com.sinovatio.utils;
 
 import cn.hutool.extra.template.*;
+import lombok.extern.slf4j.Slf4j;
 import com.sinovatio.domain.GenConfig;
 import com.sinovatio.domain.vo.ColumnInfo;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,12 +16,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @ClassName: GenUtil
-* @Description: 代码生成
-* @Author JinLu
-* @Date 2019/4/3 14:05
-* @Version 1.0
-*/
+ * 代码生成
+ * @author jie
+ * @date 2019-01-02
+ */
 @Slf4j
 public class GenUtil {
 
@@ -33,11 +30,9 @@ public class GenUtil {
     private static final String PK = "PRI";
 
     /**
-     * @Author JinLu
-     * @Description: 获取后端代码模板名称
-     * @Return java.util.List<java.lang.String>
-     * @Date 2019/4/3 14:05
-    */
+     * 获取后端代码模板名称
+     * @return
+     */
     public static List<String> getAdminTemplateNames() {
         List<String> templateNames = new ArrayList<>();
         templateNames.add("Entity");
@@ -51,12 +46,10 @@ public class GenUtil {
         return templateNames;
     }
 
-   /**
-    * @Author JinLu
-    * @Description: 获取前端代码模板名称
-    * @Return java.util.List<java.lang.String>
-    * @Date 2019/4/3 14:31
-   */
+    /**
+     * 获取前端代码模板名称
+     * @return
+     */
     public static List<String> getFrontTemplateNames() {
         List<String> templateNames = new ArrayList<>();
         templateNames.add("api");
@@ -68,14 +61,10 @@ public class GenUtil {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 代码生成
+     * 生成代码
      * @param columnInfos 表元数据
-     * @param genConfig 生成代码的参数配置
-     * @param tableName 生成代码的参数配置
-     * @Return void
-     * @Date 2019/4/3 14:28
-    */
+     * @param genConfig 生成代码的参数配置，如包路径，作者
+     */
     public static void generatorCode(List<ColumnInfo> columnInfos, GenConfig genConfig, String tableName) throws IOException {
         Map<String,Object> map = new HashMap();
         map.put("package",genConfig.getPack());
@@ -163,14 +152,8 @@ public class GenUtil {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 定义后端文件路径以及名称
-     * @param templateName 模板名
-     * @param genConfig  生成配置
-     * @param className 类名
-     * @Return java.lang.String
-     * @Date 2019/4/3 14:33
-    */
+     * 定义后端文件路径以及名称
+     */
     public static String getAdminFilePath(String templateName, GenConfig genConfig, String className) {
         String ProjectPath = System.getProperty("user.dir") + File.separator + genConfig.getModuleName();
         String packagePath = ProjectPath + File.separator + "src" +File.separator+ "main" + File.separator + "java" + File.separator;
@@ -214,14 +197,8 @@ public class GenUtil {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 定义前端文件路径以及名称
-     * @param templateName 模板名
-     * @param genConfig 配置名
-     * @param apiName 接口名称
-     * @Return java.lang.String
-     * @Date 2019/4/3 14:34
-    */
+     * 定义前端文件路径以及名称
+     */
     public static String getFrontFilePath(String templateName, GenConfig genConfig, String apiName) {
         String path = genConfig.getPath();
 
@@ -247,16 +224,8 @@ public class GenUtil {
         return null;
     }
 
-    /**
-     * @Author JinLu
-     * @Description: 生成目标文件
-     * @param file 模板文件
-     * @param template 模板实例
-     * @param map 模板参数
-     * @Return void
-     * @Date 2019/4/3 14:44
-    */
     public static void genFile(File file,Template template,Map<String,Object> map) throws IOException {
+        // 生成目标文件
         Writer writer = null;
         try {
             FileUtil.touch(file);
@@ -269,5 +238,9 @@ public class GenUtil {
         } finally {
             writer.close();
         }
+    }
+
+    public static void main(String[] args){
+        System.out.println(FileUtil.exist("E:\\1.5.txt"));
     }
 }

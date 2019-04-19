@@ -7,21 +7,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @ClassName: PageUtil
-* @Description: 分页工具
-* @Author JinLu
-* @Date 2019/4/3 11:51
-* @Version 1.0
-*/
+ * 分页工具
+ * @author jie
+ * @date 2018-12-10
+ */
 public class PageUtil extends cn.hutool.core.util.PageUtil {
 
     /**
-     * @Author JinLu
-     * @Description:  分页
-     * @Param [page, size, list]
-     * @Return java.util.List
-     * @Date 2019/4/3 11:51
-    */
+     * List 分页
+     * @param page
+     * @param size
+     * @param list
+     * @return
+     */
     public static List toPage(int page, int size , List list) {
         int fromIndex = page * size;
         int toIndex = page * size + size;
@@ -36,12 +34,10 @@ public class PageUtil extends cn.hutool.core.util.PageUtil {
     }
 
     /**
-     * @Author JinLu
-     * @Description: Page 数据处理，预防redis反序列化报错
-     * @Param [page]
-     * @Return java.util.Map
-     * @Date 2019/4/3 11:52
-    */
+     * Page 数据处理，预防redis反序列化报错
+     * @param page
+     * @return
+     */
     public static Map toPage(Page page) {
         Map map = new HashMap();
 
@@ -52,12 +48,10 @@ public class PageUtil extends cn.hutool.core.util.PageUtil {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 分页
-     * @Param [object, totalElements]
-     * @Return java.util.Map
-     * @Date 2019/4/3 11:52
-    */
+     * @param object
+     * @param totalElements
+     * @return
+     */
     public static Map toPage(Object object, Object totalElements) {
         Map map = new HashMap();
 

@@ -5,12 +5,10 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
-* @ClassName: RequestHolder
-* @Description: 获取 HttpServletRequest
-* @Author JinLu
-* @Date 2019/4/3 11:53
-* @Version 1.0
-*/
+ * 获取 HttpServletRequest
+ * @author jie
+ * @date 2018-11-24
+ */
 public class RequestHolder {
 
     public static HttpServletRequest getHttpServletRequest() {

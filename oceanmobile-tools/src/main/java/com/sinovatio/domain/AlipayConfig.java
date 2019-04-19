@@ -6,12 +6,10 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
-* @ClassName: AlipayConfig
-* @Description: 支付宝配置类
-* @Author JinLu
-* @Date 2019/4/3 17:28
-* @Version 1.0
-*/
+ * 支付宝配置类
+ * @author jie
+ * @date 2018-12-31
+ */
 @Data
 @Entity
 @Table(name = "alipay_config")

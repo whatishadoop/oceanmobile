@@ -1,13 +1,13 @@
 package com.sinovatio.modules.security.rest;
 
-import lombok.extern.slf4j.Slf4j;
 import com.sinovatio.aop.log.Log;
-import com.sinovatio.modules.security.security.AuthenticationToken;
+import com.sinovatio.modules.security.security.AuthenticationInfo;
 import com.sinovatio.modules.security.security.AuthorizationUser;
 import com.sinovatio.modules.security.security.JwtUser;
-import com.sinovatio.utils.EncryptUtils;
 import com.sinovatio.modules.security.utils.JwtTokenUtil;
+import com.sinovatio.utils.EncryptUtils;
 import com.sinovatio.utils.SecurityContextHolder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,21 +50,21 @@ public class AuthenticationController {
     @PostMapping(value = "${jwt.auth.path}")
     public ResponseEntity login(@Validated @RequestBody AuthorizationUser authorizationUser) {
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(authorizationUser.getUsername());
+        final JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(authorizationUser.getUsername());
 
-        if (!userDetails.getPassword().equals(EncryptUtils.encryptPassword(authorizationUser.getPassword()))) {
+        if (!jwtUser.getPassword().equals(EncryptUtils.encryptPassword(authorizationUser.getPassword()))) {
             throw new AccountExpiredException("密码错误");
         }
 
-        if (!userDetails.isEnabled()) {
+        if (!jwtUser.isEnabled()) {
             throw new AccountExpiredException("账号已停用，请联系管理员");
         }
 
         // 生成令牌
-        final String token = jwtTokenUtil.generateToken(userDetails);
+        final String token = jwtTokenUtil.generateToken(jwtUser);
 
         // 返回 token
-        return ResponseEntity.ok(new AuthenticationToken(token));
+        return ResponseEntity.ok(new AuthenticationInfo(token, jwtUser));
     }
 
     /**

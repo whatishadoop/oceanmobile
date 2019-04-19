@@ -20,12 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: PictureQueryService
-* @Description: 图片查询服务
-* @Author JinLu
-* @Date 2019/4/4 10:44
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-03
+ */
 @Service
 @CacheConfig(cacheNames = "picture")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

@@ -8,12 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /**
- * @Author JinLu
- * @Description: 代码生成配置服务
- * @Param
- * @Return
- * @Date 2019/4/3 13:59
-*/
+ * @author jie
+ * @date 2019-01-14
+ */
 @Service
 public class GenConfigServiceImpl implements GenConfigService {
 

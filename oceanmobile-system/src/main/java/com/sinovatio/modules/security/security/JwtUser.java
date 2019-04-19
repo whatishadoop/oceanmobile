@@ -5,20 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
-* @ClassName: JwtUser
-* @Description: 用于定义jwtuser 对象信息以token信息保存
-* @Author JinLu
-* @Date 2019/4/3 16:54
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-23
+ */
 @Getter
 @AllArgsConstructor
 public class JwtUser implements UserDetails {
@@ -35,8 +30,14 @@ public class JwtUser implements UserDetails {
 
     private final String email;
 
+    private final String phone;
+
+    private final String dept;
+
+    private final String job;
+
     @JsonIgnore
-    private final Collection<? extends GrantedAuthority> authorities;
+    private final Collection<GrantedAuthority> authorities;
 
     private final boolean enabled;
 
@@ -74,15 +75,7 @@ public class JwtUser implements UserDetails {
         return enabled;
     }
 
-    /**
-     * 在我们保存权限的时候加上了前缀ROLE_，因此在这里需要处理下数据
-     * @return
-     */
     public Collection getRoles() {
-        Set<String> roles = new LinkedHashSet<>();
-        for (GrantedAuthority authority : authorities) {
-            roles.add(authority.getAuthority().substring(5));
-        }
-        return roles;
+        return authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
     }
 }

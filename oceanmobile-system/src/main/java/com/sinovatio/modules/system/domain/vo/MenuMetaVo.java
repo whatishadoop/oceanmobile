@@ -2,17 +2,15 @@ package com.sinovatio.modules.system.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.io.Serializable;
 
 /**
-* @ClassName: MenuMetaVo
-* @Description: 菜单元数据
-* @Author JinLu
-* @Date 2019/4/3 17:02
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-20
+ */
 @Data
 @AllArgsConstructor
-public class MenuMetaVo {
+public class MenuMetaVo implements Serializable {
 
     private String title;
 

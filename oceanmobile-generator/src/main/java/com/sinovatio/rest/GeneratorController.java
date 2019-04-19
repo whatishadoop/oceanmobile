@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
-* @ClassName: GeneratorController
-* @Description: 代码生成接口
-* @Author JinLu
-* @Date 2019/4/3 13:57
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2019-01-02
+ */
 @RestController
 @RequestMapping("api")
 public class GeneratorController {
@@ -33,12 +30,12 @@ public class GeneratorController {
     private Boolean generatorEnabled;
 
     /**
-     * @Author JinLu
-     * @Description: 查询数据库元数据
-     * @Param [name, page, size]
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 13:58
-    */
+     * 查询数据库元数据
+     * @param name
+     * @param page
+     * @param size
+     * @return
+     */
     @GetMapping(value = "/generator/tables")
     public ResponseEntity getTables(@RequestParam(defaultValue = "") String name,
                                    @RequestParam(defaultValue = "0")Integer page,
@@ -48,25 +45,20 @@ public class GeneratorController {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 
-     * @param tableName 查询表内元数据
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 14:36
-    */
+     * 查询表内元数据
+     * @param tableName
+     * @return
+     */
     @GetMapping(value = "/generator/columns")
     public ResponseEntity getTables(@RequestParam String tableName){
         return new ResponseEntity(generatorService.getColumns(tableName), HttpStatus.OK);
     }
 
     /**
-     * @Author JinLu
-     * @Description: 生成代码
-     * @param columnInfos  列信息
-     * @param tableName 表名
-     * @Return org.springframework.http.ResponseEntity
-     * @Date 2019/4/3 14:36
-    */
+     * 生成代码
+     * @param columnInfos
+     * @return
+     */
     @PostMapping(value = "/generator")
     public ResponseEntity generator(@RequestBody List<ColumnInfo> columnInfos, @RequestParam String tableName){
         if(!generatorEnabled){

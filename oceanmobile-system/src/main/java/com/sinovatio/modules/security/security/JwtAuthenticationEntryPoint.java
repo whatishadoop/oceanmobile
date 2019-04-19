@@ -9,13 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 
-/**
-* @ClassName: JwtAuthenticationEntryPoint
-* @Description:  端口资源认证，当用户尝试访问安全的REST资源而不提供任何凭据时，将调用此方法发送401 响应
-* @Author JinLu
-* @Date 2019/4/3 16:52
-* @Version 1.0
-*/
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 
@@ -25,6 +18,9 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
+        /**
+         * 当用户尝试访问安全的REST资源而不提供任何凭据时，将调用此方法发送401 响应
+         */
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException==null?"Unauthorized":authException.getMessage());
     }
 }

@@ -7,12 +7,9 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 
 /**
-* @ClassName: AlipayService
-* @Description: 阿里支付服务
-* @Author JinLu
-* @Date 2019/4/4 10:45
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-31
+ */
 @CacheConfig(cacheNames = "alipay")
 public interface AlipayService {
 

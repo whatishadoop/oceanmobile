@@ -8,12 +8,10 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
-* @ClassName: QiniuContent
-* @Description: 上传成功后，存储结果
-* @Author JinLu
-* @Date 2019/4/3 17:29
-* @Version 1.0
-*/
+ * 上传成功后，存储结果
+ * @author jie
+ * @date 2018-12-31
+ */
 @Data
 @Entity
 @Table(name = "qiniu_content")

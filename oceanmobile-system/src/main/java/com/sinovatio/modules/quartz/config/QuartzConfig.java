@@ -11,22 +11,16 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
-* @ClassName: QuartzConfig
-* @Description: 定时任务配置
-* @Author JinLu
-* @Date 2019/4/3 16:24
-* @Version 1.0
-*/
+ * 定时任务配置
+ * @author
+ * @date 2019-01-07
+ */
 @Configuration
 public class QuartzConfig {
 
 	/**
-	* @ClassName: QuartzConfig
-	* @Description: 解决Job中注入Spring Bean为null的问题
-	* @Author JinLu
-	* @Date 2019/4/3 16:27
-	* @Version 1.0
-	*/
+	 * 解决Job中注入Spring Bean为null的问题
+	 */
 	@Component("quartzJobFactory")
 	public class QuartzJobFactory extends AdaptableJobFactory {
 
@@ -44,12 +38,11 @@ public class QuartzConfig {
 	}
 
 	/**
-	 * @Author JinLu
-	 * @Description: 注入scheduler到spring
-	 * @param null
-	 * @Return
-	 * @Date 2019/4/3 16:29
-	*/
+	 * 注入scheduler到spring
+	 * @param quartzJobFactory
+	 * @return
+	 * @throws Exception
+	 */
 	@Bean(name = "scheduler")
 	public Scheduler scheduler(QuartzJobFactory quartzJobFactory) throws Exception {
 		SchedulerFactoryBean factoryBean=new SchedulerFactoryBean();

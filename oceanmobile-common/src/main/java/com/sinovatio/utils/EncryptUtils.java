@@ -1,7 +1,6 @@
 package com.sinovatio.utils;
 
 import org.springframework.util.DigestUtils;
-
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
@@ -9,12 +8,10 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
 /**
-* @ClassName: EncryptUtils
-* @Description: 加密
-* @Author JinLu
-* @Date 2019/4/3 11:50
-* @Version 1.0
-*/
+ * 加密
+ * @author jie
+ * @date 2018-11-23
+ */
 public class EncryptUtils {
 
     private static String strKey = "Passw0rd", strParam = "Passw0rd";
@@ -98,6 +95,6 @@ public class EncryptUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(encryptPassword("e10adc3949ba59abbe56e057f20f883e"));
+        System.out.println(encryptPassword("123456"));
     }
 }

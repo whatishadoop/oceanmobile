@@ -4,16 +4,16 @@ import com.sinovatio.modules.system.domain.Menu;
 import com.sinovatio.modules.system.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 /**
-* @ClassName: MenuRepository
-* @Description: 菜单持久化操作
-* @Author JinLu
-* @Date 2019/4/3 17:04
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-17
+ */
 public interface MenuRepository extends JpaRepository<Menu, Long>, JpaSpecificationExecutor {
 
     /**
@@ -24,16 +24,11 @@ public interface MenuRepository extends JpaRepository<Menu, Long>, JpaSpecificat
     Menu findByName(String name);
 
     /**
-     * findByRoles
-     * @param roleSet
-     * @return
-     */
-    Set<Menu> findByRolesOrderBySort(Set<Role> roleSet);
-
-    /**
      * findByPid
      * @param pid
      * @return
      */
     List<Menu> findByPid(long pid);
+
+    LinkedHashSet<Menu> findByRoles_IdOrderBySortAsc(Long id);
 }

@@ -19,12 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: PermissionQueryService
-* @Description: 权限查询服务
-* @Author JinLu
-* @Date 2019/4/3 17:23
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-03
+ */
 @Service
 @CacheConfig(cacheNames = "permission")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

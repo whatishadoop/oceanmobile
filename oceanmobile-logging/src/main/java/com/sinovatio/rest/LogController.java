@@ -2,6 +2,7 @@ package com.sinovatio.rest;
 
 import com.sinovatio.domain.Log;
 import com.sinovatio.service.query.LogQueryService;
+import com.sinovatio.utils.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -12,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
-* @ClassName: LogController
-* @Description: 日志服务接口
-* @Author JinLu
-* @Date 2019/4/3 15:03
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-24
+ */
 @RestController
 @RequestMapping("api")
 public class LogController {
@@ -29,6 +27,13 @@ public class LogController {
     @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity getLogs(Log log, Pageable pageable){
         log.setLogType("INFO");
+        return new ResponseEntity(logQueryService.queryAll(log,pageable), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/logs/user")
+    public ResponseEntity getUserLogs(Log log, Pageable pageable){
+        log.setLogType("INFO");
+        log.setUsername(SecurityContextHolder.getUserDetails().getUsername());
         return new ResponseEntity(logQueryService.queryAll(log,pageable), HttpStatus.OK);
     }
 

@@ -3,33 +3,26 @@ package com.sinovatio.utils;
 import org.apache.commons.configuration.*;
 
 /**
-* @ClassName: ColUtil
-* @Description: sql字段转java
-* @Author JinLu
-* @Date 2019/4/3 14:05
-* @Version 1.0
-*/
+ * sql字段转java
+ *
+ * @author jie
+ * @date 2019-01-03
+ */
 public class ColUtil {
 
     /**
-     * @Author JinLu
-     * @Description: 转换mysql数据类型为java数据类型
-     * @Param 数据类型
-     * @Return java.lang.String
-     * @Date 2019/4/3 14:05
-    */
+     * 转换mysql数据类型为java数据类型
+     * @param type
+     * @return
+     */
     public static String cloToJava(String type){
         Configuration config = getConfig();
         return config.getString(type,"unknowType");
     }
 
     /**
-     * @Author JinLu
-     * @Description: 获取配置信息
-     * @Param []
-     * @Return org.apache.commons.configuration.PropertiesConfiguration
-     * @Date 2019/4/3 14:05
-    */
+     * 获取配置信息
+     */
     public static PropertiesConfiguration getConfig() {
         try {
             return new PropertiesConfiguration("generator.properties" );

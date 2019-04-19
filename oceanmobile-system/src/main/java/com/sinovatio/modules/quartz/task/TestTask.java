@@ -4,12 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
-* @ClassName: TestTask
-* @Description: 测试使用
-* @Author JinLu
-* @Date 2019/4/3 16:36
-* @Version 1.0
-*/
+ * 测试用
+ * @author jie
+ * @date 2019-01-08
+ */
 @Slf4j
 @Component
 public class TestTask {

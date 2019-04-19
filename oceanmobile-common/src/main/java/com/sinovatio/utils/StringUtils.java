@@ -1,15 +1,12 @@
 package com.sinovatio.utils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @ClassName: StringUtils
- * @Description: 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
- * @Author JinLu
- * @Date 2019/4/3 11:53
- * @Version 1.0
+ * 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
@@ -17,11 +14,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     private static final String CHARSET_NAME = "UTF-8";
 
     /**
-     * @Author JinLu
-     * @Description: 是否包含字符串
-     * @Param [str, strs]
-     * @Return boolean
-     * @Date 2019/4/3 11:54
+     * 是否包含字符串
+     *
+     * @param str  验证字符串
+     * @param strs 字符串组
+     * @return 包含返回true
      */
     public static boolean inString(String str, String... strs) {
         if (str != null) {
@@ -35,18 +32,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
 
     /**
+     * 驼峰命名法工具
      *
-     *
-
-     */
-    /**
-     * @Author JinLu
-     * @Description: 驼峰命名法工具
-     * @Param [s]
-     * @Return toCamelCase(" hello_world ") == "helloWorld"
+     * @return toCamelCase(" hello_world ") == "helloWorld"
      * toCapitalizeCamelCase("hello_world") == "HelloWorld"
      * toUnderScoreCase("helloWorld") = "hello_world"
-     * @Date 2019/4/3 11:55
      */
     public static String toCamelCase(String s) {
         if (s == null) {
@@ -74,17 +64,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
 
     /**
+     * 驼峰命名法工具
      *
-     * @return
-     */
-    /**
-     * @Author JinLu
-     * @Description: 驼峰命名法工具
-     * @Param [s]
-     * @Return toCamelCase(" hello_world ") == "helloWorld"
+     * @return toCamelCase(" hello_world ") == "helloWorld"
      * toCapitalizeCamelCase("hello_world") == "HelloWorld"
      * toUnderScoreCase("helloWorld") = "hello_world"
-     * @Date 2019/4/3 11:55
      */
     public static String toCapitalizeCamelCase(String s) {
         if (s == null) {
@@ -95,13 +79,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
 
     /**
-     * @Author JinLu
-     * @Description: 驼峰命名法工具
-     * @Param [s]
-     * @Return toCamelCase(" hello_world ") == "helloWorld"
+     * 驼峰命名法工具
+     *
+     * @return toCamelCase(" hello_world ") == "helloWorld"
      * toCapitalizeCamelCase("hello_world") == "HelloWorld"
      * toUnderScoreCase("helloWorld") = "hello_world"
-     * @Date 2019/4/3 11:56
      */
     public static String toUnderScoreCase(String s) {
         if (s == null) {
@@ -134,41 +116,35 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return sb.toString();
     }
 
-   /**
-    * @Author JinLu
-    * @Description: 获取ip地址
-    * @Param [request]
-    * @Return java.lang.String
-    * @Date 2019/4/3 11:57
-   */
-    public static String getIP(HttpServletRequest request) {
+    /**
+     * 获取ip地址
+     * @param request
+     * @return
+     */
+        public static String getIP(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
-        return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
+        return "0:0:0:0:0:0:0:1".equals(ip)?"127.0.0.1":ip;
     }
 
     /**
-     * @Author JinLu
-     * @Description: 获得当天是周几
-     * @Param []
-     * @Return java.lang.String
-     * @Date 2019/4/3 11:57
-    */
-    public static String getWeekDay() {
+     * 获得当天是周几
+     */
+    public static String getWeekDay(){
         String[] weekDays = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
 
         int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (w < 0) {
+        if (w < 0){
             w = 0;
         }
         return weekDays[w];

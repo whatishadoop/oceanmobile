@@ -7,11 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
- * @ClassName: PermissionMapper
- * @Description: 设置权限的MapperStruct
- * @Author JinLu
- * @Date 2019/4/3 17:19
- * @Version 1.0
+ * @author jie
+ * @date 2018-11-23
  */
 @Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PermissionMapper extends EntityMapper<PermissionDTO, Permission> {

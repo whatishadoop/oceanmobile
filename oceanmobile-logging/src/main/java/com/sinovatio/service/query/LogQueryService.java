@@ -18,12 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: LogQueryService
-* @Description: 日志查询服务
-* @Author JinLu
-* @Date 2019/4/3 15:09
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-24
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class LogQueryService {
@@ -47,6 +44,7 @@ public class LogQueryService {
         public Predicate toPredicate(Root<Log> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
 
             List<Predicate> list = new ArrayList<Predicate>();
+
 
             if(!ObjectUtils.isEmpty(log.getUsername())){
                 list.add(cb.like(root.get("username").as(String.class),"%"+log.getUsername()+"%"));

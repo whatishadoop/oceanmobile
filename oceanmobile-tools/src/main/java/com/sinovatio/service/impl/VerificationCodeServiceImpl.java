@@ -20,11 +20,9 @@ import java.util.Arrays;
 import java.util.concurrent.*;
 
 /**
-* @ClassName: VerificationCodeServiceImpl
-* @Author JinLu
-* @Date 2019/4/4 10:43
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-26
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class VerificationCodeServiceImpl implements VerificationCodeService {
@@ -73,8 +71,7 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
      * @param verifyCode
      */
     private void timedDestruction(VerificationCode verifyCode) {
-        // 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。
-        // 以下示例为程序调用结束继续启动该定时任务，会延迟60s启动，一共配置了两个线程ThreadPoolUtil中设置
+        //以下示例为程序调用结束继续运行
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         try {
             executorService.schedule(() -> {

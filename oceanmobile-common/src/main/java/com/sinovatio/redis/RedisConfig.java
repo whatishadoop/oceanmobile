@@ -19,23 +19,18 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-
 import java.time.Duration;
 
 /**
-* @ClassName: RedisConfig
-* @Description: 设置RedisTemplate的序列化方式
-* @Author JinLu
-* @Date 2019/4/3 11:46
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-24
+ */
 @Slf4j
 @Configuration
 @EnableCaching
-// 同时使用 @Configuration 与 @EnableConfigurationProperties 解析yaml文件中属性，参看关与 @EnableConfigurationProperties 注解
+// 自动配置
 @ConditionalOnClass(RedisOperations.class)
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig extends CachingConfigurerSupport {
@@ -59,12 +54,9 @@ public class RedisConfig extends CachingConfigurerSupport {
     private String password;
 
     /**
-     * @Author JinLu
-     * @Description: 配置 redis 单机连接池JedisPool
-     * @Param []
-     * @Return redis.clients.jedis.JedisPool
-     * @Date 2019/4/3 11:46
-    */
+     * 配置 redis 连接池
+     * @return
+     */
     @Bean
     public JedisPool redisPoolFactory(){
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
@@ -78,45 +70,18 @@ public class RedisConfig extends CachingConfigurerSupport {
     }
 
     /**
-     * 注意：jedis集群配置JedisCluster，它也有连接池，创建的实例都为单例
-     * 这里返回的JedisCluster是单例的，并且可以直接注入到其他类中去使用
-     * @return
-     */
-    //@Bean
-    //public JedisCluster getJedisCluster() {
-    //    String[] serverArray = redisProperties.getClusterNodes().split(",");//获取服务器数组(这里要相信自己的输入，所以没有考虑空指针问题)
-    //    Set<HostAndPort> nodes = new HashSet<>();
-    //
-    //    for (String ipPort : serverArray) {
-    //        String[] ipPortPair = ipPort.split(":");
-    //        nodes.add(new HostAndPort(ipPortPair[0].trim(), Integer.valueOf(ipPortPair[1].trim())));
-    //    }
-    //
-    //    return new JedisCluster(nodes,redisProperties.getCommandTimeout(),1000,1,redisProperties.getPassword() ,new GenericObjectPoolConfig());//需要密码连接的创建对象方式
-    //}
-
-    /**
      *  设置 redis 数据默认过期时间，默认1天
      *  设置@cacheable 序列化方式
      * @return
-     * RedisTemplate中需要声明4种serializer，默认为“JdkSerializationRedisSerializer”：
-     *
-     *     1) keySerializer ：对于普通K-V操作时，key采取的序列化策略
-     *     2) valueSerializer：value采取的序列化策略
-     *     3) hashKeySerializer： 在hash数据结构中，hash-key的序列化策略
-     *     4) hashValueSerializer：hash-value的序列化策略
-     *
-     *     无论如何，建议key/hashKey采用StringRedisSerializer。
      */
     @Bean
     public RedisCacheConfiguration redisCacheConfiguration(){
         FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
         RedisCacheConfiguration configuration = RedisCacheConfiguration.defaultCacheConfig();
-        configuration = configuration.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(fastJsonRedisSerializer)).entryTtl(Duration.ofDays(1)); // spring2.x设置缓存过期时间方法
+        configuration = configuration.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(fastJsonRedisSerializer)).entryTtl(Duration.ofDays(1));
         return configuration;
     }
 
-    // 设置RedisTemplate的序列化方式为fastjson
     @Bean(name = "redisTemplate")
     @ConditionalOnMissingBean(name = "redisTemplate")
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
@@ -126,14 +91,13 @@ public class RedisConfig extends CachingConfigurerSupport {
         // value值的序列化采用fastJsonRedisSerializer
         template.setValueSerializer(fastJsonRedisSerializer);
         template.setHashValueSerializer(fastJsonRedisSerializer);
+
         // 全局开启AutoType，不建议使用
         // ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
-        // 建议使用这种方式局部支持反序列化autotype判断，小范围指定白名单, 定义哪些包下对象可以进行自动序列化操作
-        // 解决漏洞，若不设置Object obj = JSON.parse(valueStr);报错，需要添加class指定类型 JSONObject.toJavaObject(obj, clazz);，设置后则Object obj = JSON.parse(valueStr)支持自动类型转换
-        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.system.service.dto");
-        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.test.service.dto");
-        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.system.domain");
+        // 建议使用这种方式，小范围指定白名单
         ParserConfig.getGlobalInstance().addAccept("com.sinovatio.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.system.service.dto");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.system.domain");
         ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.quartz.domain");
         ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.monitor.domain");
         ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.security.security");
@@ -141,7 +105,6 @@ public class RedisConfig extends CachingConfigurerSupport {
         template.setKeySerializer(new StringRedisSerializer());
         template.setHashKeySerializer(new StringRedisSerializer());
         template.setConnectionFactory(redisConnectionFactory);
-        // template.afterPropertiesSet();
         return template;
     }
 

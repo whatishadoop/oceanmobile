@@ -4,12 +4,11 @@ import com.sinovatio.modules.system.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
+import java.util.Set;
+
 /**
- * @ClassName: MenuRepository
- * @Description: 角色持久化操作
- * @Author JinLu
- * @Date 2019/4/3 17:04
- * @Version 1.0
+ * @author jie
+ * @date 2018-12-03
  */
 public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificationExecutor {
 
@@ -19,4 +18,8 @@ public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificat
      * @return
      */
     Role findByName(String name);
+
+    Set<Role> findByUsers_Id(Long id);
+
+    Set<Role> findByMenus_Id(Long id);
 }

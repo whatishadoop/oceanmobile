@@ -5,41 +5,31 @@ import com.sinovatio.domain.vo.ColumnInfo;
 import java.util.List;
 
 /**
-* @ClassName: GeneratorService
-* @Description: 代码生成服务
-* @Author JinLu
-* @Date 2019/4/3 14:04
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2019-01-02
+ */
 public interface GeneratorService {
 
     /**
-     * @Author JinLu
-     * @Description: 查询表名信息
-     * @param name 表名
-     * @param startEnd  表名开头字符
-     * @Return java.lang.Object
-     * @Date 2019/4/3 14:38
-    */
+     * 查询数据库元数据
+     * @param name
+     * @param startEnd
+     * @return
+     */
     Object getTables(String name, int[] startEnd);
 
     /**
-     * @Author JinLu
-     * @Description: 得到数据表的元数据
-     * @param name 表名
-     * @Return java.lang.Object
-     * @Date 2019/4/3 14:42
-    */
+     * 得到数据表的元数据
+     * @param name
+     * @return
+     */
     Object getColumns(String name);
 
     /**
-     * @Author JinLu
-     * @Description: 生成代码
-     * @param columnInfos 列信息
-     * @param genConfig 生成配置信息
-     * @param tableName 表名
-     * @Return void
-     * @Date 2019/4/3 14:42
-    */
+     * 生成代码
+     * @param columnInfos
+     * @param genConfig
+     * @param tableName
+     */
     void generator(List<ColumnInfo> columnInfos, GenConfig genConfig, String tableName);
 }

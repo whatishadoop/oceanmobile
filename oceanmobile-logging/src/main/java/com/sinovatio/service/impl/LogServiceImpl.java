@@ -10,7 +10,6 @@ import com.sinovatio.utils.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,21 +18,15 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
 /**
-* @ClassName: LogServiceImpl
-* @Description: 日志服务
-* @Author JinLu
-* @Date 2019/4/3 15:05
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-24
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class LogServiceImpl implements LogService {
 
     @Autowired
     private LogRepository logRepository;
-
-    @Value("${jwt.header}")
-    private String tokenHeader;
 
     private final String LOGINPATH = "login";
 
@@ -54,6 +47,7 @@ public class LogServiceImpl implements LogService {
 
         // 方法路径
         String methodName = joinPoint.getTarget().getClass().getName()+"."+signature.getName()+"()";
+
         String params = "{";
         //参数值
         Object[] argValues = joinPoint.getArgs();

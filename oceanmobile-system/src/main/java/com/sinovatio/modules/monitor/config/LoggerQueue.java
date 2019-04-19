@@ -5,12 +5,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
-* @ClassName: LoggerQueue
-* @Description: 创建一个阻塞队列，作为日志系统输出的日志的一个临时载体
-* @Author JinLu
-* @Date 2019/4/3 16:08
-* @Version 1.0
-*/
+ * 创建一个阻塞队列，作为日志系统输出的日志的一个临时载体
+ * @author https://cloud.tencent.com/developer/article/1096792
+ * @date 2018-12-24
+ */
 public class LoggerQueue {
 
     /**

@@ -3,18 +3,17 @@ package com.sinovatio.modules.system.domain.vo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
- * @ClassName: MenuVo
- * @Description: 构建前端路由时用到
- * @Author JinLu
- * @Date 2019/4/3 17:02
- * @Version 1.0
+ * 构建前端路由时用到
+ * @author jie
+ * @date 2018-12-20
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class MenuVo {
+public class MenuVo implements Serializable {
 
     private String name;
 

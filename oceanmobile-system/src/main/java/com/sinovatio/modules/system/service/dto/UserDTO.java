@@ -9,12 +9,9 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @Author JinLu
- * @Description: 用户DTO
- * @param null
- * @Return
- * @Date 2019/4/3 17:16
-*/
+ * @author jie
+ * @date 2018-11-23
+ */
 @Data
 public class UserDTO implements Serializable {
 
@@ -27,6 +24,8 @@ public class UserDTO implements Serializable {
 
     private String email;
 
+    private String phone;
+
     private Boolean enabled;
 
     @JsonIgnore
@@ -38,4 +37,11 @@ public class UserDTO implements Serializable {
 
     @ApiModelProperty(hidden = true)
     private Set<RoleDTO> roles;
+
+    @ApiModelProperty(hidden = true)
+    private JobDTO job;
+
+    private DeptDTO dept;
+
+    private Long deptId;
 }

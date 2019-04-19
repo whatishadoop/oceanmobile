@@ -7,12 +7,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
-* @ClassName: MenuDTO
-* @Description: 菜单DTO
-* @Author JinLu
-* @Date 2019/4/3 17:15
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-17
+ */
 @Data
 public class MenuDTO {
 
@@ -31,8 +28,6 @@ public class MenuDTO {
     private Boolean iFrame;
 
     private String icon;
-
-    private Set<RoleDTO> roles;
 
     private List<MenuDTO> children;
 

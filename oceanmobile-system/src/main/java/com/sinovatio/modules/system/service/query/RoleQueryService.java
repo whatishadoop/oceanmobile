@@ -22,12 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: RoleQueryService
-* @Description: 角色查询服务
-* @Author JinLu
-* @Date 2019/4/3 17:23
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-03
+ */
 @Service
 @CacheConfig(cacheNames = "role")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -45,7 +42,16 @@ public class RoleQueryService {
     @Cacheable(keyGenerator = "keyGenerator")
     public Object queryAll(String name, Pageable pageable){
         Page<Role> page = roleRepository.findAll(new Spec(name),pageable);
-        return PageUtil.toPage(page.map(roleMapper::toDto)); // jdk8新增语法::循环调用调用这个roleMapper类的toDto方法
+        return PageUtil.toPage(page.map(roleMapper::toDto));
+    }
+
+    /**
+     * 分页
+     */
+    @Cacheable(keyGenerator = "keyGenerator")
+    public Object queryAll(){
+        List<Role> roles = roleRepository.findAll(new Spec(null));
+        return roleMapper.toDto(roles);
     }
 
     class Spec implements Specification<Role> {

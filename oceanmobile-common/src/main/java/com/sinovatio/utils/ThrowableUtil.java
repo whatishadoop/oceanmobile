@@ -4,21 +4,17 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
-* @ClassName: ThrowableUtil
-* @Description: 异常工具
-* @Author JinLu
-* @Date 2019/4/3 12:44
-* @Version 1.0
-*/
+ * 异常工具
+ * @author jie
+ * @date 2019-01-06
+ */
 public class ThrowableUtil {
 
     /**
-     * @Author JinLu
-     * @Description: 获取堆栈信息
-     * @Param [throwable]
-     * @Return java.lang.String
-     * @Date 2019/4/3 12:44
-    */
+     * 获取堆栈信息
+     * @param throwable
+     * @return
+     */
     public static String getStackTrace(Throwable throwable){
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);

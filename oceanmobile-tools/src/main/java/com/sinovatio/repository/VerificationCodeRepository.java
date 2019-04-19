@@ -4,12 +4,9 @@ import com.sinovatio.domain.VerificationCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
-* @ClassName: VerificationCodeRepository
-* @Description: 记录验证码
-* @Author JinLu
-* @Date 2019/4/3 17:35
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-26
+ */
 public interface VerificationCodeRepository extends JpaRepository<VerificationCode, Long> {
 
     /**

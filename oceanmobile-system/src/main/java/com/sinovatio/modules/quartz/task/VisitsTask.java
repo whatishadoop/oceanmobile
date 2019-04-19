@@ -5,12 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
-* @ClassName: VisitsTask
-* @Description: 用户访问任务
-* @Author JinLu
-* @Date 2019/4/3 16:36
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-25
+ */
 @Component
 public class VisitsTask {
 

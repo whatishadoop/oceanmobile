@@ -12,24 +12,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * Spring Security默认是禁用注解的，要想开启注解， 需要在继承WebSecurityConfigurerAdapter的类上加@EnableGlobalMethodSecurity注解， 来判断用户对某个控制层的方法是否具有访问权限
- */
-/**
-* @ClassName: SecurityConfig
-* @Description: Spring-Sercurity 配置
-* @Author JinLu
-* @Date 2019/4/3 16:50
-* @Version 1.0
-*/
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -51,13 +41,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private String tokenHeader;
 
     @Value("${jwt.auth.path}")
-    private String authenticationPath;
+    private String loginPath;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(jwtUserDetailsService)
                 .passwordEncoder(passwordEncoderBean());
+    }
+
+    @Bean
+    GrantedAuthorityDefaults grantedAuthorityDefaults() {
+        // Remove the ROLE_ prefix
+        return new GrantedAuthorityDefaults("");
     }
 
     @Bean
@@ -75,23 +71,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity
+
                 // 禁用 CSRF
                 .csrf().disable()
-                // 授权异常，对于访问资源
+
+                // 授权异常
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 
-                // 不创建会话,进入服务器无状态模式
+                // 不创建会话
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+
+                // 过滤请求
                 .authorizeRequests()
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/*.html",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js"
+                ).permitAll()
 
-                // 获取认证(获取用户信息，获取token)以及注册(sign-up)页面等url无需拦截
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers( HttpMethod.POST,"/auth/"+loginPath).permitAll()
                 .antMatchers("/websocket/**").permitAll()
-                .antMatchers("/druid/**").anonymous()
-
                 // 支付宝回调
                 .antMatchers("/api/aliPay/return").anonymous()
                 .antMatchers("/api/aliPay/notify").anonymous()
+
+                // 系统监控
+                .antMatchers("/actuator/**").anonymous()
 
                 // swagger start
                 .antMatchers("/swagger-ui.html").anonymous()
@@ -100,33 +107,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*/api-docs").anonymous()
                 // swagger end
 
+                // 接口限流测试
                 .antMatchers("/test/**").anonymous()
                 .antMatchers(HttpMethod.OPTIONS, "/**").anonymous()
+
+                .antMatchers("/druid/**").permitAll()
                 // 所有请求都需要认证
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                // 防止iframe 造成跨域
+                .and().headers().frameOptions().disable();
 
         httpSecurity
                 .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        // AuthenticationTokenFilter will ignore the below paths
-        web.ignoring()
-            .antMatchers(
-                    HttpMethod.POST,
-                    authenticationPath
-            )
-
-            // allow anonymous resource requests
-            .and()
-            .ignoring()
-            .antMatchers(
-                    HttpMethod.GET,
-                    "/*.html",
-                    "/**/*.html",
-                    "/**/*.css",
-                    "/**/*.js"
-            );
     }
 }

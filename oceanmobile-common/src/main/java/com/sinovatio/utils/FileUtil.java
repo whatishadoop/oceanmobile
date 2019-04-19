@@ -2,18 +2,15 @@ package com.sinovatio.utils;
 
 import cn.hutool.core.util.IdUtil;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
 /**
-* @ClassName: FileUtil
-* @Description: File工具类，扩展 hutool 工具包
-* @Author JinLu
-* @Date 2019/4/3 11:51
-* @Version 1.0
-*/
+ * File工具类，扩展 hutool 工具包
+ * @author jie
+ * @date 2018-12-27
+ */
 public class FileUtil extends cn.hutool.core.io.FileUtil {
 
     /**

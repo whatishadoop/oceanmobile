@@ -17,12 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: GeneratorServiceImpl
-* @Description: 代码生成服务
-* @Author JinLu
-* @Date 2019/4/3 14:01
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2019-01-02
+ */
 @Service
 public class GeneratorServiceImpl implements GeneratorService {
 

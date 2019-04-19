@@ -4,12 +4,10 @@ import lombok.Data;
 import javax.persistence.*;
 
 /**
-* @ClassName: GenConfig
-* @Description: 代码生成配置
-* @Author JinLu
-* @Date 2019/4/3 13:54
-* @Version 1.0
-*/
+ * 代码生成配置
+ * @author jie
+ * @date 2019-01-03
+ */
 @Data
 @Entity
 @Table(name = "gen_config")

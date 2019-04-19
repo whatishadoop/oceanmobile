@@ -20,12 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: QiNiuQueryService
-* @Description: 七牛云查询服务
-* @Author JinLu
-* @Date 2019/4/4 10:44
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-31
+ */
 @Service
 @CacheConfig(cacheNames = "qiNiu")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

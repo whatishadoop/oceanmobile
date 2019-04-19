@@ -20,12 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: QuartzJobQueryService
-* @Description: 普通任务定时器查询服务
-* @Author JinLu
-* @Date 2019/4/3 16:33
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2019-01-07
+ */
 @Service
 @CacheConfig(cacheNames = "quartzJob")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -40,14 +37,18 @@ public class QuartzJobQueryService {
     }
 
     class Spec implements Specification<QuartzJob> {
+
         private QuartzJob quartzJob;
+
         public Spec(QuartzJob quartzJob){
             this.quartzJob = quartzJob;
         }
 
         @Override
         public Predicate toPredicate(Root<QuartzJob> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+
             List<Predicate> list = new ArrayList<Predicate>();
+
             if(!ObjectUtils.isEmpty(quartzJob.getJobName())){
 
                 /**
@@ -55,6 +56,7 @@ public class QuartzJobQueryService {
                  */
                 list.add(cb.like(root.get("jobName").as(String.class),"%"+quartzJob.getJobName()+"%"));
             }
+
             Predicate[] p = new Predicate[list.size()];
             return cb.and(list.toArray(p));
         }

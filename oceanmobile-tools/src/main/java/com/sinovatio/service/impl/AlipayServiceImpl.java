@@ -17,11 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
-* @ClassName: AlipayServiceImpl
-* @Author JinLu
-* @Date 2019/4/4 10:43
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-31
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class AlipayServiceImpl implements AlipayService {
@@ -41,9 +39,6 @@ public class AlipayServiceImpl implements AlipayService {
         AlipayClient alipayClient = new DefaultAlipayClient(alipay.getGatewayUrl(), alipay.getAppID(), alipay.getPrivateKey(), alipay.getFormat(), alipay.getCharset(), alipay.getPublicKey(), alipay.getSignType());
 
         double money = Double.parseDouble(trade.getTotalAmount());
-        if(money <= 0 || money>=5000){
-            throw new BadRequestException("测试金额过大");
-        }
 
         /**
          * 创建API对应的request(电脑网页版)
@@ -131,6 +126,6 @@ public class AlipayServiceImpl implements AlipayService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public AlipayConfig update(AlipayConfig alipayConfig) {
-        return alipayRepository.saveAndFlush(alipayConfig);
+        return alipayRepository.save(alipayConfig);
     }
 }

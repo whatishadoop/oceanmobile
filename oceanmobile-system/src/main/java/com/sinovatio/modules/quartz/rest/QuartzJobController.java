@@ -17,12 +17,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
-* @ClassName: QuartzJobController
-* @Description:  定时器服务接口
-* @Author JinLu
-* @Date 2019/4/3 16:32
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2019-01-07
+ */
 @Slf4j
 @RestController
 @RequestMapping("/api")
@@ -71,10 +68,7 @@ public class QuartzJobController {
     @Log("修改定时任务")
     @PutMapping(value = "/jobs")
     @PreAuthorize("hasAnyRole('ADMIN','JOB_ALL','JOB_EDIT')")
-    public ResponseEntity update(@Validated @RequestBody QuartzJob resources){
-        if (resources.getId() == null) {
-            throw new BadRequestException(ENTITY_NAME +" ID Can not be empty");
-        }
+    public ResponseEntity update(@Validated(QuartzJob.Update.class) @RequestBody QuartzJob resources){
         quartzJobService.update(resources);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

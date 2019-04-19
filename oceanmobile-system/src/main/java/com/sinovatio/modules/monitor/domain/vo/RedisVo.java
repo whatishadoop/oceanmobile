@@ -5,18 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
-* @ClassName: RedisVo
-* @Description: 缓存VO
-* @Author JinLu
-* @Date 2019/4/3 16:10
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-10
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RedisVo {
+public class RedisVo implements Serializable {
 
     @NotBlank
     private String key;

@@ -5,15 +5,14 @@ import com.sinovatio.modules.system.service.dto.PermissionDTO;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+
+import java.util.Collection;
 import java.util.List;
 
 /**
-* @ClassName: PermissionService
-* @Description: 权限业务服务
-* @Author JinLu
-* @Date 2019/4/3 17:26
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-08
+ */
 @CacheConfig(cacheNames = "permission")
 public interface PermissionService {
 

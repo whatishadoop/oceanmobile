@@ -7,12 +7,9 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
-* @ClassName: PictureService
-* @Description: 图片服务
-* @Author JinLu
-* @Date 2019/4/4 10:46
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-27
+ */
 @CacheConfig(cacheNames = "picture")
 public interface PictureService {
 

@@ -11,12 +11,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
-* @ClassName: MenuService
-* @Description: 菜单业务服务
-* @Author JinLu
-* @Date 2019/4/3 17:26
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-17
+ */
 @CacheConfig(cacheNames = "menu")
 public interface MenuService {
 
@@ -70,7 +67,6 @@ public interface MenuService {
      * @param menuDTOS
      * @return
      */
-    @Cacheable(keyGenerator = "keyGenerator")
     Map buildTree(List<MenuDTO> menuDTOS);
 
     /**
@@ -78,13 +74,14 @@ public interface MenuService {
      * @param roles
      * @return
      */
-    List<MenuDTO> findByRoles(Set<Role> roles);
+    List<MenuDTO> findByRoles(List<Role> roles);
 
     /**
      * buildMenus
      * @param byRoles
      * @return
      */
-    @Cacheable(keyGenerator = "keyGenerator")
     Object buildMenus(List<MenuDTO> byRoles);
+
+    Menu findOne(Long id);
 }

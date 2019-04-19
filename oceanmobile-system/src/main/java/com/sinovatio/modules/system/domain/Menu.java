@@ -1,35 +1,36 @@
 package com.sinovatio.modules.system.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @ClassName: Menu
- * @Description: 菜单对象
- * @Author JinLu
- * @Date 2019/4/3 17:03
- * @Version 1.0
+ * @author jie
+ * @date 2018-12-17
  */
 @Entity
 @Getter
 @Setter
 @Table(name = "menu")
-public class Menu {
+public class Menu implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(groups = {Update.class})
     private Long id;
 
     @NotBlank
     private String name;
 
     @Column(unique = true)
+    @NotNull
     private Long sort;
 
     @Column(name = "path")
@@ -42,7 +43,7 @@ public class Menu {
     /**
      * 上级菜单ID
      */
-    @Column(name = "pid", nullable = false)
+    @Column(name = "pid",nullable = false)
     private Long pid;
 
     /**
@@ -51,11 +52,13 @@ public class Menu {
     @Column(name = "i_frame")
     private Boolean iFrame;
 
-    @ManyToMany
-    @JoinTable(name = "menus_roles", joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
+    @ManyToMany(mappedBy = "menus")
+    @JsonIgnore
     private Set<Role> roles;
 
     @CreationTimestamp
     @Column(name = "create_time")
     private Timestamp createTime;
+
+    public interface Update{}
 }

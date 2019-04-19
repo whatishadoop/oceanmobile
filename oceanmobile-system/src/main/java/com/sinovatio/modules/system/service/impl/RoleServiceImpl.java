@@ -1,5 +1,6 @@
 package com.sinovatio.modules.system.service.impl;
 
+import com.sinovatio.modules.system.domain.Menu;
 import com.sinovatio.modules.system.domain.Role;
 import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.exception.EntityExistException;
@@ -13,7 +14,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
+import java.util.stream.Collectors;
 
+/**
+ * @author jie
+ * @date 2018-12-03
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class RoleServiceImpl implements RoleService {
@@ -43,17 +49,11 @@ public class RoleServiceImpl implements RoleService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void update(Role resources) {
+
         Optional<Role> optionalRole = roleRepository.findById(resources.getId());
         ValidationUtil.isNull(optionalRole,"Role","id",resources.getId());
 
         Role role = optionalRole.get();
-
-        /**
-         * 根据实际需求修改
-         */
-        if(role.getId().equals(1L)){
-            throw new BadRequestException("该角色不能被修改");
-        }
 
         Role role1 = roleRepository.findByName(resources.getName());
 
@@ -63,35 +63,43 @@ public class RoleServiceImpl implements RoleService {
 
         role.setName(resources.getName());
         role.setRemark(resources.getRemark());
+        role.setDataScope(resources.getDataScope());
+        role.setDepts(resources.getDepts());
+        roleRepository.save(role);
+    }
+
+    @Override
+    public void updatePermission(Role resources, RoleDTO roleDTO) {
+        Role role = roleMapper.toEntity(roleDTO);
         role.setPermissions(resources.getPermissions());
         roleRepository.save(role);
     }
 
     @Override
+    public void updateMenu(Role resources, RoleDTO roleDTO) {
+        Role role = roleMapper.toEntity(roleDTO);
+        role.setMenus(resources.getMenus());
+        roleRepository.save(role);
+    }
+
+    @Override
+    public void untiedMenu(Menu menu) {
+        Set<Role> roles = roleRepository.findByMenus_Id(menu.getId());
+        for (Role role : roles) {
+            menu.getRoles().remove(role);
+            role.getMenus().remove(menu);
+            roleRepository.save(role);
+        }
+    }
+
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
-
-        /**
-         * 根据实际需求修改
-         */
-        if(id.equals(1L)){
-            throw new BadRequestException("该角色不能被删除");
-        }
         roleRepository.deleteById(id);
     }
 
     @Override
-    public Object getRoleTree() {
-
-        List<Role> roleList = roleRepository.findAll();
-
-        List<Map<String, Object>> list = new ArrayList<>();
-        for (Role role : roleList) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("id",role.getId());
-            map.put("label",role.getName());
-            list.add(map);
-        }
-        return list;
+    public List<Role> findByUsers_Id(Long id) {
+        return roleRepository.findByUsers_Id(id).stream().collect(Collectors.toList());
     }
 }

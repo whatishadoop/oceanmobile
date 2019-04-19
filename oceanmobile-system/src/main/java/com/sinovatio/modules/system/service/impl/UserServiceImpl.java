@@ -1,12 +1,9 @@
 package com.sinovatio.modules.system.service.impl;
 
 import com.sinovatio.modules.system.domain.User;
-import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.exception.EntityExistException;
 import com.sinovatio.exception.EntityNotFoundException;
 import com.sinovatio.modules.system.repository.UserRepository;
-import com.sinovatio.modules.security.security.JwtUser;
-import com.sinovatio.modules.security.utils.JwtTokenUtil;
 import com.sinovatio.modules.system.service.UserService;
 import com.sinovatio.modules.system.service.dto.UserDTO;
 import com.sinovatio.modules.system.service.mapper.UserMapper;
@@ -15,10 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Date;
 import java.util.Optional;
 
+/**
+ * @author jie
+ * @date 2018-11-23
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
@@ -28,9 +28,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
-
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
 
     @Override
     public UserDTO findById(long id) {
@@ -51,38 +48,22 @@ public class UserServiceImpl implements UserService {
             throw new EntityExistException(User.class,"email",resources.getEmail());
         }
 
-        if(resources.getRoles() == null || resources.getRoles().size() == 0){
-            throw new BadRequestException("角色不能为空");
-        }
-
-        // 默认密码 123456
-        resources.setPassword("14e1b600b1fd579f47433b88e8d85291");
-        resources.setAvatar("https://i.loli.net/2018/12/06/5c08894d8de21.jpg");
+        // 默认密码 123456，此密码是加密后的字符
+        resources.setPassword("e10adc3949ba59abbe56e057f20f883e");
+        resources.setAvatar("https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg");
         return userMapper.toDto(userRepository.save(resources));
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void update(User resources) {
-
         Optional<User> userOptional = userRepository.findById(resources.getId());
         ValidationUtil.isNull(userOptional,"User","id",resources.getId());
 
         User user = userOptional.get();
 
-        /**
-         * 根据实际需求修改
-         */
-        if(user.getId().equals(1L)){
-            throw new BadRequestException("该账号不能被修改");
-        }
-
         User user1 = userRepository.findByUsername(user.getUsername());
         User user2 = userRepository.findByEmail(user.getEmail());
-
-        if(resources.getRoles() == null || resources.getRoles().size() == 0){
-            throw new BadRequestException("角色不能为空");
-        }
 
         if(user1 !=null&&!user.getId().equals(user1.getId())){
             throw new EntityExistException(User.class,"username",resources.getUsername());
@@ -96,20 +77,15 @@ public class UserServiceImpl implements UserService {
         user.setEmail(resources.getEmail());
         user.setEnabled(resources.getEnabled());
         user.setRoles(resources.getRoles());
-
+        user.setDept(resources.getDept());
+        user.setJob(resources.getJob());
+        user.setPhone(resources.getPhone());
         userRepository.save(user);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
-
-        /**
-         * 根据实际需求修改
-         */
-        if(id.equals(1L)){
-            throw new BadRequestException("该账号不能被删除");
-        }
         userRepository.deleteById(id);
     }
 
@@ -131,19 +107,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void updatePass(JwtUser jwtUser, String pass) {
-        userRepository.updatePass(jwtUser.getId(),pass,new Date());
+    public void updatePass(String username, String pass) {
+        userRepository.updatePass(username,pass,new Date());
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void updateAvatar(JwtUser jwtUser, String url) {
-        userRepository.updateAvatar(jwtUser.getId(),url);
+    public void updateAvatar(String username, String url) {
+        userRepository.updateAvatar(username,url);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void updateEmail(JwtUser jwtUser, String email) {
-        userRepository.updateEmail(jwtUser.getId(),email);
+    public void updateEmail(String username, String email) {
+        userRepository.updateEmail(username,email);
     }
 }

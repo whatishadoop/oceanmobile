@@ -13,12 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 /**
-* @ClassName: VerificationCodeController
-* @Description: 验证码校验接口
-* @Author JinLu
-* @Date 2019/4/4 10:38
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-26
+ */
 @RestController
 @RequestMapping("api")
 public class VerificationCodeController {

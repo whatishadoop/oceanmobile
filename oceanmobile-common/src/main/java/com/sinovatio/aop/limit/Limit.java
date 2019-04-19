@@ -9,9 +9,9 @@ import java.lang.annotation.Target;
 
 /**  
 * @ClassName: Limit
-* @Description: 定义限流注释接口
+* @Description: TODO
 * @Author JinLu
-* @Date 2019/4/3 11:36
+* @Date 2019/4/19 11:46
 * @Version 1.0
 */
 @Target(ElementType.METHOD)

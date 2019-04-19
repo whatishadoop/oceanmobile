@@ -8,12 +8,11 @@ import org.springframework.data.redis.serializer.SerializationException;
 import java.nio.charset.Charset;
 
 /**
-* @ClassName: FastJsonRedisSerializer
-* @Description: 定义FastJson序列化器 Value 序列化
-* @Author JinLu
-* @Date 2019/4/3 11:45
-* @Version 1.0
-*/
+ * Value 序列化
+ *
+ * @author /
+ * @param <T>
+ */
 public class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
 
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
@@ -30,7 +29,6 @@ public class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
         if (t == null) {
             return new byte[0];
         }
-        // SerializerFeature.WriteClassName 表示泛型T的类型写入JSON中多了一个@type的属性，来存储类型，这样反序列化的时候就能自动转成原本的类型
         return JSON.toJSONString(t, SerializerFeature.WriteClassName).getBytes(DEFAULT_CHARSET);
     }
 

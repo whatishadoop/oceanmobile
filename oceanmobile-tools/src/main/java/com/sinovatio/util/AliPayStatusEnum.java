@@ -1,12 +1,10 @@
 package com.sinovatio.util;
 
 /**
-* @ClassName: AliPayStatusEnum
-* @Description: 阿里支付服务
-* @Author JinLu
-* @Date 2019/4/4 10:47
-* @Version 1.0
-*/
+ * 支付状态
+ * @author zhengjie
+ * @date 2018/08/01 16:45:43
+ */
 public enum  AliPayStatusEnum {
 
     /**

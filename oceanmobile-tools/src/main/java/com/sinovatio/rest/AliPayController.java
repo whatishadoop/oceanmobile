@@ -19,12 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
-* @ClassName: AliPayController
-* @Description: 阿里支付接口
-* @Author JinLu
-* @Date 2019/4/3 17:35
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-12-31
+ */
 @Slf4j
 @RestController
 @RequestMapping("/api")

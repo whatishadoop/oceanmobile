@@ -13,21 +13,17 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
-* @ClassName: AlipayUtils
-* @Description: 支付宝工具类
-* @Author JinLu
-* @Date 2019/4/4 10:47
-* @Version 1.0
-*/
+ * 支付宝工具类
+ * @author zhengjie
+ * @date 2018/09/30 14:04:35
+ */
 @Component
 public class AlipayUtils {
 
     /**
-     * @Author JinLu
-     * @Description: 生成订单号
-     * @Return java.lang.String
-     * @Date 2019/4/4 10:48
-    */
+     * 生成订单号
+     * @return
+     */
     public String getOrderCode() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         int a = (int)(Math.random() * 9000.0D) + 1000;
@@ -43,14 +39,11 @@ public class AlipayUtils {
         return s2;
     }
 
-   /**
-    * @Author JinLu
-    * @Description: 校验签名
-    * @param request 请求对象
-    * @param alipay 阿里支付配置对象
-    * @Return boolean
-    * @Date 2019/4/4 10:48
-   */
+    /**
+     * 校验签名
+     * @param request
+     * @return
+     */
     public boolean rsaCheck(HttpServletRequest request, AlipayConfig alipay){
 
         /**

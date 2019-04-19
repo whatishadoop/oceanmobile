@@ -3,30 +3,23 @@ package com.sinovatio.mapper;
 import java.util.List;
 
 /**
-* @ClassName: EntityMapper
-* @Description: DTO对象与实体mapstruct映射
-* @Author JinLu
-* @Date 2019/4/3 11:43
-* @Version 1.0
-*/
+ * @author jie
+ * @date 2018-11-23
+ */
 public interface EntityMapper<D, E> {
 
     /**
-     * @Author JinLu
-     * @Description: DTO转Entity
-     * @Param [dto]
-     * @Return E
-     * @Date 2019/4/3 11:44
-    */
+     * DTO转Entity
+     * @param dto
+     * @return
+     */
     E toEntity(D dto);
 
-   /**
-    * @Author JinLu
-    * @Description:  Entity转DTO
-    * @Param [entity]
-    * @Return D
-    * @Date 2019/4/3 11:44
-   */
+    /**
+     * Entity转DTO
+     * @param entity
+     * @return
+     */
     D toDto(E entity);
 
     /**
@@ -37,11 +30,9 @@ public interface EntityMapper<D, E> {
     List <E> toEntity(List<D> dtoList);
 
     /**
-     * @Author JinLu
-     * @Description: Entity集合转DTO集合
-     * @Param [entityList]
-     * @Return java.util.List<D>
-     * @Date 2019/4/3 11:44
-    */
+     * Entity集合转DTO集合
+     * @param entityList
+     * @return
+     */
     List <D> toDto(List<E> entityList);
 }
