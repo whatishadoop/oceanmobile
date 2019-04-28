@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>oceanmobile-common</module>
-        <module>oceanmobile-logging</module>
+        <module>oceanmobile-monitor</module>
         <module>oceanmobile-system</module>
         <module>oceanmobile-tools</module>
         <module>oceanmobile-generator</module>
