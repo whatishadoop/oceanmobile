@@ -18,6 +18,7 @@
         <module>oceanbase-msgcenter</module>
         <module>oceanbase-datastorage</module>
         <module>oceanbase-rule</module>
+        <module>oceanmobile-app</module>
     </modules>
 
     <name>oceanmobile</name>
