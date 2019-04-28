@@ -9,11 +9,15 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>oceanmobile-common</module>
-        <module>oceanmobile-monitor</module>
-        <module>oceanmobile-system</module>
-        <module>oceanmobile-tools</module>
-        <module>oceanmobile-generator</module>
+        <module>oceanbase-common</module>
+        <module>oceanbase-monitor</module>
+        <module>oceanbase-system</module>
+        <module>oceanbase-tools</module>
+        <module>oceanbase-generator</module>
+        <module>oceanbase-workflow</module>
+        <module>oceanbase-msgcenter</module>
+        <module>oceanbase-datastorage</module>
+        <module>oceanbase-rule</module>
     </modules>
 
     <name>oceanmobile</name>
