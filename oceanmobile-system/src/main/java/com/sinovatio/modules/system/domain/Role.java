@@ -20,7 +20,7 @@ import java.util.Set;
 * @Version 1.0
 */
 @Entity
-@Table(name = "role")
+@Table(name = "sys_role")
 @Getter
 @Setter
 public class Role implements Serializable {
@@ -46,15 +46,15 @@ public class Role implements Serializable {
     private Set<User> users;
 
     @ManyToMany
-    @JoinTable(name = "roles_permissions", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")})
+    @JoinTable(name = "sys_roles_permissions", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")})
     private Set<Permission> permissions;
 
     @ManyToMany
-    @JoinTable(name = "roles_menus", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "menu_id",referencedColumnName = "id")})
+    @JoinTable(name = "sys_roles_menus", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "menu_id",referencedColumnName = "id")})
     private Set<Menu> menus;
 
     @ManyToMany
-    @JoinTable(name = "roles_depts", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "dept_id",referencedColumnName = "id")})
+    @JoinTable(name = "sys_roles_depts", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "dept_id",referencedColumnName = "id")})
     private Set<Dept> depts;
 
     @CreationTimestamp

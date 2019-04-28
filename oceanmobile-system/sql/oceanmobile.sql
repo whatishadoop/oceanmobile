@@ -2,42 +2,18 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50562
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : oceanmobile
 
 Target Server Type    : MYSQL
-Target Server Version : 50562
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-04-11 11:11:09
+Date: 2019-04-28 15:46:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for alipay_config
--- ----------------------------
-DROP TABLE IF EXISTS `alipay_config`;
-CREATE TABLE `alipay_config` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `app_id` varchar(255) DEFAULT NULL COMMENT '应用ID',
-  `charset` varchar(255) DEFAULT NULL COMMENT '编码',
-  `format` varchar(255) DEFAULT NULL COMMENT '类型 固定格式json',
-  `gateway_url` varchar(255) DEFAULT NULL COMMENT '网关地址',
-  `notify_url` varchar(255) DEFAULT NULL COMMENT '异步回调',
-  `private_key` text COMMENT '私钥',
-  `public_key` text COMMENT '公钥',
-  `return_url` varchar(255) DEFAULT NULL COMMENT '回调地址',
-  `sign_type` varchar(255) DEFAULT NULL COMMENT '签名方式',
-  `sys_service_provider_id` varchar(255) DEFAULT NULL COMMENT '商户号',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of alipay_config
--- ----------------------------
-INSERT INTO `alipay_config` VALUES ('1', '2016091700532697', 'utf-8', 'JSON', 'https://openapi.alipaydev.com/gateway.do', 'http://api.auauz.net/api/aliPay/notify', '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', 'http://api.auauz.net/api/aliPay/return', 'RSA2', '2088102176044281');
 
 -- ----------------------------
 -- Table structure for dept
@@ -55,16 +31,16 @@ CREATE TABLE `dept` (
 -- ----------------------------
 -- Records of dept
 -- ----------------------------
-INSERT INTO `dept` VALUES ('1', 'oceanmobile', '0', '2019-03-25 09:14:05', '');
-INSERT INTO `dept` VALUES ('2', '研发部', '7', '2019-03-25 09:15:32', '');
-INSERT INTO `dept` VALUES ('5', '运维部', '7', '2019-03-25 09:20:44', '');
-INSERT INTO `dept` VALUES ('6', '测试部', '8', '2019-03-25 09:52:18', '');
-INSERT INTO `dept` VALUES ('7', '华南分部', '1', '2019-03-25 11:04:50', '');
-INSERT INTO `dept` VALUES ('8', '华北分部', '1', '2019-03-25 11:04:53', '');
-INSERT INTO `dept` VALUES ('9', '财务部', '7', '2019-03-25 11:05:34', '');
-INSERT INTO `dept` VALUES ('10', '行政部', '8', '2019-03-25 11:05:58', '');
-INSERT INTO `dept` VALUES ('11', '人事部', '8', '2019-03-25 11:07:58', '');
-INSERT INTO `dept` VALUES ('12', '市场部', '7', '2019-03-25 11:10:24', '\0');
+INSERT INTO `dept` VALUES ('1', '大数据产品部', '0', '2019-03-25 09:14:05', '');
+INSERT INTO `dept` VALUES ('2', '规划部', '7', '2019-03-25 09:15:32', '');
+INSERT INTO `dept` VALUES ('5', '运营部', '7', '2019-03-25 09:20:44', '');
+INSERT INTO `dept` VALUES ('6', '前端部', '8', '2019-03-25 09:52:18', '');
+INSERT INTO `dept` VALUES ('7', '规划系统部', '1', '2019-03-25 11:04:50', '');
+INSERT INTO `dept` VALUES ('8', '研发系统部', '1', '2019-03-25 11:04:53', '');
+INSERT INTO `dept` VALUES ('9', '业务部', '7', '2019-03-25 11:05:34', '');
+INSERT INTO `dept` VALUES ('10', '后端部', '8', '2019-03-25 11:05:58', '');
+INSERT INTO `dept` VALUES ('11', '大数据部', '8', '2019-03-25 11:07:58', '');
+INSERT INTO `dept` VALUES ('12', '测试部', '7', '2019-03-25 11:10:24', '\0');
 
 -- ----------------------------
 -- Table structure for dict
@@ -121,7 +97,12 @@ CREATE TABLE `email_config` (
   `port` varchar(255) DEFAULT NULL COMMENT '端口',
   `user` varchar(255) DEFAULT NULL COMMENT '发件者用户名',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of email_config
+-- ----------------------------
+INSERT INTO `email_config` VALUES ('5', 'jinlu.hansome@163.com', 'smtp.163.com', '45A9CA95DC808187', '255', 'jinlu.hansome@163.com');
 
 -- ----------------------------
 -- Table structure for gen_config
@@ -141,7 +122,7 @@ CREATE TABLE `gen_config` (
 -- ----------------------------
 -- Records of gen_config
 -- ----------------------------
-INSERT INTO `gen_config` VALUES ('1', 'jie', '\0', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\oceanmobile-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\oceanmobile-qt\\src\\api');
+INSERT INTO `gen_config` VALUES ('1', 'admin', '\0', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
 
 -- ----------------------------
 -- Table structure for job
@@ -162,12 +143,12 @@ CREATE TABLE `job` (
 -- ----------------------------
 -- Records of job
 -- ----------------------------
-INSERT INTO `job` VALUES ('2', '董事长秘书', '', '2019-03-29 14:01:30', '2', '1');
-INSERT INTO `job` VALUES ('8', '人事专员', '', '2019-03-29 14:52:28', '3', '11');
+INSERT INTO `job` VALUES ('2', '部门研发经理', '', '2019-03-29 14:01:30', '2', '8');
+INSERT INTO `job` VALUES ('8', '大数据开发', '', '2019-03-29 14:52:28', '3', '11');
 INSERT INTO `job` VALUES ('10', '产品经理', '\0', '2019-03-29 14:55:51', '4', '2');
-INSERT INTO `job` VALUES ('11', '全栈开发', '', '2019-03-31 13:39:30', '6', '2');
+INSERT INTO `job` VALUES ('11', '前端开发', '', '2019-03-31 13:39:30', '6', '6');
 INSERT INTO `job` VALUES ('12', '软件测试', '', '2019-03-31 13:39:43', '5', '2');
-INSERT INTO `job` VALUES ('19', '董事长', '', '2019-03-31 14:58:15', '1', '1');
+INSERT INTO `job` VALUES ('19', '部门经理', '', '2019-03-31 14:58:15', '1', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -185,7 +166,7 @@ CREATE TABLE `log` (
   `time` bigint(20) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4954 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6201 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -206,7 +187,7 @@ CREATE TABLE `menu` (
   `icon` varchar(255) DEFAULT NULL COMMENT '图标',
   `path` varchar(255) DEFAULT NULL COMMENT '链接地址',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -220,30 +201,51 @@ INSERT INTO `menu` VALUES ('6', '2018-12-18 15:17:48', '\0', '系统监控', nul
 INSERT INTO `menu` VALUES ('7', '2018-12-18 15:18:26', '\0', '操作日志', 'monitor/log/index', '6', '11', 'log', 'logs');
 INSERT INTO `menu` VALUES ('8', '2018-12-18 15:19:01', '\0', '系统缓存', 'monitor/redis/index', '6', '13', 'redis', 'redis');
 INSERT INTO `menu` VALUES ('9', '2018-12-18 15:19:34', '\0', 'SQL监控', 'monitor/sql/index', '6', '14', 'sqlMonitor', 'druid');
-INSERT INTO `menu` VALUES ('10', '2018-12-19 13:38:16', '\0', '组件管理', null, '0', '50', 'zujian', 'components');
-INSERT INTO `menu` VALUES ('11', '2018-12-19 13:38:49', '\0', '图标库', 'components/IconSelect', '10', '51', 'icon', 'icon');
 INSERT INTO `menu` VALUES ('12', '2018-12-24 20:37:35', '\0', '实时控制台', 'monitor/log/msg', '6', '16', 'codeConsole', 'msg');
 INSERT INTO `menu` VALUES ('14', '2018-12-27 10:13:09', '\0', '邮件工具', 'tools/email/index', '36', '24', 'email', 'email');
-INSERT INTO `menu` VALUES ('15', '2018-12-27 11:58:25', '\0', '富文本', 'components/Editor', '10', '52', 'fwb', 'tinymce');
-INSERT INTO `menu` VALUES ('16', '2018-12-28 09:36:53', '\0', '图床管理', 'tools/picture/index', '36', '25', 'image', 'pictures');
-INSERT INTO `menu` VALUES ('17', '2018-12-28 15:09:49', '', '项目地址', '', '0', '0', 'github', 'https://github.com/elunez/oceanmobile');
-INSERT INTO `menu` VALUES ('18', '2018-12-31 11:12:15', '\0', '七牛云存储', 'tools/qiniu/index', '36', '26', 'qiniu', 'qiniu');
-INSERT INTO `menu` VALUES ('19', '2018-12-31 14:52:38', '\0', '支付宝工具', 'tools/aliPay/index', '36', '27', 'alipay', 'aliPay');
-INSERT INTO `menu` VALUES ('21', '2019-01-04 16:22:03', '\0', '多级菜单', '', '0', '900', 'menu', 'nested');
-INSERT INTO `menu` VALUES ('22', '2019-01-04 16:23:29', '\0', '二级菜单1', 'nested/menu1/index', '21', '999', 'menu', 'menu1');
-INSERT INTO `menu` VALUES ('23', '2019-01-04 16:23:57', '\0', '二级菜单2', 'nested/menu2/index', '21', '999', 'menu', 'menu2');
-INSERT INTO `menu` VALUES ('24', '2019-01-04 16:24:48', '\0', '三级菜单1', 'nested/menu1/menu1-1', '22', '999', 'menu', 'menu1-1');
-INSERT INTO `menu` VALUES ('27', '2019-01-07 17:27:32', '\0', '三级菜单2', 'nested/menu1/menu1-2', '22', '999', 'menu', 'menu1-2');
+INSERT INTO `menu` VALUES ('17', '2018-12-28 15:09:49', '\0', '设计小程序', 'appmanage/AppDesigner', '42', '0', 'zujian', 'appdesigner');
 INSERT INTO `menu` VALUES ('28', '2019-01-07 20:34:40', '\0', '定时任务', 'system/timing/index', '36', '21', 'timing', 'timing');
 INSERT INTO `menu` VALUES ('30', '2019-01-11 15:45:55', '\0', '代码生成', 'generator/index', '36', '22', 'dev', 'generator');
 INSERT INTO `menu` VALUES ('32', '2019-01-13 13:49:03', '\0', '异常日志', 'monitor/log/errorLog', '6', '12', 'error', 'errorLog');
-INSERT INTO `menu` VALUES ('33', '2019-03-08 13:46:44', '\0', 'Markdown', 'components/MarkDown', '10', '53', 'markdown', 'markdown');
-INSERT INTO `menu` VALUES ('34', '2019-03-08 15:49:40', '\0', 'Yaml编辑器', 'components/YamlEdit', '10', '54', 'dev', 'yaml');
 INSERT INTO `menu` VALUES ('35', '2019-03-25 09:46:00', '\0', '部门管理', 'system/dept/index', '1', '6', 'dept', 'dept');
 INSERT INTO `menu` VALUES ('36', '2019-03-29 10:57:35', '\0', '系统工具', '', '0', '20', 'sys-tools', 'sys-tools');
 INSERT INTO `menu` VALUES ('37', '2019-03-29 13:51:18', '\0', '岗位管理', 'system/job/index', '1', '7', 'Steve-Jobs', 'job');
 INSERT INTO `menu` VALUES ('38', '2019-03-29 19:57:53', '\0', '接口文档', 'tools/swagger/index', '36', '23', 'swagger', 'swagger2');
 INSERT INTO `menu` VALUES ('39', '2019-04-10 11:49:04', '\0', '字典管理', 'system/dict/index', '1', '8', 'dictionary', 'dict');
+INSERT INTO `menu` VALUES ('42', '2019-04-25 13:58:03', '\0', '应用管理', '', '0', '0', 'fwb', 'appmanage');
+INSERT INTO `menu` VALUES ('43', '2019-04-25 14:13:23', '\0', '组装小程序', '', '42', '999', 'add', 'assemble');
+INSERT INTO `menu` VALUES ('44', '2019-04-25 14:14:43', '\0', '管理小程序', '', '42', '999', 'chain', 'app');
+INSERT INTO `menu` VALUES ('45', '2019-04-25 14:15:29', '\0', '模板管理', '', '42', '999', 'anq', 'apptemplate');
+INSERT INTO `menu` VALUES ('46', '2019-04-25 16:07:31', '\0', '决策管理', '', '0', '999', 'fwb', 'rulesmanage');
+INSERT INTO `menu` VALUES ('47', '2019-04-25 16:12:10', '\0', '决策表设计', '', '46', '999', 'tools', 'ruletable');
+INSERT INTO `menu` VALUES ('48', '2019-04-25 16:13:40', '\0', '业务决策配置', '', '46', '999', 'timing', 'ruleconfig');
+INSERT INTO `menu` VALUES ('49', '2019-04-25 16:14:31', '\0', '决策日志', '', '46', '999', 'index', 'rulelog');
+INSERT INTO `menu` VALUES ('50', '2019-04-25 16:15:15', '\0', '决策测试', '', '46', '999', 'user', 'ruletest');
+INSERT INTO `menu` VALUES ('51', '2019-04-25 16:43:55', '\0', '性能监控', '', '6', '999', 'system', 'middleware');
+INSERT INTO `menu` VALUES ('52', '2019-04-25 16:45:36', '\0', 'Redis监控', '', '51', '999', 'monitor', 'redis');
+INSERT INTO `menu` VALUES ('53', '2019-04-25 16:46:17', '\0', 'Tomcat监控', '', '51', '999', 'monitor', 'tomcat');
+INSERT INTO `menu` VALUES ('54', '2019-04-25 16:47:13', '\0', 'Server监控', '', '51', '999', 'monitor', 'server');
+INSERT INTO `menu` VALUES ('55', '2019-04-25 16:47:49', '\0', 'Jvm监控', '', '51', '999', 'monitor', 'jvm');
+INSERT INTO `menu` VALUES ('56', '2019-04-25 16:56:18', '\0', '容器控制台', '', '6', '17', 'monitor', 'dockerconsole');
+INSERT INTO `menu` VALUES ('57', '2019-04-25 18:08:45', '\0', '系统公告', 'system/announcement/Editor', '1', '999', 'gonggao', 'announcement');
+INSERT INTO `menu` VALUES ('58', '2019-04-25 18:11:06', '\0', '系统配置', 'system/configinfo/YamlEdit', '1', '999', 'system', 'configinfo');
+INSERT INTO `menu` VALUES ('59', '2019-04-25 18:19:30', '\0', '控件使用', 'tools/control/MarkDown', '36', '999', 'zujian', 'control');
+INSERT INTO `menu` VALUES ('60', '2019-04-25 18:29:49', '\0', '数据存储', '', '0', '999', 'date', 'datastorage');
+INSERT INTO `menu` VALUES ('61', '2019-04-25 18:31:04', '\0', '图标库', 'datastorage/icon/IconSelect', '60', '999', 'date', 'icon');
+INSERT INTO `menu` VALUES ('62', '2019-04-25 18:32:02', '\0', '图片管理', 'datastorage/picture', '60', '999', 'date', 'picture');
+INSERT INTO `menu` VALUES ('63', '2019-04-25 18:33:34', '\0', '文件管理', 'datastorage/file', '60', '999', 'date', 'file');
+INSERT INTO `menu` VALUES ('64', '2019-04-25 18:40:37', '\0', '流程管理', '', '0', '996', 'dept', 'processmanage');
+INSERT INTO `menu` VALUES ('65', '2019-04-25 18:41:38', '\0', '流程设计', '', '64', '999', 'develop', 'designer');
+INSERT INTO `menu` VALUES ('66', '2019-04-25 18:42:38', '\0', '流程监听', '', '64', '999', 'ipvisits', 'listener');
+INSERT INTO `menu` VALUES ('67', '2019-04-25 18:43:49', '\0', '流程表达式', '', '64', '999', 'icon', 'expression');
+INSERT INTO `menu` VALUES ('68', '2019-04-25 18:45:11', '\0', '流程实例', '', '64', '999', 'index', 'instance');
+INSERT INTO `menu` VALUES ('69', '2019-04-25 18:45:46', '\0', '历史任务', '', '64', '999', 'java', 'historytask');
+INSERT INTO `menu` VALUES ('70', '2019-04-25 18:46:22', '\0', '历史流程', '', '64', '999', 'timing', 'historytask');
+INSERT INTO `menu` VALUES ('71', '2019-04-25 18:50:47', '\0', '消息中心', '', '0', '999', 'gonggao', 'messagecenter');
+INSERT INTO `menu` VALUES ('72', '2019-04-25 18:51:55', '\0', '消息管理', '', '71', '999', 'visits', 'manage');
+INSERT INTO `menu` VALUES ('73', '2019-04-25 18:52:23', '\0', '消息模板', '', '71', '999', 'zujian', 'template');
+INSERT INTO `menu` VALUES ('74', '2019-04-25 19:03:11', '\0', '数据立方', '', '60', '999', 'qiniu', 'kylincube');
+INSERT INTO `menu` VALUES ('75', '2019-04-25 19:05:05', '\0', '全文检索', '', '60', '999', 'index', 'essesrch');
 
 -- ----------------------------
 -- Table structure for permission
@@ -327,7 +329,19 @@ CREATE TABLE `picture` (
   `username` varchar(255) DEFAULT NULL COMMENT '用户名称',
   `width` varchar(255) DEFAULT NULL COMMENT '图片宽度',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of picture
+-- ----------------------------
+INSERT INTO `picture` VALUES ('1', '2019-04-23 18:58:42', 'https://sm.ms/delete/39quSxpsmUvI8MG', 'Koala.jpg', '768', '762.53KB   ', 'https://i.loli.net/2019/04/23/5cbeefdfc9148.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('2', '2019-04-23 18:58:44', 'https://sm.ms/delete/Yap2j5fzcxNPXOR', 'Chrysanthemum.jpg', '768', '858.78KB   ', 'https://i.loli.net/2019/04/23/5cbeefe19e18e.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('3', '2019-04-23 19:02:28', 'https://sm.ms/delete/qHkJPIWGCYXadQR', 'Jellyfish.jpg', '768', '757.52KB   ', 'https://i.loli.net/2019/04/23/5cbef0c15df37.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('4', '2019-04-23 19:03:23', 'https://sm.ms/delete/65sbj1kqzyIBpt3', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbef0f87975f.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('5', '2019-04-23 19:54:41', 'https://sm.ms/delete/d6s8Kqixh2eayXg', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefcfebdfd7.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('6', '2019-04-23 19:55:47', 'https://sm.ms/delete/H6FKc17TtkDuZjs', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefd40c8bd9.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('7', '2019-04-23 19:57:00', 'https://sm.ms/delete/plrXwUMSZtWP4vj', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd89bc660.jpg', 'admin', '1024');
+INSERT INTO `picture` VALUES ('8', '2019-04-23 19:57:49', 'https://sm.ms/delete/rxZyshOMoVAKE8X', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd960e7ff.jpg', 'admin', '1024');
 
 -- ----------------------------
 -- Table structure for qiniu_config
@@ -342,7 +356,11 @@ CREATE TABLE `qiniu_config` (
   `type` varchar(255) DEFAULT NULL COMMENT '空间类型',
   `zone` varchar(255) DEFAULT NULL COMMENT '机房',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of qiniu_config
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for qiniu_content
@@ -357,7 +375,11 @@ CREATE TABLE `qiniu_content` (
   `update_time` datetime DEFAULT NULL COMMENT '上传或同步的时间',
   `url` varchar(255) DEFAULT NULL COMMENT '文件url',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of qiniu_content
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for quartz_job
@@ -399,11 +421,13 @@ CREATE TABLE `quartz_log` (
   `params` varchar(255) DEFAULT NULL,
   `time` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of quartz_log
 -- ----------------------------
+INSERT INTO `quartz_log` VALUES ('1', 'visitsTask', '2019-04-24 02:15:29', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3033');
+INSERT INTO `quartz_log` VALUES ('2', 'visitsTask', '2019-04-25 09:31:49', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3333');
 
 -- ----------------------------
 -- Table structure for role
@@ -467,55 +491,67 @@ INSERT INTO `roles_menus` VALUES ('6', '1');
 INSERT INTO `roles_menus` VALUES ('7', '1');
 INSERT INTO `roles_menus` VALUES ('8', '1');
 INSERT INTO `roles_menus` VALUES ('9', '1');
-INSERT INTO `roles_menus` VALUES ('10', '1');
-INSERT INTO `roles_menus` VALUES ('11', '1');
 INSERT INTO `roles_menus` VALUES ('12', '1');
 INSERT INTO `roles_menus` VALUES ('14', '1');
-INSERT INTO `roles_menus` VALUES ('15', '1');
-INSERT INTO `roles_menus` VALUES ('16', '1');
 INSERT INTO `roles_menus` VALUES ('17', '1');
-INSERT INTO `roles_menus` VALUES ('18', '1');
-INSERT INTO `roles_menus` VALUES ('19', '1');
-INSERT INTO `roles_menus` VALUES ('21', '1');
-INSERT INTO `roles_menus` VALUES ('22', '1');
-INSERT INTO `roles_menus` VALUES ('23', '1');
-INSERT INTO `roles_menus` VALUES ('24', '1');
-INSERT INTO `roles_menus` VALUES ('27', '1');
 INSERT INTO `roles_menus` VALUES ('28', '1');
 INSERT INTO `roles_menus` VALUES ('30', '1');
 INSERT INTO `roles_menus` VALUES ('32', '1');
-INSERT INTO `roles_menus` VALUES ('33', '1');
-INSERT INTO `roles_menus` VALUES ('34', '1');
 INSERT INTO `roles_menus` VALUES ('35', '1');
 INSERT INTO `roles_menus` VALUES ('36', '1');
 INSERT INTO `roles_menus` VALUES ('37', '1');
 INSERT INTO `roles_menus` VALUES ('38', '1');
 INSERT INTO `roles_menus` VALUES ('39', '1');
+INSERT INTO `roles_menus` VALUES ('42', '1');
+INSERT INTO `roles_menus` VALUES ('43', '1');
+INSERT INTO `roles_menus` VALUES ('44', '1');
+INSERT INTO `roles_menus` VALUES ('45', '1');
+INSERT INTO `roles_menus` VALUES ('46', '1');
+INSERT INTO `roles_menus` VALUES ('47', '1');
+INSERT INTO `roles_menus` VALUES ('48', '1');
+INSERT INTO `roles_menus` VALUES ('49', '1');
+INSERT INTO `roles_menus` VALUES ('50', '1');
+INSERT INTO `roles_menus` VALUES ('51', '1');
+INSERT INTO `roles_menus` VALUES ('52', '1');
+INSERT INTO `roles_menus` VALUES ('53', '1');
+INSERT INTO `roles_menus` VALUES ('54', '1');
+INSERT INTO `roles_menus` VALUES ('55', '1');
+INSERT INTO `roles_menus` VALUES ('56', '1');
+INSERT INTO `roles_menus` VALUES ('57', '1');
+INSERT INTO `roles_menus` VALUES ('58', '1');
+INSERT INTO `roles_menus` VALUES ('59', '1');
+INSERT INTO `roles_menus` VALUES ('60', '1');
+INSERT INTO `roles_menus` VALUES ('61', '1');
+INSERT INTO `roles_menus` VALUES ('62', '1');
+INSERT INTO `roles_menus` VALUES ('63', '1');
+INSERT INTO `roles_menus` VALUES ('64', '1');
+INSERT INTO `roles_menus` VALUES ('65', '1');
+INSERT INTO `roles_menus` VALUES ('66', '1');
+INSERT INTO `roles_menus` VALUES ('67', '1');
+INSERT INTO `roles_menus` VALUES ('68', '1');
+INSERT INTO `roles_menus` VALUES ('69', '1');
+INSERT INTO `roles_menus` VALUES ('70', '1');
+INSERT INTO `roles_menus` VALUES ('71', '1');
+INSERT INTO `roles_menus` VALUES ('72', '1');
+INSERT INTO `roles_menus` VALUES ('73', '1');
+INSERT INTO `roles_menus` VALUES ('74', '1');
+INSERT INTO `roles_menus` VALUES ('75', '1');
 INSERT INTO `roles_menus` VALUES ('1', '2');
 INSERT INTO `roles_menus` VALUES ('2', '2');
 INSERT INTO `roles_menus` VALUES ('3', '2');
 INSERT INTO `roles_menus` VALUES ('4', '2');
 INSERT INTO `roles_menus` VALUES ('5', '2');
 INSERT INTO `roles_menus` VALUES ('6', '2');
-INSERT INTO `roles_menus` VALUES ('10', '2');
-INSERT INTO `roles_menus` VALUES ('11', '2');
 INSERT INTO `roles_menus` VALUES ('12', '2');
-INSERT INTO `roles_menus` VALUES ('15', '2');
-INSERT INTO `roles_menus` VALUES ('16', '2');
 INSERT INTO `roles_menus` VALUES ('17', '2');
-INSERT INTO `roles_menus` VALUES ('18', '2');
-INSERT INTO `roles_menus` VALUES ('19', '2');
-INSERT INTO `roles_menus` VALUES ('21', '2');
-INSERT INTO `roles_menus` VALUES ('22', '2');
-INSERT INTO `roles_menus` VALUES ('23', '2');
-INSERT INTO `roles_menus` VALUES ('24', '2');
-INSERT INTO `roles_menus` VALUES ('27', '2');
-INSERT INTO `roles_menus` VALUES ('33', '2');
-INSERT INTO `roles_menus` VALUES ('34', '2');
 INSERT INTO `roles_menus` VALUES ('35', '2');
 INSERT INTO `roles_menus` VALUES ('36', '2');
 INSERT INTO `roles_menus` VALUES ('37', '2');
 INSERT INTO `roles_menus` VALUES ('38', '2');
+INSERT INTO `roles_menus` VALUES ('42', '2');
+INSERT INTO `roles_menus` VALUES ('43', '2');
+INSERT INTO `roles_menus` VALUES ('44', '2');
+INSERT INTO `roles_menus` VALUES ('45', '2');
 
 -- ----------------------------
 -- Table structure for roles_permissions
@@ -569,14 +605,13 @@ CREATE TABLE `user` (
   KEY `FKfftoc2abhot8f2wu6cl9a5iky` (`job_id`),
   CONSTRAINT `FK5rwmryny6jthaaxkogownknqp` FOREIGN KEY (`dept_id`) REFERENCES `dept` (`id`),
   CONSTRAINT `FKfftoc2abhot8f2wu6cl9a5iky` FOREIGN KEY (`job_id`) REFERENCES `job` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg', '2018-08-23 09:11:56', 'admin@oceanmobile.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-04-04 16:00:46', '2', '18888888888', '11');
-INSERT INTO `user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@oceanmobile.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
-INSERT INTO `user` VALUES ('5', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2019-04-02 10:07:12', 'hr@oceanmobile.net', '1', 'e10adc3949ba59abbe56e057f20f883e', 'hr', null, '11', '15555555555', '8');
+INSERT INTO `user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg', '2018-08-23 09:11:56', 'admin@sinovatio.com', '1', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-04-04 16:00:46', '2', '18888888888', '10');
+INSERT INTO `user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@sinovatio.com', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
 
 -- ----------------------------
 -- Table structure for users_roles
@@ -596,7 +631,6 @@ CREATE TABLE `users_roles` (
 -- ----------------------------
 INSERT INTO `users_roles` VALUES ('1', '1');
 INSERT INTO `users_roles` VALUES ('3', '2');
-INSERT INTO `users_roles` VALUES ('5', '2');
 
 -- ----------------------------
 -- Table structure for verification_code
@@ -611,7 +645,11 @@ CREATE TABLE `verification_code` (
   `value` varchar(255) DEFAULT NULL COMMENT '接收邮箱或者手机号码',
   `scenes` varchar(255) DEFAULT NULL COMMENT '业务名称：如重置邮箱、重置密码等',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of verification_code
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for visits
@@ -626,8 +664,15 @@ CREATE TABLE `visits` (
   `week_day` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_11aksgq87euk9bcyeesfs4vtp` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of visits
 -- ----------------------------
+INSERT INTO `visits` VALUES ('20', '2019-04-18 16:20:41', '2019-04-18', '0', '2', 'Thu');
+INSERT INTO `visits` VALUES ('21', '2019-04-19 10:43:33', '2019-04-19', '1', '11', 'Fri');
+INSERT INTO `visits` VALUES ('22', '2019-04-22 14:21:35', '2019-04-22', '1', '4', 'Mon');
+INSERT INTO `visits` VALUES ('23', '2019-04-23 09:27:19', '2019-04-23', '1', '70', 'Tue');
+INSERT INTO `visits` VALUES ('24', '2019-04-24 02:15:27', '2019-04-24', '1', '20', 'Wed');
+INSERT INTO `visits` VALUES ('25', '2019-04-25 09:31:49', '2019-04-25', '1', '19', 'Thu');
+INSERT INTO `visits` VALUES ('26', '2019-04-28 15:21:04', '2019-04-28', '1', '3', 'Sun');

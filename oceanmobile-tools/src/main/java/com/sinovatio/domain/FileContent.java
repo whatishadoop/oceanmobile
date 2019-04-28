@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
-* @ClassName: QiniuContent
+* @ClassName: FileContent
 * @Description: 上传成功后，存储结果
 * @Author JinLu
 * @Date 2019/4/19 16:09
@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "qiniu_content")
-public class QiniuContent implements Serializable {
+public class FileContent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

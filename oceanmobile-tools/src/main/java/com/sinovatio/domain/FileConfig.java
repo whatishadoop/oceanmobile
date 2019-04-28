@@ -6,8 +6,8 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
-* @ClassName: QiniuConfig
-* @Description: 七牛云对象存储配置类
+* @ClassName: FileConfig
+* @Description: 文件云对象存储配置类
 * @Author JinLu
 * @Date 2019/4/19 16:09
 * @Version 1.0
@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "qiniu_config")
-public class QiniuConfig implements Serializable {
+public class FileConfig implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +53,7 @@ public class QiniuConfig implements Serializable {
     private String zone;
 
     /**
-     * 外链域名，可自定义，需在七牛云绑定
+     * 外链域名，可自定义，需在文件云绑定
      */
     @NotBlank
     private String host;

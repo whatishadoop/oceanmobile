@@ -2,18 +2,17 @@ package com.sinovatio.util;
 
 import com.qiniu.common.Zone;
 import com.qiniu.storage.Configuration;
-import com.sinovatio.utils.FileUtil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
-* @ClassName: QiNiuUtil
-* @Description: 七牛云存储工具类
+* @ClassName: FilesUtil
+* @Description: 文件云存储工具类
 * @Author JinLu
 * @Date 2019/4/19 16:18
 * @Version 1.0
 */
-public class QiNiuUtil {
+public class FilesUtil {
 
     public static final String HUAD = "华东";
 
@@ -51,13 +50,13 @@ public class QiNiuUtil {
      * @return
      */
     public static String getKey(String file){
-        StringBuffer key = new StringBuffer(FileUtil.getFileNameNoEx(file));
+        StringBuffer key = new StringBuffer(com.sinovatio.utils.FileUtil.getFileNameNoEx(file));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = new Date();
         key.append("-");
         key.append(sdf.format(date));
         key.append(".");
-        key.append(FileUtil.getExtensionName(file));
+        key.append(com.sinovatio.utils.FileUtil.getExtensionName(file));
         return key.toString();
     }
 }

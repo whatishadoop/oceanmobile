@@ -19,7 +19,7 @@ import java.util.Set;
 */
 @Entity
 @Data
-@Table(name="dept")
+@Table(name="sys_dept")
 public class Dept implements Serializable {
 
     /**

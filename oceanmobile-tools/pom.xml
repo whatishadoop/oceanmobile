@@ -31,7 +31,7 @@
             <version>${mail.version}</version>
         </dependency>
 
-        <!--七牛云存储-->
+        <!--文件云存储-->
         <dependency>
             <groupId>com.qiniu</groupId>
             <artifactId>qiniu-java-sdk</artifactId>

@@ -50,6 +50,8 @@ public class PictureServiceImpl implements PictureService {
         HashMap<String, Object> paramMap = new HashMap<>();
 
         paramMap.put("smfile", file);
+
+        //发送第三方存储接口，扩展下支持第三存储接口，数据库
         String result= HttpUtil.post(OceanMobileConstant.Url.SM_MS_URL, paramMap);
 
         JSONObject jsonObject = JSONUtil.parseObj(result);

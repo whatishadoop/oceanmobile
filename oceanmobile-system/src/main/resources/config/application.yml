@@ -38,8 +38,8 @@ spring:
     timeout: 5000
 
 
-#七牛云
-qiniu:
+#文件存储
+file:
   # 文件大小 /M
   max-size: 15
 

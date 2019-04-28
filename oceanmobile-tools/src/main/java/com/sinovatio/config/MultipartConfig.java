@@ -17,7 +17,7 @@ import java.io.File;
 public class MultipartConfig {
 
     /**
-     * 文件上传临时路径
+     * 文件上传临时路径配置
      */
     @Bean
     MultipartConfigElement multipartConfigElement() {

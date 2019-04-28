@@ -84,7 +84,7 @@ public class EmailServiceImpl implements EmailService {
                           emailVo.getTos(),
                           emailVo.getSubject(),
                           content,
-                          true);
+                          true); // 发送邮件是否为http格式
         }catch (Exception e){
             throw new BadRequestException(e.getMessage());
         }

@@ -1,7 +1,7 @@
 package com.sinovatio.service.query;
 
-import com.sinovatio.domain.QiniuContent;
-import com.sinovatio.repository.QiniuContentRepository;
+import com.sinovatio.domain.FileContent;
+import com.sinovatio.repository.FileContentRepository;
 import com.sinovatio.utils.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
 * @ClassName: QiNiuQueryService
-* @Description: 七牛云查询服务
+* @Description: 文件云查询服务
 * @Author JinLu
 * @Date 2019/4/19 16:16
 * @Version 1.0
@@ -29,37 +29,37 @@ import java.util.List;
 @Service
 @CacheConfig(cacheNames = "qiNiu")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class QiNiuQueryService {
+public class FileQueryService {
 
     @Autowired
-    private QiniuContentRepository qiniuContentRepository;
+    private FileContentRepository fileContentRepository;
 
     /**
      * 分页
      */
     @Cacheable(keyGenerator = "keyGenerator")
-    public Object queryAll(QiniuContent qiniuContent, Pageable pageable){
-        return PageUtil.toPage(qiniuContentRepository.findAll(new Spec(qiniuContent),pageable));
+    public Object queryAll(FileContent fileContent, Pageable pageable){
+        return PageUtil.toPage(fileContentRepository.findAll(new Spec(fileContent),pageable));
     }
 
-    class Spec implements Specification<QiniuContent> {
+    class Spec implements Specification<FileContent> {
 
-        private QiniuContent qiniuContent;
+        private FileContent fileContent;
 
-        public Spec(QiniuContent qiniuContent){
-            this.qiniuContent = qiniuContent;
+        public Spec(FileContent fileContent){
+            this.fileContent = fileContent;
         }
 
         @Override
-        public Predicate toPredicate(Root<QiniuContent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+        public Predicate toPredicate(Root<FileContent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
 
             List<Predicate> list = new ArrayList<Predicate>();
 
-            if(!ObjectUtils.isEmpty(qiniuContent.getKey())){
+            if(!ObjectUtils.isEmpty(fileContent.getKey())){
                 /**
                  * 模糊
                  */
-                list.add(cb.like(root.get("key").as(String.class),"%"+qiniuContent.getKey()+"%"));
+                list.add(cb.like(root.get("key").as(String.class),"%"+ fileContent.getKey()+"%"));
             }
 
             Predicate[] p = new Predicate[list.size()];

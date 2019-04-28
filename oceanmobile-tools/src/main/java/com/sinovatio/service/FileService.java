@@ -1,7 +1,7 @@
 package com.sinovatio.service;
 
-import com.sinovatio.domain.QiniuConfig;
-import com.sinovatio.domain.QiniuContent;
+import com.sinovatio.domain.FileConfig;
+import com.sinovatio.domain.FileContent;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -10,36 +10,36 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
 * @ClassName: QiNiuService
-* @Description: 七牛云服务
+* @Description: 文件云服务
 * @Author JinLu
 * @Date 2019/4/19 16:17
 * @Version 1.0
 */
 @CacheConfig(cacheNames = "qiNiu")
-public interface QiNiuService {
+public interface FileService {
 
     /**
      * 查配置
      * @return
      */
     @Cacheable(key = "'1'")
-    QiniuConfig find();
+    FileConfig find();
 
     /**
      * 修改配置
-     * @param qiniuConfig
+     * @param fileConfig
      * @return
      */
     @CachePut(key = "'1'")
-    QiniuConfig update(QiniuConfig qiniuConfig);
+    FileConfig update(FileConfig fileConfig);
 
     /**
      * 上传文件
      * @param file
-     * @param qiniuConfig
+     * @param fileConfig
      */
     @CacheEvict(allEntries = true)
-    QiniuContent upload(MultipartFile file, QiniuConfig qiniuConfig);
+    FileContent upload(MultipartFile file, FileConfig fileConfig);
 
     /**
      * 查询文件
@@ -47,7 +47,7 @@ public interface QiNiuService {
      * @return
      */
     @Cacheable(key = "'content:'+#p0")
-    QiniuContent findByContentId(Long id);
+    FileContent findByContentId(Long id);
 
     /**
      * 下载文件
@@ -55,7 +55,7 @@ public interface QiNiuService {
      * @param config
      * @return
      */
-    String download(QiniuContent content, QiniuConfig config);
+    String download(FileContent content, FileConfig config);
 
     /**
      * 删除文件
@@ -64,12 +64,12 @@ public interface QiNiuService {
      * @return
      */
     @CacheEvict(allEntries = true)
-    void delete(QiniuContent content, QiniuConfig config);
+    void delete(FileContent content, FileConfig config);
 
     /**
      * 同步数据
      * @param config
      */
     @CacheEvict(allEntries = true)
-    void synchronize(QiniuConfig config);
+    void synchronize(FileConfig config);
 }

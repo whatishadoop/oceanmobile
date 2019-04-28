@@ -21,7 +21,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "permission")
+@Table(name = "sys_permission")
 public class Permission implements Serializable{
 
 	@Id
