@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 */
 @Entity
 @Data
-@Table(name = "visits")
+@Table(name = "sys_visits")
 public class Visits {
 
     @Id

@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 */
 @Entity
 @Data
-@Table(name = "log")
+@Table(name = "mon_log")
 @NoArgsConstructor
 public class Log {
 

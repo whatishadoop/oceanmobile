@@ -22,6 +22,6 @@ public interface LogRepository extends JpaRepository<Log,Long>, JpaSpecification
      * @param date2
      * @return
      */
-    @Query(value = "select count(*) FROM (select request_ip FROM log where create_time between ?1 and ?2 GROUP BY request_ip) as s",nativeQuery = true)
+    @Query(value = "select count(*) FROM (select request_ip FROM mon_log where create_time between ?1 and ?2 GROUP BY request_ip) as s",nativeQuery = true)
     Long findIp(String date1, String date2);
 }

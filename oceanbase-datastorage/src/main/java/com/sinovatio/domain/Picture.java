@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 */
 @Data
 @Entity
-@Table(name = "picture")
+@Table(name = "ds_picture")
 public class Picture implements Serializable {
 
     @Id

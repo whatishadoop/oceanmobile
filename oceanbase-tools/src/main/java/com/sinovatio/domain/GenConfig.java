@@ -12,7 +12,7 @@ import javax.persistence.*;
 */
 @Data
 @Entity
-@Table(name = "gen_config")
+@Table(name = "tls_gen_config")
 public class GenConfig {
 
     @Id

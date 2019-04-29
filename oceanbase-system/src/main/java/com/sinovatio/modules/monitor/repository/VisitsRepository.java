@@ -30,7 +30,7 @@ public interface VisitsRepository extends JpaRepository<Visits,Long> {
      * @param date2
      * @return
      */
-    @Query(value = "select * FROM visits where " +
+    @Query(value = "select * FROM sys_visits where " +
             "create_time between ?1 and ?2",nativeQuery = true)
     List<Visits> findAllVisits(String date1, String date2);
 }

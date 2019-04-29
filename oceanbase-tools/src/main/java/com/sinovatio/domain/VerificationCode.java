@@ -20,7 +20,7 @@ import java.sql.Timestamp;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "verification_code")
+@Table(name = "tls_verification_code")
 public class VerificationCode {
 
     @Id
