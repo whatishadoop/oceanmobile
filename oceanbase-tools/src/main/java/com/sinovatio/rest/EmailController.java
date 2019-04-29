@@ -1,10 +1,10 @@
 package com.sinovatio.rest;
 
-import lombok.extern.slf4j.Slf4j;
 import com.sinovatio.aop.log.Log;
 import com.sinovatio.domain.EmailConfig;
 import com.sinovatio.domain.vo.EmailVo;
 import com.sinovatio.service.EmailService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

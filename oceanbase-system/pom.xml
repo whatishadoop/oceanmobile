@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oceanmobile-system</artifactId>
+    <artifactId>oceanbase-system</artifactId>
 
     <properties>
         <jjwt.version>0.9.1</jjwt.version>
@@ -18,13 +18,13 @@
     <dependencies>
         <dependency>
             <groupId>com.sinovatio</groupId>
-            <artifactId>oceanmobile-generator</artifactId>
+            <artifactId>oceanbase-tools</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.sinovatio</groupId>
-            <artifactId>oceanmobile-tools</artifactId>
+            <artifactId>oceanbase-datastorage</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
