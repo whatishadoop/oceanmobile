@@ -43,7 +43,6 @@ public class FileQueryService {
     }
 
     class Spec implements Specification<FileContent> {
-
         private FileContent fileContent;
 
         public Spec(FileContent fileContent){
@@ -54,7 +53,7 @@ public class FileQueryService {
         public Predicate toPredicate(Root<FileContent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
 
             List<Predicate> list = new ArrayList<Predicate>();
-
+            // 组装查询条件
             if(!ObjectUtils.isEmpty(fileContent.getKey())){
                 /**
                  * 模糊
@@ -62,7 +61,9 @@ public class FileQueryService {
                 list.add(cb.like(root.get("key").as(String.class),"%"+ fileContent.getKey()+"%"));
             }
 
+            // 转换成Predicate 对象条件数组形式
             Predicate[] p = new Predicate[list.size()];
+            // 将list转换成数组，条件之间是and关系
             return cb.and(list.toArray(p));
         }
     }

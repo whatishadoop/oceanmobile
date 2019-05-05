@@ -38,6 +38,8 @@ public class DictDetailController {
     @Log("查询字典详情")
     @GetMapping(value = "/dictDetail")
     public ResponseEntity getDictDetails(DictDetailDTO resources,
+                                         // 设置排序字段sort, 升序排列，每一页的大小为10，默认从0页开始(第一页)，默认只能每页显示2000条数据
+                                         // 通过PageableHandlerMethodArgumentResolver进行配置
                                          @PageableDefault(value = 10, sort = {"sort"}, direction = Sort.Direction.ASC) Pageable pageable){
         return new ResponseEntity(dictDetailQueryService.queryAll(resources,pageable),HttpStatus.OK);
     }

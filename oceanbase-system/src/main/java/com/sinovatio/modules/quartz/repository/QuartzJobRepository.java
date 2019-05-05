@@ -22,7 +22,7 @@ public interface QuartzJobRepository extends JpaRepository<QuartzJob,Long>, JpaS
      * @param id
      */
     @Transactional(rollbackFor = Exception.class)
-    @Modifying
+    @Modifying  //  @Query 使用update更新或删除执行dml操作时,需要设置@Modifying 以及@Transactional事物，否则执行报错
     @Query(value = "update quartz_job set is_pause = 1 where id = ?1",nativeQuery = true)
     void updateIsPause(Long id);
 

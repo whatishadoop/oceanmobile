@@ -39,6 +39,7 @@ public class PictureQueryService {
      */
     @Cacheable(keyGenerator = "keyGenerator")
     public Object queryAll(Picture picture, Pageable pageable){
+        // pageable设置从第几页开始，每页显示多少条记录，返回的page对象中能获取分页相关信息
         return PageUtil.toPage(pictureRepository.findAll(new Spec(picture),pageable));
     }
 

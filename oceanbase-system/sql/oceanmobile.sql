@@ -10,77 +10,116 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-04-28 23:19:12
+Date: 2019-05-06 00:15:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `email_config`
+-- Table structure for `app_application`
 -- ----------------------------
-DROP TABLE IF EXISTS `email_config`;
-CREATE TABLE `email_config` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `from_user` varchar(255) DEFAULT NULL COMMENT '收件人',
-  `host` varchar(255) DEFAULT NULL COMMENT '邮件服务器SMTP地址',
-  `pass` varchar(255) DEFAULT NULL COMMENT '密码',
-  `port` varchar(255) DEFAULT NULL COMMENT '端口',
-  `user` varchar(255) DEFAULT NULL COMMENT '发件者用户名',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of email_config
--- ----------------------------
-INSERT INTO `email_config` VALUES ('5', 'jinlu.hansome@163.com', 'smtp.163.com', '45A9CA95DC808187', '255', 'jinlu.hansome@163.com');
-
--- ----------------------------
--- Table structure for `gen_config`
--- ----------------------------
-DROP TABLE IF EXISTS `gen_config`;
-CREATE TABLE `gen_config` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `author` varchar(255) DEFAULT NULL COMMENT '作者',
-  `cover` bit(1) DEFAULT NULL COMMENT '是否覆盖',
-  `module_name` varchar(255) DEFAULT NULL COMMENT '模块名称',
-  `pack` varchar(255) DEFAULT NULL COMMENT '至于哪个包下',
-  `path` varchar(255) DEFAULT NULL COMMENT '前端代码生成的路径',
-  `api_path` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of gen_config
--- ----------------------------
-INSERT INTO `gen_config` VALUES ('1', 'admin', '', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
-
--- ----------------------------
--- Table structure for `log`
--- ----------------------------
-DROP TABLE IF EXISTS `log`;
-CREATE TABLE `log` (
+DROP TABLE IF EXISTS `app_application`;
+CREATE TABLE `app_application` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `creator` varchar(40) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `exception_detail` text,
-  `log_type` varchar(255) DEFAULT NULL,
-  `method` varchar(255) DEFAULT NULL,
-  `params` text,
-  `request_ip` varchar(255) DEFAULT NULL,
-  `time` bigint(20) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `busi_name` varchar(50) DEFAULT NULL,
+  `sort` bigint(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6206 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of log
+-- Records of app_application
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `picture`
+-- Table structure for `app_page`
 -- ----------------------------
-DROP TABLE IF EXISTS `picture`;
-CREATE TABLE `picture` (
+DROP TABLE IF EXISTS `app_page`;
+CREATE TABLE `app_page` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `code` varchar(20) DEFAULT NULL,
+  `content` longtext,
+  `content_parse` longtext,
+  `config` longtext,
+  `is_enable` char(1) DEFAULT NULL,
+  `creator` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `sort` bigint(100) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of app_page
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ds_dile_content`
+-- ----------------------------
+DROP TABLE IF EXISTS `ds_dile_content`;
+CREATE TABLE `ds_dile_content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `bucket` varchar(255) DEFAULT NULL COMMENT 'Bucket 识别符',
+  `name` varchar(255) DEFAULT NULL COMMENT '文件名称',
+  `size` varchar(255) DEFAULT NULL COMMENT '文件大小',
+  `type` varchar(255) DEFAULT NULL COMMENT '文件类型：私有或公开',
+  `update_time` datetime DEFAULT NULL COMMENT '上传或同步的时间',
+  `url` varchar(255) DEFAULT NULL COMMENT '文件url',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ds_dile_content
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ds_file_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `ds_file_config`;
+CREATE TABLE `ds_file_config` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `access_key` text COMMENT 'accessKey',
+  `bucket` varchar(255) DEFAULT NULL COMMENT 'Bucket 识别符',
+  `host` varchar(255) NOT NULL COMMENT '外链域名',
+  `secret_key` text COMMENT 'secretKey',
+  `type` varchar(255) DEFAULT NULL COMMENT '空间类型',
+  `zone` varchar(255) DEFAULT NULL COMMENT '机房',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ds_file_config
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ds_file_content`
+-- ----------------------------
+DROP TABLE IF EXISTS `ds_file_content`;
+CREATE TABLE `ds_file_content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `bucket` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ds_file_content
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ds_picture`
+-- ----------------------------
+DROP TABLE IF EXISTS `ds_picture`;
+CREATE TABLE `ds_picture` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `create_time` datetime DEFAULT NULL COMMENT '上传日期',
   `delete_url` varchar(255) DEFAULT NULL COMMENT '删除的URL',
@@ -94,102 +133,38 @@ CREATE TABLE `picture` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of picture
+-- Records of ds_picture
 -- ----------------------------
-INSERT INTO `picture` VALUES ('1', '2019-04-23 18:58:42', 'https://sm.ms/delete/39quSxpsmUvI8MG', 'Koala.jpg', '768', '762.53KB   ', 'https://i.loli.net/2019/04/23/5cbeefdfc9148.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('2', '2019-04-23 18:58:44', 'https://sm.ms/delete/Yap2j5fzcxNPXOR', 'Chrysanthemum.jpg', '768', '858.78KB   ', 'https://i.loli.net/2019/04/23/5cbeefe19e18e.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('3', '2019-04-23 19:02:28', 'https://sm.ms/delete/qHkJPIWGCYXadQR', 'Jellyfish.jpg', '768', '757.52KB   ', 'https://i.loli.net/2019/04/23/5cbef0c15df37.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('4', '2019-04-23 19:03:23', 'https://sm.ms/delete/65sbj1kqzyIBpt3', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbef0f87975f.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('5', '2019-04-23 19:54:41', 'https://sm.ms/delete/d6s8Kqixh2eayXg', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefcfebdfd7.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('6', '2019-04-23 19:55:47', 'https://sm.ms/delete/H6FKc17TtkDuZjs', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefd40c8bd9.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('7', '2019-04-23 19:57:00', 'https://sm.ms/delete/plrXwUMSZtWP4vj', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd89bc660.jpg', 'admin', '1024');
-INSERT INTO `picture` VALUES ('8', '2019-04-23 19:57:49', 'https://sm.ms/delete/rxZyshOMoVAKE8X', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd960e7ff.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('1', '2019-04-23 18:58:42', 'https://sm.ms/delete/39quSxpsmUvI8MG', 'Koala.jpg', '768', '762.53KB   ', 'https://i.loli.net/2019/04/23/5cbeefdfc9148.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('2', '2019-04-23 18:58:44', 'https://sm.ms/delete/Yap2j5fzcxNPXOR', 'Chrysanthemum.jpg', '768', '858.78KB   ', 'https://i.loli.net/2019/04/23/5cbeefe19e18e.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('3', '2019-04-23 19:02:28', 'https://sm.ms/delete/qHkJPIWGCYXadQR', 'Jellyfish.jpg', '768', '757.52KB   ', 'https://i.loli.net/2019/04/23/5cbef0c15df37.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('4', '2019-04-23 19:03:23', 'https://sm.ms/delete/65sbj1kqzyIBpt3', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbef0f87975f.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('5', '2019-04-23 19:54:41', 'https://sm.ms/delete/d6s8Kqixh2eayXg', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefcfebdfd7.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('6', '2019-04-23 19:55:47', 'https://sm.ms/delete/H6FKc17TtkDuZjs', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefd40c8bd9.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('7', '2019-04-23 19:57:00', 'https://sm.ms/delete/plrXwUMSZtWP4vj', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd89bc660.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('8', '2019-04-23 19:57:49', 'https://sm.ms/delete/rxZyshOMoVAKE8X', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd960e7ff.jpg', 'admin', '1024');
 
 -- ----------------------------
--- Table structure for `qiniu_config`
+-- Table structure for `mon_log`
 -- ----------------------------
-DROP TABLE IF EXISTS `qiniu_config`;
-CREATE TABLE `qiniu_config` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `access_key` text COMMENT 'accessKey',
-  `bucket` varchar(255) DEFAULT NULL COMMENT 'Bucket 识别符',
-  `host` varchar(255) NOT NULL COMMENT '外链域名',
-  `secret_key` text COMMENT 'secretKey',
-  `type` varchar(255) DEFAULT NULL COMMENT '空间类型',
-  `zone` varchar(255) DEFAULT NULL COMMENT '机房',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of qiniu_config
--- ----------------------------
-
--- ----------------------------
--- Table structure for `qiniu_content`
--- ----------------------------
-DROP TABLE IF EXISTS `qiniu_content`;
-CREATE TABLE `qiniu_content` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `bucket` varchar(255) DEFAULT NULL COMMENT 'Bucket 识别符',
-  `name` varchar(255) DEFAULT NULL COMMENT '文件名称',
-  `size` varchar(255) DEFAULT NULL COMMENT '文件大小',
-  `type` varchar(255) DEFAULT NULL COMMENT '文件类型：私有或公开',
-  `update_time` datetime DEFAULT NULL COMMENT '上传或同步的时间',
-  `url` varchar(255) DEFAULT NULL COMMENT '文件url',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of qiniu_content
--- ----------------------------
-
--- ----------------------------
--- Table structure for `quartz_job`
--- ----------------------------
-DROP TABLE IF EXISTS `quartz_job`;
-CREATE TABLE `quartz_job` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `bean_name` varchar(255) DEFAULT NULL COMMENT 'Spring Bean名称',
-  `cron_expression` varchar(255) DEFAULT NULL COMMENT 'cron 表达式',
-  `is_pause` bit(1) DEFAULT NULL COMMENT '状态：1暂停、0启用',
-  `job_name` varchar(255) DEFAULT NULL COMMENT '任务名称',
-  `method_name` varchar(255) DEFAULT NULL COMMENT '方法名称',
-  `params` varchar(255) DEFAULT NULL COMMENT '参数',
-  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-  `update_time` datetime DEFAULT NULL COMMENT '创建或更新日期',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of quartz_job
--- ----------------------------
-INSERT INTO `quartz_job` VALUES ('1', 'visitsTask', '0 0 0 * * ?', '', '更新访客记录', 'run', null, '每日0点创建新的访客记录', '2019-01-08 14:53:31');
-INSERT INTO `quartz_job` VALUES ('2', 'testTask', '0/5 * * * * ?', '', '测试1', 'run1', 'test', '带参测试，多参使用json', '2019-01-13 14:20:50');
-INSERT INTO `quartz_job` VALUES ('3', 'testTask', '0/5 * * * * ?', '', '测试', 'run', '', '不带参测试', '2019-04-09 16:16:44');
-
--- ----------------------------
--- Table structure for `quartz_log`
--- ----------------------------
-DROP TABLE IF EXISTS `quartz_log`;
-CREATE TABLE `quartz_log` (
+DROP TABLE IF EXISTS `mon_log`;
+CREATE TABLE `mon_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `baen_name` varchar(255) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `cron_expression` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `exception_detail` text,
-  `is_success` bit(1) DEFAULT NULL,
-  `job_name` varchar(255) DEFAULT NULL,
-  `method_name` varchar(255) DEFAULT NULL,
-  `params` varchar(255) DEFAULT NULL,
+  `log_type` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `params` text,
+  `request_ip` varchar(255) DEFAULT NULL,
   `time` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of quartz_log
+-- Records of mon_log
 -- ----------------------------
-INSERT INTO `quartz_log` VALUES ('1', 'visitsTask', '2019-04-24 02:15:29', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3033');
-INSERT INTO `quartz_log` VALUES ('2', 'visitsTask', '2019-04-25 09:31:49', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3333');
 
 -- ----------------------------
 -- Table structure for `sys_dept`
@@ -288,6 +263,28 @@ INSERT INTO `sys_job` VALUES ('12', '软件测试', '', '2019-03-31 13:39:43', 
 INSERT INTO `sys_job` VALUES ('19', '部门经理', '', '2019-03-31 14:58:15', '1', '1');
 
 -- ----------------------------
+-- Table structure for `sys_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_log`;
+CREATE TABLE `sys_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `exception_detail` text,
+  `log_type` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `params` text,
+  `request_ip` varchar(255) DEFAULT NULL,
+  `time` bigint(20) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6206 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_log
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `sys_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
@@ -313,7 +310,7 @@ INSERT INTO `sys_menu` VALUES ('3', '2018-12-18 15:16:07', '', '角色管理', '
 INSERT INTO `sys_menu` VALUES ('4', '2018-12-18 15:16:45', '', '权限管理', 'system/permission/index', '1', '4', 'permission', 'permission');
 INSERT INTO `sys_menu` VALUES ('5', '2018-12-18 15:17:28', '', '菜单管理', 'system/menu/index', '1', '5', 'menu', 'menu');
 INSERT INTO `sys_menu` VALUES ('6', '2018-12-18 15:17:48', '', '系统监控', null, '0', '10', 'monitor', 'monitor');
-INSERT INTO `sys_menu` VALUES ('7', '2018-12-18 15:18:26', '', '操作日志', 'monitor/log/index', '6', '11', 'log', 'logs');
+INSERT INTO `sys_menu` VALUES ('7', '2018-12-18 15:18:26', '', '操作日志', 'monitor/log/operationLog', '6', '11', 'log', 'logs');
 INSERT INTO `sys_menu` VALUES ('8', '2018-12-18 15:19:01', '', '系统缓存', 'monitor/redis/index', '6', '13', 'redis', 'redis');
 INSERT INTO `sys_menu` VALUES ('9', '2018-12-18 15:19:34', '', 'SQL监控', 'monitor/sql/index', '6', '14', 'sqlMonitor', 'druid');
 INSERT INTO `sys_menu` VALUES ('12', '2018-12-24 20:37:35', '', '实时控制台', 'monitor/log/msg', '6', '16', 'codeConsole', 'msg');
@@ -428,6 +425,54 @@ INSERT INTO `sys_permission` VALUES ('51', '字典查询', '2019-04-10 16:25:16'
 INSERT INTO `sys_permission` VALUES ('52', '字典创建', '2019-04-10 16:25:29', 'DICT_CREATE', '50');
 INSERT INTO `sys_permission` VALUES ('53', '字典编辑', '2019-04-10 16:27:19', 'DICT_EDIT', '50');
 INSERT INTO `sys_permission` VALUES ('54', '字典删除', '2019-04-10 16:27:30', 'DICT_DELETE', '50');
+
+-- ----------------------------
+-- Table structure for `sys_quartz_job`
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_quartz_job`;
+CREATE TABLE `sys_quartz_job` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `bean_name` varchar(255) DEFAULT NULL COMMENT 'Spring Bean名称',
+  `cron_expression` varchar(255) DEFAULT NULL COMMENT 'cron 表达式',
+  `is_pause` bit(1) DEFAULT NULL COMMENT '状态：1暂停、0启用',
+  `job_name` varchar(255) DEFAULT NULL COMMENT '任务名称',
+  `method_name` varchar(255) DEFAULT NULL COMMENT '方法名称',
+  `params` varchar(255) DEFAULT NULL COMMENT '参数',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  `update_time` datetime DEFAULT NULL COMMENT '创建或更新日期',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_quartz_job
+-- ----------------------------
+INSERT INTO `sys_quartz_job` VALUES ('1', 'visitsTask', '0 0 0 * * ?', '', '更新访客记录', 'run', null, '每日0点创建新的访客记录', '2019-01-08 14:53:31');
+INSERT INTO `sys_quartz_job` VALUES ('2', 'testTask', '0/5 * * * * ?', '', '测试1', 'run1', 'test', '带参测试，多参使用json', '2019-01-13 14:20:50');
+INSERT INTO `sys_quartz_job` VALUES ('3', 'testTask', '0/5 * * * * ?', '', '测试', 'run', '', '不带参测试', '2019-04-09 16:16:44');
+
+-- ----------------------------
+-- Table structure for `sys_quartz_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_quartz_log`;
+CREATE TABLE `sys_quartz_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `baen_name` varchar(255) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `cron_expression` varchar(255) DEFAULT NULL,
+  `exception_detail` text,
+  `is_success` bit(1) DEFAULT NULL,
+  `job_name` varchar(255) DEFAULT NULL,
+  `method_name` varchar(255) DEFAULT NULL,
+  `params` varchar(255) DEFAULT NULL,
+  `time` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_quartz_log
+-- ----------------------------
+INSERT INTO `sys_quartz_log` VALUES ('1', 'visitsTask', '2019-04-24 02:15:29', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3033');
+INSERT INTO `sys_quartz_log` VALUES ('2', 'visitsTask', '2019-04-25 09:31:49', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3333');
 
 -- ----------------------------
 -- Table structure for `sys_role`
@@ -633,10 +678,77 @@ INSERT INTO `sys_users_roles` VALUES ('1', '1');
 INSERT INTO `sys_users_roles` VALUES ('3', '2');
 
 -- ----------------------------
--- Table structure for `verification_code`
+-- Table structure for `sys_visits`
 -- ----------------------------
-DROP TABLE IF EXISTS `verification_code`;
-CREATE TABLE `verification_code` (
+DROP TABLE IF EXISTS `sys_visits`;
+CREATE TABLE `sys_visits` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `ip_counts` bigint(20) DEFAULT NULL,
+  `pv_counts` bigint(20) DEFAULT NULL,
+  `week_day` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_11aksgq87euk9bcyeesfs4vtp` (`date`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_visits
+-- ----------------------------
+INSERT INTO `sys_visits` VALUES ('20', '2019-04-18 16:20:41', '2019-04-18', '0', '2', 'Thu');
+INSERT INTO `sys_visits` VALUES ('21', '2019-04-19 10:43:33', '2019-04-19', '1', '11', 'Fri');
+INSERT INTO `sys_visits` VALUES ('22', '2019-04-22 14:21:35', '2019-04-22', '1', '4', 'Mon');
+INSERT INTO `sys_visits` VALUES ('23', '2019-04-23 09:27:19', '2019-04-23', '1', '70', 'Tue');
+INSERT INTO `sys_visits` VALUES ('24', '2019-04-24 02:15:27', '2019-04-24', '1', '20', 'Wed');
+INSERT INTO `sys_visits` VALUES ('25', '2019-04-25 09:31:49', '2019-04-25', '1', '19', 'Thu');
+INSERT INTO `sys_visits` VALUES ('26', '2019-04-28 15:21:04', '2019-04-28', '1', '4', 'Sun');
+INSERT INTO `sys_visits` VALUES ('27', '2019-04-30 20:04:39', '2019-04-30', '1', '4', 'Tue');
+INSERT INTO `sys_visits` VALUES ('28', '2019-05-01 17:13:08', '2019-05-01', '1', '1', 'Wed');
+
+-- ----------------------------
+-- Table structure for `tls_email_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `tls_email_config`;
+CREATE TABLE `tls_email_config` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `from_user` varchar(255) DEFAULT NULL COMMENT '收件人',
+  `host` varchar(255) DEFAULT NULL COMMENT '邮件服务器SMTP地址',
+  `pass` varchar(255) DEFAULT NULL COMMENT '密码',
+  `port` varchar(255) DEFAULT NULL COMMENT '端口',
+  `user` varchar(255) DEFAULT NULL COMMENT '发件者用户名',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tls_email_config
+-- ----------------------------
+INSERT INTO `tls_email_config` VALUES ('5', 'jinlu.hansome@163.com', 'smtp.163.com', '45A9CA95DC808187', '255', 'jinlu.hansome@163.com');
+
+-- ----------------------------
+-- Table structure for `tls_gen_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `tls_gen_config`;
+CREATE TABLE `tls_gen_config` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `author` varchar(255) DEFAULT NULL COMMENT '作者',
+  `cover` bit(1) DEFAULT NULL COMMENT '是否覆盖',
+  `module_name` varchar(255) DEFAULT NULL COMMENT '模块名称',
+  `pack` varchar(255) DEFAULT NULL COMMENT '至于哪个包下',
+  `path` varchar(255) DEFAULT NULL COMMENT '前端代码生成的路径',
+  `api_path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tls_gen_config
+-- ----------------------------
+INSERT INTO `tls_gen_config` VALUES ('1', 'admin', '', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
+
+-- ----------------------------
+-- Table structure for `tls_verification_code`
+-- ----------------------------
+DROP TABLE IF EXISTS `tls_verification_code`;
+CREATE TABLE `tls_verification_code` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `code` varchar(255) DEFAULT NULL COMMENT '验证码',
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
@@ -648,31 +760,5 @@ CREATE TABLE `verification_code` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of verification_code
+-- Records of tls_verification_code
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `visits`
--- ----------------------------
-DROP TABLE IF EXISTS `visits`;
-CREATE TABLE `visits` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
-  `date` varchar(255) DEFAULT NULL,
-  `ip_counts` bigint(20) DEFAULT NULL,
-  `pv_counts` bigint(20) DEFAULT NULL,
-  `week_day` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_11aksgq87euk9bcyeesfs4vtp` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of visits
--- ----------------------------
-INSERT INTO `visits` VALUES ('20', '2019-04-18 16:20:41', '2019-04-18', '0', '2', 'Thu');
-INSERT INTO `visits` VALUES ('21', '2019-04-19 10:43:33', '2019-04-19', '1', '11', 'Fri');
-INSERT INTO `visits` VALUES ('22', '2019-04-22 14:21:35', '2019-04-22', '1', '4', 'Mon');
-INSERT INTO `visits` VALUES ('23', '2019-04-23 09:27:19', '2019-04-23', '1', '70', 'Tue');
-INSERT INTO `visits` VALUES ('24', '2019-04-24 02:15:27', '2019-04-24', '1', '20', 'Wed');
-INSERT INTO `visits` VALUES ('25', '2019-04-25 09:31:49', '2019-04-25', '1', '19', 'Thu');
-INSERT INTO `visits` VALUES ('26', '2019-04-28 15:21:04', '2019-04-28', '1', '4', 'Sun');

@@ -58,6 +58,7 @@ public class FileServiceImpl implements FileService {
         }
     }
 
+    // 更新操作需要设置事物@Transactional
     @Override
     @Transactional(rollbackFor = Exception.class)
     public FileConfig update(FileConfig fileConfig) {
