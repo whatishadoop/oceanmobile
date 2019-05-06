@@ -2,30 +2,30 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 80015
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : oceanmobile
 
 Target Server Type    : MYSQL
-Target Server Version : 80015
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-05-06 00:15:05
+Date: 2019-05-06 16:37:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `app_application`
+-- Table structure for app_application
 -- ----------------------------
 DROP TABLE IF EXISTS `app_application`;
 CREATE TABLE `app_application` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `name` varchar(40) DEFAULT NULL,
   `creator` varchar(40) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
-  `code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `code` varchar(40) DEFAULT NULL,
   `busi_name` varchar(50) DEFAULT NULL,
   `sort` bigint(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -36,7 +36,7 @@ CREATE TABLE `app_application` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `app_page`
+-- Table structure for app_page
 -- ----------------------------
 DROP TABLE IF EXISTS `app_page`;
 CREATE TABLE `app_page` (
@@ -47,7 +47,7 @@ CREATE TABLE `app_page` (
   `content_parse` longtext,
   `config` longtext,
   `is_enable` char(1) DEFAULT NULL,
-  `creator` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `creator` varchar(32) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `sort` bigint(100) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
@@ -59,26 +59,7 @@ CREATE TABLE `app_page` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `ds_dile_content`
--- ----------------------------
-DROP TABLE IF EXISTS `ds_dile_content`;
-CREATE TABLE `ds_dile_content` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `bucket` varchar(255) DEFAULT NULL COMMENT 'Bucket 识别符',
-  `name` varchar(255) DEFAULT NULL COMMENT '文件名称',
-  `size` varchar(255) DEFAULT NULL COMMENT '文件大小',
-  `type` varchar(255) DEFAULT NULL COMMENT '文件类型：私有或公开',
-  `update_time` datetime DEFAULT NULL COMMENT '上传或同步的时间',
-  `url` varchar(255) DEFAULT NULL COMMENT '文件url',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of ds_dile_content
--- ----------------------------
-
--- ----------------------------
--- Table structure for `ds_file_config`
+-- Table structure for ds_file_config
 -- ----------------------------
 DROP TABLE IF EXISTS `ds_file_config`;
 CREATE TABLE `ds_file_config` (
@@ -97,18 +78,18 @@ CREATE TABLE `ds_file_config` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `ds_file_content`
+-- Table structure for ds_file_content
 -- ----------------------------
 DROP TABLE IF EXISTS `ds_file_content`;
 CREATE TABLE `ds_file_content` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `bucket` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `size` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `bucket` varchar(255) DEFAULT NULL COMMENT 'Bucket 识别符',
+  `name` varchar(255) DEFAULT NULL COMMENT '文件名称',
+  `size` varchar(255) DEFAULT NULL COMMENT '文件大小',
+  `type` varchar(255) DEFAULT NULL COMMENT '文件类型：私有或公开',
+  `update_time` datetime DEFAULT NULL COMMENT '上传或同步的时间',
+  `url` varchar(255) DEFAULT NULL COMMENT '文件url',
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -116,7 +97,7 @@ CREATE TABLE `ds_file_content` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `ds_picture`
+-- Table structure for ds_picture
 -- ----------------------------
 DROP TABLE IF EXISTS `ds_picture`;
 CREATE TABLE `ds_picture` (
@@ -130,7 +111,7 @@ CREATE TABLE `ds_picture` (
   `username` varchar(255) DEFAULT NULL COMMENT '用户名称',
   `width` varchar(255) DEFAULT NULL COMMENT '图片宽度',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ds_picture
@@ -143,9 +124,10 @@ INSERT INTO `ds_picture` VALUES ('5', '2019-04-23 19:54:41', 'https://sm.ms/dele
 INSERT INTO `ds_picture` VALUES ('6', '2019-04-23 19:55:47', 'https://sm.ms/delete/H6FKc17TtkDuZjs', 'Tulips.jpg', '768', '606.34KB   ', 'https://i.loli.net/2019/04/23/5cbefd40c8bd9.jpg', 'admin', '1024');
 INSERT INTO `ds_picture` VALUES ('7', '2019-04-23 19:57:00', 'https://sm.ms/delete/plrXwUMSZtWP4vj', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd89bc660.jpg', 'admin', '1024');
 INSERT INTO `ds_picture` VALUES ('8', '2019-04-23 19:57:49', 'https://sm.ms/delete/rxZyshOMoVAKE8X', 'Penguins.jpg', '768', '759.60KB   ', 'https://i.loli.net/2019/04/23/5cbefd960e7ff.jpg', 'admin', '1024');
+INSERT INTO `ds_picture` VALUES ('9', '2019-04-29 10:35:38', 'https://sm.ms/delete/6e3vnCfBRVKNY7q', 'Jellyfish.jpg', '768', '757.52KB   ', 'https://i.loli.net/2019/04/29/5cc662f948d03.jpg', 'admin', '1024');
 
 -- ----------------------------
--- Table structure for `mon_log`
+-- Table structure for mon_log
 -- ----------------------------
 DROP TABLE IF EXISTS `mon_log`;
 CREATE TABLE `mon_log` (
@@ -160,14 +142,14 @@ CREATE TABLE `mon_log` (
   `time` bigint(20) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6434 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mon_log
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `sys_dept`
+-- Table structure for sys_dept
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept` (
@@ -191,10 +173,10 @@ INSERT INTO `sys_dept` VALUES ('8', '研发系统部', '1', '2019-03-25 11:04:53
 INSERT INTO `sys_dept` VALUES ('9', '业务部', '7', '2019-03-25 11:05:34', '');
 INSERT INTO `sys_dept` VALUES ('10', '后端部', '8', '2019-03-25 11:05:58', '');
 INSERT INTO `sys_dept` VALUES ('11', '大数据部', '8', '2019-03-25 11:07:58', '');
-INSERT INTO `sys_dept` VALUES ('12', '测试部', '7', '2019-03-25 11:10:24', '');
+INSERT INTO `sys_dept` VALUES ('12', '测试部', '7', '2019-03-25 11:10:24', '\0');
 
 -- ----------------------------
--- Table structure for `sys_dict`
+-- Table structure for sys_dict
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict`;
 CREATE TABLE `sys_dict` (
@@ -212,7 +194,7 @@ INSERT INTO `sys_dict` VALUES ('4', 'dept_status', '部门状态');
 INSERT INTO `sys_dict` VALUES ('5', 'job_status', '岗位状态');
 
 -- ----------------------------
--- Table structure for `sys_dict_detail`
+-- Table structure for sys_dict_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_detail`;
 CREATE TABLE `sys_dict_detail` (
@@ -237,7 +219,7 @@ INSERT INTO `sys_dict_detail` VALUES ('13', '正常', 'true', '1', '5');
 INSERT INTO `sys_dict_detail` VALUES ('14', '停用', 'false', '2', '5');
 
 -- ----------------------------
--- Table structure for `sys_job`
+-- Table structure for sys_job
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_job`;
 CREATE TABLE `sys_job` (
@@ -257,35 +239,13 @@ CREATE TABLE `sys_job` (
 -- ----------------------------
 INSERT INTO `sys_job` VALUES ('2', '部门研发经理', '', '2019-03-29 14:01:30', '2', '8');
 INSERT INTO `sys_job` VALUES ('8', '大数据开发', '', '2019-03-29 14:52:28', '3', '11');
-INSERT INTO `sys_job` VALUES ('10', '产品经理', '', '2019-03-29 14:55:51', '4', '2');
+INSERT INTO `sys_job` VALUES ('10', '产品经理', '\0', '2019-03-29 14:55:51', '4', '2');
 INSERT INTO `sys_job` VALUES ('11', '前端开发', '', '2019-03-31 13:39:30', '6', '6');
 INSERT INTO `sys_job` VALUES ('12', '软件测试', '', '2019-03-31 13:39:43', '5', '2');
 INSERT INTO `sys_job` VALUES ('19', '部门经理', '', '2019-03-31 14:58:15', '1', '1');
 
 -- ----------------------------
--- Table structure for `sys_log`
--- ----------------------------
-DROP TABLE IF EXISTS `sys_log`;
-CREATE TABLE `sys_log` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `exception_detail` text,
-  `log_type` varchar(255) DEFAULT NULL,
-  `method` varchar(255) DEFAULT NULL,
-  `params` text,
-  `request_ip` varchar(255) DEFAULT NULL,
-  `time` bigint(20) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6206 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of sys_log
--- ----------------------------
-
--- ----------------------------
--- Table structure for `sys_menu`
+-- Table structure for sys_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
@@ -299,68 +259,70 @@ CREATE TABLE `sys_menu` (
   `icon` varchar(255) DEFAULT NULL COMMENT '图标',
   `path` varchar(255) DEFAULT NULL COMMENT '链接地址',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '2018-12-18 15:11:29', '', '系统管理', null, '0', '1', 'system', 'system');
-INSERT INTO `sys_menu` VALUES ('2', '2018-12-18 15:14:44', '', '用户管理', 'system/user/index', '1', '2', 'peoples', 'user');
-INSERT INTO `sys_menu` VALUES ('3', '2018-12-18 15:16:07', '', '角色管理', 'system/role/index', '1', '3', 'role', 'role');
-INSERT INTO `sys_menu` VALUES ('4', '2018-12-18 15:16:45', '', '权限管理', 'system/permission/index', '1', '4', 'permission', 'permission');
-INSERT INTO `sys_menu` VALUES ('5', '2018-12-18 15:17:28', '', '菜单管理', 'system/menu/index', '1', '5', 'menu', 'menu');
-INSERT INTO `sys_menu` VALUES ('6', '2018-12-18 15:17:48', '', '系统监控', null, '0', '10', 'monitor', 'monitor');
-INSERT INTO `sys_menu` VALUES ('7', '2018-12-18 15:18:26', '', '操作日志', 'monitor/log/operationLog', '6', '11', 'log', 'logs');
-INSERT INTO `sys_menu` VALUES ('8', '2018-12-18 15:19:01', '', '系统缓存', 'monitor/redis/index', '6', '13', 'redis', 'redis');
-INSERT INTO `sys_menu` VALUES ('9', '2018-12-18 15:19:34', '', 'SQL监控', 'monitor/sql/index', '6', '14', 'sqlMonitor', 'druid');
-INSERT INTO `sys_menu` VALUES ('12', '2018-12-24 20:37:35', '', '实时控制台', 'monitor/log/msg', '6', '16', 'codeConsole', 'msg');
-INSERT INTO `sys_menu` VALUES ('14', '2018-12-27 10:13:09', '', '邮件工具', 'tools/email/index', '36', '24', 'email', 'email');
-INSERT INTO `sys_menu` VALUES ('17', '2018-12-28 15:09:49', '', '设计小程序', 'appmanage/AppDesigner', '42', '0', 'zujian', 'appdesigner');
-INSERT INTO `sys_menu` VALUES ('28', '2019-01-07 20:34:40', '', '定时任务', 'system/timing/index', '36', '21', 'timing', 'timing');
-INSERT INTO `sys_menu` VALUES ('30', '2019-01-11 15:45:55', '', '代码生成', 'generator/index', '36', '22', 'dev', 'generator');
-INSERT INTO `sys_menu` VALUES ('32', '2019-01-13 13:49:03', '', '异常日志', 'monitor/log/errorLog', '6', '12', 'error', 'errorLog');
-INSERT INTO `sys_menu` VALUES ('35', '2019-03-25 09:46:00', '', '部门管理', 'system/dept/index', '1', '6', 'dept', 'dept');
-INSERT INTO `sys_menu` VALUES ('36', '2019-03-29 10:57:35', '', '系统工具', '', '0', '20', 'sys-tools', 'sys-tools');
-INSERT INTO `sys_menu` VALUES ('37', '2019-03-29 13:51:18', '', '岗位管理', 'system/job/index', '1', '7', 'Steve-Jobs', 'job');
-INSERT INTO `sys_menu` VALUES ('38', '2019-03-29 19:57:53', '', '接口文档', 'tools/swagger/index', '36', '23', 'swagger', 'swagger2');
-INSERT INTO `sys_menu` VALUES ('39', '2019-04-10 11:49:04', '', '字典管理', 'system/dict/index', '1', '8', 'dictionary', 'dict');
-INSERT INTO `sys_menu` VALUES ('42', '2019-04-25 13:58:03', '', '应用管理', '', '0', '0', 'fwb', 'appmanage');
-INSERT INTO `sys_menu` VALUES ('43', '2019-04-25 14:13:23', '', '组装小程序', '', '42', '999', 'add', 'assemble');
-INSERT INTO `sys_menu` VALUES ('44', '2019-04-25 14:14:43', '', '管理小程序', '', '42', '999', 'chain', 'app');
-INSERT INTO `sys_menu` VALUES ('45', '2019-04-25 14:15:29', '', '模板管理', '', '42', '999', 'anq', 'apptemplate');
-INSERT INTO `sys_menu` VALUES ('46', '2019-04-25 16:07:31', '', '决策管理', '', '0', '999', 'fwb', 'rulesmanage');
-INSERT INTO `sys_menu` VALUES ('47', '2019-04-25 16:12:10', '', '决策表设计', '', '46', '999', 'tools', 'ruletable');
-INSERT INTO `sys_menu` VALUES ('48', '2019-04-25 16:13:40', '', '业务决策配置', '', '46', '999', 'timing', 'ruleconfig');
-INSERT INTO `sys_menu` VALUES ('49', '2019-04-25 16:14:31', '', '决策日志', '', '46', '999', 'index', 'rulelog');
-INSERT INTO `sys_menu` VALUES ('50', '2019-04-25 16:15:15', '', '决策测试', '', '46', '999', 'user', 'ruletest');
-INSERT INTO `sys_menu` VALUES ('51', '2019-04-25 16:43:55', '', '性能监控', '', '6', '999', 'system', 'middleware');
-INSERT INTO `sys_menu` VALUES ('52', '2019-04-25 16:45:36', '', 'Redis监控', '', '51', '999', 'monitor', 'redis');
-INSERT INTO `sys_menu` VALUES ('53', '2019-04-25 16:46:17', '', 'Tomcat监控', '', '51', '999', 'monitor', 'tomcat');
-INSERT INTO `sys_menu` VALUES ('54', '2019-04-25 16:47:13', '', 'Server监控', '', '51', '999', 'monitor', 'server');
-INSERT INTO `sys_menu` VALUES ('55', '2019-04-25 16:47:49', '', 'Jvm监控', '', '51', '999', 'monitor', 'jvm');
-INSERT INTO `sys_menu` VALUES ('56', '2019-04-25 16:56:18', '', '容器控制台', '', '6', '17', 'monitor', 'dockerconsole');
-INSERT INTO `sys_menu` VALUES ('57', '2019-04-25 18:08:45', '', '系统公告', 'system/announcement/Editor', '1', '999', 'gonggao', 'announcement');
-INSERT INTO `sys_menu` VALUES ('58', '2019-04-25 18:11:06', '', '系统配置', 'system/configinfo/YamlEdit', '1', '999', 'system', 'configinfo');
-INSERT INTO `sys_menu` VALUES ('59', '2019-04-25 18:19:30', '', '控件使用', 'tools/control/MarkDown', '36', '999', 'zujian', 'control');
-INSERT INTO `sys_menu` VALUES ('60', '2019-04-25 18:29:49', '', '数据存储', '', '0', '999', 'date', 'datastorage');
-INSERT INTO `sys_menu` VALUES ('61', '2019-04-25 18:31:04', '', '图标库', 'datastorage/icon/IconSelect', '60', '999', 'date', 'icon');
-INSERT INTO `sys_menu` VALUES ('62', '2019-04-25 18:32:02', '', '图片管理', 'datastorage/picture', '60', '999', 'date', 'picture');
-INSERT INTO `sys_menu` VALUES ('63', '2019-04-25 18:33:34', '', '文件管理', 'datastorage/file', '60', '999', 'date', 'file');
-INSERT INTO `sys_menu` VALUES ('64', '2019-04-25 18:40:37', '', '流程管理', '', '0', '996', 'dept', 'processmanage');
-INSERT INTO `sys_menu` VALUES ('65', '2019-04-25 18:41:38', '', '流程设计', '', '64', '999', 'develop', 'designer');
-INSERT INTO `sys_menu` VALUES ('66', '2019-04-25 18:42:38', '', '流程监听', '', '64', '999', 'ipvisits', 'listener');
-INSERT INTO `sys_menu` VALUES ('67', '2019-04-25 18:43:49', '', '流程表达式', '', '64', '999', 'icon', 'expression');
-INSERT INTO `sys_menu` VALUES ('68', '2019-04-25 18:45:11', '', '流程实例', '', '64', '999', 'index', 'instance');
-INSERT INTO `sys_menu` VALUES ('69', '2019-04-25 18:45:46', '', '历史任务', '', '64', '999', 'java', 'historytask');
-INSERT INTO `sys_menu` VALUES ('70', '2019-04-25 18:46:22', '', '历史流程', '', '64', '999', 'timing', 'historytask');
-INSERT INTO `sys_menu` VALUES ('71', '2019-04-25 18:50:47', '', '消息中心', '', '0', '999', 'gonggao', 'messagecenter');
-INSERT INTO `sys_menu` VALUES ('72', '2019-04-25 18:51:55', '', '消息管理', '', '71', '999', 'visits', 'manage');
-INSERT INTO `sys_menu` VALUES ('73', '2019-04-25 18:52:23', '', '消息模板', '', '71', '999', 'zujian', 'template');
-INSERT INTO `sys_menu` VALUES ('74', '2019-04-25 19:03:11', '', '数据立方', '', '60', '999', 'qiniu', 'kylincube');
-INSERT INTO `sys_menu` VALUES ('75', '2019-04-25 19:05:05', '', '全文检索', '', '60', '999', 'index', 'essesrch');
+INSERT INTO `sys_menu` VALUES ('1', '2018-12-18 15:11:29', '\0', '系统管理', null, '0', '1', 'system', 'system');
+INSERT INTO `sys_menu` VALUES ('2', '2018-12-18 15:14:44', '\0', '用户管理', 'system/user/index', '1', '2', 'peoples', 'user');
+INSERT INTO `sys_menu` VALUES ('3', '2018-12-18 15:16:07', '\0', '角色管理', 'system/role/index', '1', '3', 'role', 'role');
+INSERT INTO `sys_menu` VALUES ('4', '2018-12-18 15:16:45', '\0', '权限管理', 'system/permission/index', '1', '4', 'permission', 'permission');
+INSERT INTO `sys_menu` VALUES ('5', '2018-12-18 15:17:28', '\0', '菜单管理', 'system/menu/index', '1', '5', 'menu', 'menu');
+INSERT INTO `sys_menu` VALUES ('6', '2018-12-18 15:17:48', '\0', '系统监控', '', '0', '10', 'monitor', 'monitor');
+INSERT INTO `sys_menu` VALUES ('7', '2018-12-18 15:18:26', '\0', '操作日志', 'monitor/log/operationLog', '76', '11', 'log', 'logs');
+INSERT INTO `sys_menu` VALUES ('8', '2018-12-18 15:19:01', '\0', '系统缓存', 'monitor/redis/index', '6', '13', 'redis', 'redis');
+INSERT INTO `sys_menu` VALUES ('9', '2018-12-18 15:19:34', '\0', 'SQL监控', 'monitor/sql/index', '51', '14', 'sqlMonitor', 'druid');
+INSERT INTO `sys_menu` VALUES ('12', '2018-12-24 20:37:35', '\0', '实时控制台', 'monitor/log/msg', '6', '16', 'codeConsole', 'msg');
+INSERT INTO `sys_menu` VALUES ('14', '2018-12-27 10:13:09', '\0', '邮件工具', 'tools/email/index', '36', '24', 'email', 'email');
+INSERT INTO `sys_menu` VALUES ('17', '2018-12-28 15:09:49', '\0', '设计小程序', 'appmanage/AppDesigner', '42', '0', 'zujian', 'appdesigner');
+INSERT INTO `sys_menu` VALUES ('28', '2019-01-07 20:34:40', '\0', '定时任务', 'system/timing/index', '1', '21', 'timing', 'timing');
+INSERT INTO `sys_menu` VALUES ('30', '2019-01-11 15:45:55', '\0', '代码生成', 'generator/index', '36', '22', 'dev', 'generator');
+INSERT INTO `sys_menu` VALUES ('32', '2019-01-13 13:49:03', '\0', '异常日志', 'monitor/log/errorLog', '76', '12', 'error', 'errorLog');
+INSERT INTO `sys_menu` VALUES ('35', '2019-03-25 09:46:00', '\0', '部门管理', 'system/dept/index', '1', '6', 'dept', 'dept');
+INSERT INTO `sys_menu` VALUES ('36', '2019-03-29 10:57:35', '\0', '系统工具', '', '0', '20', 'sys-tools', 'sys-tools');
+INSERT INTO `sys_menu` VALUES ('37', '2019-03-29 13:51:18', '\0', '岗位管理', 'system/job/index', '1', '7', 'Steve-Jobs', 'job');
+INSERT INTO `sys_menu` VALUES ('38', '2019-03-29 19:57:53', '\0', '接口文档', 'tools/swagger/index', '36', '23', 'swagger', 'swagger2');
+INSERT INTO `sys_menu` VALUES ('39', '2019-04-10 11:49:04', '\0', '字典管理', 'system/dict/index', '1', '8', 'dictionary', 'dict');
+INSERT INTO `sys_menu` VALUES ('42', '2019-04-25 13:58:03', '\0', '应用管理', '', '0', '0', 'fwb', 'appmanage');
+INSERT INTO `sys_menu` VALUES ('43', '2019-04-25 14:13:23', '\0', '组装小程序', '', '42', '999', 'add', 'assemble');
+INSERT INTO `sys_menu` VALUES ('44', '2019-04-25 14:14:43', '\0', '管理小程序', '', '42', '999', 'chain', 'app');
+INSERT INTO `sys_menu` VALUES ('45', '2019-04-25 14:15:29', '\0', '模板管理', '', '42', '999', 'anq', 'apptemplate');
+INSERT INTO `sys_menu` VALUES ('46', '2019-04-25 16:07:31', '\0', '决策管理', '', '0', '999', 'fwb', 'rulesmanage');
+INSERT INTO `sys_menu` VALUES ('47', '2019-04-25 16:12:10', '\0', '决策表设计', '', '46', '999', 'tools', 'ruletable');
+INSERT INTO `sys_menu` VALUES ('48', '2019-04-25 16:13:40', '\0', '业务决策配置', '', '46', '999', 'timing', 'ruleconfig');
+INSERT INTO `sys_menu` VALUES ('49', '2019-04-25 16:14:31', '\0', '决策日志', '', '46', '999', 'index', 'rulelog');
+INSERT INTO `sys_menu` VALUES ('50', '2019-04-25 16:15:15', '\0', '决策测试', '', '46', '999', 'user', 'ruletest');
+INSERT INTO `sys_menu` VALUES ('51', '2019-04-25 16:43:55', '\0', '性能监控', 'monitor/index', '6', '999', 'system', 'monitor');
+INSERT INTO `sys_menu` VALUES ('52', '2019-04-25 16:45:36', '\0', 'Redis监控', '', '51', '999', 'monitor', 'redis');
+INSERT INTO `sys_menu` VALUES ('53', '2019-04-25 16:46:17', '\0', 'Tomcat监控', '', '51', '999', 'monitor', 'tomcat');
+INSERT INTO `sys_menu` VALUES ('54', '2019-04-25 16:47:13', '\0', 'Server监控', '', '51', '999', 'monitor', 'server');
+INSERT INTO `sys_menu` VALUES ('55', '2019-04-25 16:47:49', '\0', 'Jvm监控', '', '51', '999', 'monitor', 'jvm');
+INSERT INTO `sys_menu` VALUES ('56', '2019-04-25 16:56:18', '\0', '容器控制台', '', '6', '17', 'monitor', 'dockerconsole');
+INSERT INTO `sys_menu` VALUES ('57', '2019-04-25 18:08:45', '\0', '系统公告', 'system/announcement/Editor', '1', '999', 'gonggao', 'announcement');
+INSERT INTO `sys_menu` VALUES ('58', '2019-04-25 18:11:06', '\0', '系统配置', 'system/configinfo/YamlEdit', '1', '999', 'system', 'configinfo');
+INSERT INTO `sys_menu` VALUES ('59', '2019-04-25 18:19:30', '\0', '控件使用', 'tools/control/MarkDown', '36', '999', 'zujian', 'control');
+INSERT INTO `sys_menu` VALUES ('60', '2019-04-25 18:29:49', '\0', '数据存储', '', '0', '999', 'date', 'datastorage');
+INSERT INTO `sys_menu` VALUES ('61', '2019-04-25 18:31:04', '\0', '图标库', 'datastorage/icon/IconSelect', '60', '999', 'date', 'icon');
+INSERT INTO `sys_menu` VALUES ('62', '2019-04-25 18:32:02', '\0', '图片管理', 'datastorage/picture', '60', '999', 'date', 'picture');
+INSERT INTO `sys_menu` VALUES ('63', '2019-04-25 18:33:34', '\0', '文件管理', 'datastorage/file', '60', '999', 'date', 'file');
+INSERT INTO `sys_menu` VALUES ('64', '2019-04-25 18:40:37', '\0', '流程管理', '', '0', '996', 'dept', 'processmanage');
+INSERT INTO `sys_menu` VALUES ('65', '2019-04-25 18:41:38', '\0', '流程设计', '', '64', '999', 'develop', 'designer');
+INSERT INTO `sys_menu` VALUES ('66', '2019-04-25 18:42:38', '\0', '流程监听', '', '64', '999', 'ipvisits', 'listener');
+INSERT INTO `sys_menu` VALUES ('67', '2019-04-25 18:43:49', '\0', '流程表达式', '', '64', '999', 'icon', 'expression');
+INSERT INTO `sys_menu` VALUES ('68', '2019-04-25 18:45:11', '\0', '流程实例', '', '64', '999', 'index', 'instance');
+INSERT INTO `sys_menu` VALUES ('69', '2019-04-25 18:45:46', '\0', '历史任务', '', '64', '999', 'java', 'historytask');
+INSERT INTO `sys_menu` VALUES ('70', '2019-04-25 18:46:22', '\0', '历史流程', '', '64', '999', 'timing', 'historytask');
+INSERT INTO `sys_menu` VALUES ('71', '2019-04-25 18:50:47', '\0', '消息中心', '', '0', '999', 'gonggao', 'messagecenter');
+INSERT INTO `sys_menu` VALUES ('72', '2019-04-25 18:51:55', '\0', '消息管理', '', '71', '999', 'visits', 'manage');
+INSERT INTO `sys_menu` VALUES ('73', '2019-04-25 18:52:23', '\0', '消息模板', '', '71', '999', 'zujian', 'template');
+INSERT INTO `sys_menu` VALUES ('74', '2019-04-25 19:03:11', '\0', '数据立方', '', '60', '999', 'qiniu', 'kylincube');
+INSERT INTO `sys_menu` VALUES ('75', '2019-04-25 19:05:05', '\0', '全文检索', '', '60', '999', 'index', 'essesrch');
+INSERT INTO `sys_menu` VALUES ('76', '2019-04-29 11:24:15', '\0', '日志管理', 'monitor/log/index', '6', '999', 'sqlMonitor', 'logmanage');
+INSERT INTO `sys_menu` VALUES ('77', '2019-04-29 11:39:02', '\0', '请求跟踪', '', '51', '999', 'sqlMonitor', 'requesttrace');
 
 -- ----------------------------
--- Table structure for `sys_permission`
+-- Table structure for sys_permission
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission` (
@@ -427,7 +389,7 @@ INSERT INTO `sys_permission` VALUES ('53', '字典编辑', '2019-04-10 16:27:19'
 INSERT INTO `sys_permission` VALUES ('54', '字典删除', '2019-04-10 16:27:30', 'DICT_DELETE', '50');
 
 -- ----------------------------
--- Table structure for `sys_quartz_job`
+-- Table structure for sys_quartz_job
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_quartz_job`;
 CREATE TABLE `sys_quartz_job` (
@@ -446,12 +408,12 @@ CREATE TABLE `sys_quartz_job` (
 -- ----------------------------
 -- Records of sys_quartz_job
 -- ----------------------------
-INSERT INTO `sys_quartz_job` VALUES ('1', 'visitsTask', '0 0 0 * * ?', '', '更新访客记录', 'run', null, '每日0点创建新的访客记录', '2019-01-08 14:53:31');
+INSERT INTO `sys_quartz_job` VALUES ('1', 'visitsTask', '0 0 0 * * ?', '\0', '更新访客记录', 'run', null, '每日0点创建新的访客记录', '2019-01-08 14:53:31');
 INSERT INTO `sys_quartz_job` VALUES ('2', 'testTask', '0/5 * * * * ?', '', '测试1', 'run1', 'test', '带参测试，多参使用json', '2019-01-13 14:20:50');
 INSERT INTO `sys_quartz_job` VALUES ('3', 'testTask', '0/5 * * * * ?', '', '测试', 'run', '', '不带参测试', '2019-04-09 16:16:44');
 
 -- ----------------------------
--- Table structure for `sys_quartz_log`
+-- Table structure for sys_quartz_log
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_quartz_log`;
 CREATE TABLE `sys_quartz_log` (
@@ -475,7 +437,7 @@ INSERT INTO `sys_quartz_log` VALUES ('1', 'visitsTask', '2019-04-24 02:15:29', '
 INSERT INTO `sys_quartz_log` VALUES ('2', 'visitsTask', '2019-04-25 09:31:49', '0 0 0 * * ?', null, '', '更新访客记录', 'run', null, '3333');
 
 -- ----------------------------
--- Table structure for `sys_role`
+-- Table structure for sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
@@ -494,7 +456,7 @@ INSERT INTO `sys_role` VALUES ('1', '2018-11-23 11:04:37', '管理员', '系统�
 INSERT INTO `sys_role` VALUES ('2', '2018-11-23 13:09:06', '普通用户', '用于测试菜单与权限', '自定义');
 
 -- ----------------------------
--- Table structure for `sys_roles_depts`
+-- Table structure for sys_roles_depts
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_roles_depts`;
 CREATE TABLE `sys_roles_depts` (
@@ -512,7 +474,7 @@ CREATE TABLE `sys_roles_depts` (
 INSERT INTO `sys_roles_depts` VALUES ('2', '7');
 
 -- ----------------------------
--- Table structure for `sys_roles_menus`
+-- Table structure for sys_roles_menus
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_roles_menus`;
 CREATE TABLE `sys_roles_menus` (
@@ -581,6 +543,8 @@ INSERT INTO `sys_roles_menus` VALUES ('72', '1');
 INSERT INTO `sys_roles_menus` VALUES ('73', '1');
 INSERT INTO `sys_roles_menus` VALUES ('74', '1');
 INSERT INTO `sys_roles_menus` VALUES ('75', '1');
+INSERT INTO `sys_roles_menus` VALUES ('76', '1');
+INSERT INTO `sys_roles_menus` VALUES ('77', '1');
 INSERT INTO `sys_roles_menus` VALUES ('1', '2');
 INSERT INTO `sys_roles_menus` VALUES ('2', '2');
 INSERT INTO `sys_roles_menus` VALUES ('3', '2');
@@ -599,7 +563,7 @@ INSERT INTO `sys_roles_menus` VALUES ('44', '2');
 INSERT INTO `sys_roles_menus` VALUES ('45', '2');
 
 -- ----------------------------
--- Table structure for `sys_roles_permissions`
+-- Table structure for sys_roles_permissions
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_roles_permissions`;
 CREATE TABLE `sys_roles_permissions` (
@@ -628,7 +592,7 @@ INSERT INTO `sys_roles_permissions` VALUES ('2', '41');
 INSERT INTO `sys_roles_permissions` VALUES ('2', '46');
 
 -- ----------------------------
--- Table structure for `sys_user`
+-- Table structure for sys_user
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
@@ -659,7 +623,7 @@ INSERT INTO `sys_user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548
 INSERT INTO `sys_user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@sinovatio.com', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
 
 -- ----------------------------
--- Table structure for `sys_users_roles`
+-- Table structure for sys_users_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_users_roles`;
 CREATE TABLE `sys_users_roles` (
@@ -678,7 +642,7 @@ INSERT INTO `sys_users_roles` VALUES ('1', '1');
 INSERT INTO `sys_users_roles` VALUES ('3', '2');
 
 -- ----------------------------
--- Table structure for `sys_visits`
+-- Table structure for sys_visits
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_visits`;
 CREATE TABLE `sys_visits` (
@@ -701,12 +665,12 @@ INSERT INTO `sys_visits` VALUES ('22', '2019-04-22 14:21:35', '2019-04-22', '1',
 INSERT INTO `sys_visits` VALUES ('23', '2019-04-23 09:27:19', '2019-04-23', '1', '70', 'Tue');
 INSERT INTO `sys_visits` VALUES ('24', '2019-04-24 02:15:27', '2019-04-24', '1', '20', 'Wed');
 INSERT INTO `sys_visits` VALUES ('25', '2019-04-25 09:31:49', '2019-04-25', '1', '19', 'Thu');
-INSERT INTO `sys_visits` VALUES ('26', '2019-04-28 15:21:04', '2019-04-28', '1', '4', 'Sun');
-INSERT INTO `sys_visits` VALUES ('27', '2019-04-30 20:04:39', '2019-04-30', '1', '4', 'Tue');
-INSERT INTO `sys_visits` VALUES ('28', '2019-05-01 17:13:08', '2019-05-01', '1', '1', 'Wed');
+INSERT INTO `sys_visits` VALUES ('26', '2019-04-28 15:21:04', '2019-04-28', '1', '7', 'Sun');
+INSERT INTO `sys_visits` VALUES ('27', '2019-04-29 10:08:33', '2019-04-29', '1', '37', 'Mon');
+INSERT INTO `sys_visits` VALUES ('28', '2019-05-06 09:50:17', '2019-05-06', '1', '5', 'Mon');
 
 -- ----------------------------
--- Table structure for `tls_email_config`
+-- Table structure for tls_email_config
 -- ----------------------------
 DROP TABLE IF EXISTS `tls_email_config`;
 CREATE TABLE `tls_email_config` (
@@ -725,7 +689,7 @@ CREATE TABLE `tls_email_config` (
 INSERT INTO `tls_email_config` VALUES ('5', 'jinlu.hansome@163.com', 'smtp.163.com', '45A9CA95DC808187', '255', 'jinlu.hansome@163.com');
 
 -- ----------------------------
--- Table structure for `tls_gen_config`
+-- Table structure for tls_gen_config
 -- ----------------------------
 DROP TABLE IF EXISTS `tls_gen_config`;
 CREATE TABLE `tls_gen_config` (
@@ -742,10 +706,10 @@ CREATE TABLE `tls_gen_config` (
 -- ----------------------------
 -- Records of tls_gen_config
 -- ----------------------------
-INSERT INTO `tls_gen_config` VALUES ('1', 'admin', '', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
+INSERT INTO `tls_gen_config` VALUES ('1', 'admin', '\0', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
 
 -- ----------------------------
--- Table structure for `tls_verification_code`
+-- Table structure for tls_verification_code
 -- ----------------------------
 DROP TABLE IF EXISTS `tls_verification_code`;
 CREATE TABLE `tls_verification_code` (
