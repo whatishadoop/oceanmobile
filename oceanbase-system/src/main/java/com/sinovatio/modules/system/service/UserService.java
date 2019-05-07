@@ -28,6 +28,7 @@ public interface UserService {
      * create
      * @param resources
      * @return
+     * 清除缓存中以user缓存策略缓存的所有对象，避免数据库中删除，而缓存中依然存在
      */
     @CacheEvict(allEntries = true)
     UserDTO create(User resources);

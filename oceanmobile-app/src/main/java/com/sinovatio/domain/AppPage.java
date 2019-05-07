@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.sql.Timestamp;
 
 @Data
 @Entity
@@ -44,7 +45,7 @@ public class AppPage {
 
     @CreationTimestamp
     @Column( name = "create_time")
-    private String createTime;
+    private Timestamp createTime;
 
     @NotBlank
     @Column

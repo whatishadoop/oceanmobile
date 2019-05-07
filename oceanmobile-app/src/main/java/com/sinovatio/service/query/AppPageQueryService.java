@@ -2,6 +2,7 @@ package com.sinovatio.service.query;
 
 import com.sinovatio.domain.AppPage;
 import com.sinovatio.repository.AppPageRepository;
+import com.sinovatio.service.dto.AppPageDTO;
 import com.sinovatio.utils.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -36,22 +36,22 @@ public class AppPageQueryService {
     private AppPageRepository appPageRepository;
 
     @Cacheable(keyGenerator = "keyGenerator")
-    public Object queryAll(AppPage appPage, Pageable pageable){
-        return PageUtil.toPage(appPageRepository.findAll(new Spec(appPage),pageable));
+    public Object queryAll(AppPageDTO appPageDTO, Pageable pageable){
+        return PageUtil.toPage(appPageRepository.findAll(new Spec(appPageDTO),pageable));
     }
 
     private class Spec implements Specification {
-        private AppPage appPage = null;
-        public Spec(AppPage appPage) {
-            this.appPage = appPage;
+        private AppPageDTO appPageDTO = null;
+        public Spec(AppPageDTO appPageDTO) {
+            this.appPageDTO = appPageDTO;
         }
 
         @Override
         public Predicate toPredicate(Root root, CriteriaQuery criteriaQuery, CriteriaBuilder cb) {
 
             List<Predicate> list = new ArrayList<Predicate>();
-            if(!ObjectUtils.isEmpty(appPage.getContent())){
-                list.add(cb.like(root.get("key").as(String.class),"%"+ appPage.getContent()+"%"));
+            if(!ObjectUtils.isEmpty(appPageDTO.getContent())){
+                list.add(cb.like(root.get("key").as(String.class),"%"+ appPageDTO.getContent()+"%"));
             }
             // 转换成Predicate 对象条件数组形式
             Predicate[] p = new Predicate[list.size()];

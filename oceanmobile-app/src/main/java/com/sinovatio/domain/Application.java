@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Data
@@ -36,7 +37,7 @@ public class Application {
     @NotBlank
     private String description;
 
-    @NotBlank
+    @NotNull
     private Long sort;
 
 }

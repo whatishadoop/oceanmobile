@@ -36,6 +36,8 @@ public class DeptDTO implements Serializable {
      */
     private Long pid;
 
+    // 属性为空(' ')或者为 NULL 都不序列化,将该标记放在属性上，如果该属性为NULL则不参与序列化
+    // 如果放在类上边,那对这个类的全部属性起作用
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<DeptDTO> children;
 
