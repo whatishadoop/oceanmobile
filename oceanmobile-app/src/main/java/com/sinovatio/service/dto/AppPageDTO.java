@@ -30,8 +30,4 @@ public class AppPageDTO {
     private String creator;
 
     private Timestamp createTime;
-
-    private Long sort;
-
-
 }

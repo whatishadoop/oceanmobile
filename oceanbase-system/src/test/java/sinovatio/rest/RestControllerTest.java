@@ -44,13 +44,14 @@ public class RestControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).apply(SecurityMockMvcConfigurers.springSecurity()).build();
     }
 
+    // 查询应用
     @Test
     public void whenQuerySuccess() throws Exception {
         String result = mockMvc.perform(get("/api/application")
-                .param("busiName", "业务1222")
+                .param("busiName", "业务1")
                 .param("size","10")
                 .param("page","0")
-                //.param("sort","sort,desc")
+                 .param("sort","id")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 //.andExpect(jsonPath("$.length()").value(3))

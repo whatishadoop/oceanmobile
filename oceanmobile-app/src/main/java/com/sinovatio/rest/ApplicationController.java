@@ -29,6 +29,7 @@ public class ApplicationController {
 
     @Autowired
     private ApplicationService applicationService;
+    @Autowired
     private ApplicationQueryService applicationQueryService;
 
     private static final String ENTITY_NAME = "app_application";
