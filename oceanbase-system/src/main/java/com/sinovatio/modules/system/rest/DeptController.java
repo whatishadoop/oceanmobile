@@ -51,6 +51,7 @@ public class DeptController {
     @Log("新增部门")
     @PostMapping(value = "/dept")
     @PreAuthorize("hasAnyRole('ADMIN','DEPT_ALL','DEPT_CREATE')")
+    // @Validated(Dept.Update.class) 表示新增时通过id分组对id不进行校验
     public ResponseEntity create(@Validated @RequestBody Dept resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -61,6 +62,7 @@ public class DeptController {
     @Log("修改部门")
     @PutMapping(value = "/dept")
     @PreAuthorize("hasAnyRole('ADMIN','DEPT_ALL','DEPT_EDIT')")
+    // @Validated(Dept.Update.class) 表示更新时通过id分组要对id进行校验
     public ResponseEntity update(@Validated(Dept.Update.class) @RequestBody Dept resources){
         deptService.update(resources);
         return new ResponseEntity(HttpStatus.NO_CONTENT);

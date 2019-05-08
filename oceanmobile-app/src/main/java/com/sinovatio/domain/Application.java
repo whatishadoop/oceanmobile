@@ -16,6 +16,8 @@ public class Application {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @NotNull(groups = Update.class)
     private Long id;
 
     @NotBlank
@@ -40,4 +42,5 @@ public class Application {
     @NotNull
     private Long sort;
 
+    public interface  Update{}
 }

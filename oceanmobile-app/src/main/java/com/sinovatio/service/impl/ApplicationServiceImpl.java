@@ -48,10 +48,16 @@ public class ApplicationServiceImpl implements ApplicationService {
         ValidationUtil.isNull(applicationOptional, "Application", "id",application.getId());
         // 此处需修改相关属性信息
         Application tmpApplication = applicationOptional.get();
+        tmpApplication.setBusiName(application.getBusiName());
+        tmpApplication.setCode(application.getCode());
+        tmpApplication.setDescription(application.getDescription());
+        tmpApplication.setCreator(application.getCreator());
+        tmpApplication.setSort(application.getSort());
         applicationRepository.save(tmpApplication);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
         applicationRepository.deleteById(id);
     }

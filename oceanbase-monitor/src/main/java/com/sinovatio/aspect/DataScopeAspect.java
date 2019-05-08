@@ -51,7 +51,7 @@ public class DataScopeAspect {
         try {
             result = joinPoint.proceed();
         } catch (Throwable e) {
-            throw new BadRequestException(e.getMessage());
+            throw new BadRequestException("错误信息："+ e);
         }
         Log log = new Log("INFO",System.currentTimeMillis() - currentTime);
         logService.save(joinPoint, log);

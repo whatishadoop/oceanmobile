@@ -48,7 +48,7 @@ public class AppPageController {
     @Log("修改应用页面")
     @PutMapping(value="/apppage")
     @PreAuthorize("hasAnyRole('admin')")
-    public ResponseEntity update(@Validated @RequestBody AppPage appPage){
+    public ResponseEntity update(@Validated(AppPage.Update.class) @RequestBody AppPage appPage){
         appPageService.update(appPage);
         return new ResponseEntity(HttpStatus.OK);
     }

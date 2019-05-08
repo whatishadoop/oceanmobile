@@ -40,15 +40,15 @@ public class AppPageQueryService {
         return PageUtil.toPage(appPageRepository.findAll(new Spec(appPageDTO),pageable));
     }
 
-    private class Spec implements Specification {
+    private class Spec implements Specification<AppPage> {
         private AppPageDTO appPageDTO = null;
         public Spec(AppPageDTO appPageDTO) {
             this.appPageDTO = appPageDTO;
         }
 
-        @Override
-        public Predicate toPredicate(Root root, CriteriaQuery criteriaQuery, CriteriaBuilder cb) {
 
+        @Override
+        public Predicate toPredicate(Root<AppPage> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
             List<Predicate> list = new ArrayList<Predicate>();
             if(!ObjectUtils.isEmpty(appPageDTO.getContent())){
                 list.add(cb.like(root.get("key").as(String.class),"%"+ appPageDTO.getContent()+"%"));

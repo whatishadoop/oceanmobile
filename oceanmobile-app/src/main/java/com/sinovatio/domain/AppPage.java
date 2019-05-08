@@ -2,8 +2,10 @@ package com.sinovatio.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Data
@@ -13,6 +15,8 @@ public class AppPage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @NotNull(groups = Update.class)
     private Long id;
 
     @NotBlank
@@ -54,4 +58,6 @@ public class AppPage {
     @NotBlank
     @Column
     private String remark;
+
+    public interface  Update{}
 }

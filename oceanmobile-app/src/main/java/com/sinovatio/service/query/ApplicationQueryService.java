@@ -7,6 +7,7 @@ import com.sinovatio.utils.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -38,10 +39,11 @@ public class ApplicationQueryService {
 
     @Cacheable(keyGenerator = "keyGenerator")
     public Object queryAll(ApplicationDTO applicationDTO, Pageable pageable){
-        return PageUtil.toPage(applicationRepository.findAll(new Spec(applicationDTO),pageable));
+        Page page = applicationRepository.findAll(new Spec(applicationDTO),pageable);
+        return PageUtil.toPage(page);
     }
 
-    private class Spec implements Specification<ApplicationDTO> {
+    private class Spec implements Specification<Application> {
         private ApplicationDTO applicationDTO = null;
 
         public Spec(ApplicationDTO applicationDTO) {
@@ -49,11 +51,11 @@ public class ApplicationQueryService {
         }
 
         @Override
-        public Predicate toPredicate(Root<ApplicationDTO> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+        public Predicate toPredicate(Root<Application> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
             List<Predicate> list = new ArrayList<>();
             // 拼接查询条件
             if(!ObjectUtils.isEmpty(applicationDTO.getBusiName())){
-                list.add(cb.like(root.get("").as(String.class),"%" + applicationDTO.getBusiName() + "%"));
+                list.add(cb.like(root.get("busiName").as(String.class),"%" + applicationDTO.getBusiName() + "%"));
             }
             Predicate[] p = new Predicate[list.size()];
             return cb.and(list.toArray(p));
