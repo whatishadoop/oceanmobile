@@ -15,8 +15,9 @@ spring:
   jpa:
     properties:
       hibernate:
+        # 指定hibernate方言,jpa默认建表时用的引擎为MyISAM，而MyISAM却是不支持事务的，要想支持需要将表的存储引擎设为InnoDB
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: true
+    open-in-view: true # 延续session到返回视图层,解决多表关联时的延迟加载
 
   redis:
     #数据库索引
