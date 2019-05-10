@@ -25,3 +25,5 @@ b，如果要测试带token的接口，首先要进行登录，登录成功会�
 7.JDK 1.8 新特性之Stream, Java8 和 lambda ,JDK 1.8 新特性之Date-Time
 
 8.SpringBoot中使用Spring Security实现权限控制,Spring Security（11）——匿名认证, 聊聊spring security的permitAll以及webIgnore
+
+9.Jackson序列化Java对象时注意

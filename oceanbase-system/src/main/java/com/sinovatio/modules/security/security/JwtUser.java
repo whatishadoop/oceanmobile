@@ -78,6 +78,7 @@ public class JwtUser implements UserDetails {
         return enabled;
     }
 
+    // 使用Jackson的writeValueAsString（object）方法序列化java对象时，会遍历该对象中所有"get方法名(比如getXxx,isXxx)“等来构建需要序列化的属性
     public Collection getRoles() {
         // stream
         return authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());

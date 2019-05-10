@@ -62,7 +62,6 @@ public class AuthenticationController {
 
         // 生成令牌
         final String token = jwtTokenUtil.generateToken(jwtUser);
-
         // 返回 token
         return ResponseEntity.ok(new AuthenticationInfo(token, jwtUser));
     }
