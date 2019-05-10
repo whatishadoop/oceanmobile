@@ -1,25 +1,19 @@
 package com.sinovatio.modules.security.service;
 
-import com.sinovatio.modules.system.domain.*;
 import com.sinovatio.exception.EntityNotFoundException;
-import com.sinovatio.modules.system.repository.PermissionRepository;
-import com.sinovatio.modules.system.repository.RoleRepository;
 import com.sinovatio.modules.security.security.JwtUser;
+import com.sinovatio.modules.system.domain.Dept;
+import com.sinovatio.modules.system.domain.Job;
+import com.sinovatio.modules.system.domain.User;
 import com.sinovatio.modules.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.HashSet;
-import java.util.List;
+
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
 * @ClassName: JwtUserDetailsService
@@ -59,7 +53,7 @@ public class JwtUserDetailsService implements UserDetailsService {
                 user.getPhone(),
                 Optional.ofNullable(user.getDept()).map(Dept::getName).orElse(null),
                 Optional.ofNullable(user.getJob()).map(Job::getName).orElse(null),
-                permissionService.mapToGrantedAuthorities(user),
+                permissionService.mapToGrantedAuthorities(user),//将用户角色作为权限
                 user.getEnabled(),
                 user.getCreateTime(),
                 user.getLastPasswordResetTime()

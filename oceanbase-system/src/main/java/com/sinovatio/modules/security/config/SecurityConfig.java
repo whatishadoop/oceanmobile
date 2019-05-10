@@ -52,9 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(jwtUserDetailsService)
-                .passwordEncoder(passwordEncoderBean());
+        // 添加自定义的userDetailsService认证
+        auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoderBean());
     }
 
     @Bean
@@ -117,7 +116,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 接口限流测试
                 .antMatchers("/test/**").anonymous()
                 .antMatchers(HttpMethod.OPTIONS, "/**").anonymous()
-
+                // permitall没有绕过spring security，其中包含了登录的以及匿名的
                 .antMatchers("/druid/**").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()

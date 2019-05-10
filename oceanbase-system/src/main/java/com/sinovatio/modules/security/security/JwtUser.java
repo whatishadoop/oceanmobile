@@ -79,6 +79,7 @@ public class JwtUser implements UserDetails {
     }
 
     public Collection getRoles() {
+        // stream
         return authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
     }
 }

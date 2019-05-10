@@ -17,3 +17,11 @@ size，每一页的大小，默认为20
 sort，排序相关的信息，以property,property(,ASC|DESC)的方式组织，例如sort=firstname&sort=lastname,desc表示在按firstname正序排列基础上按lastname倒序排列。
 
 5.idea使用技巧  intelliJ idea 使用try/catch 快捷提示按住ctrl + alt + t，JetBrainsIDEA-structure结构继承的图标说明
+
+6.参考：基于jwt的token验证，接口认证方式：Bearer Token，JWT的Java使用 (JJWT),基于Token的WEB后台认证机制
+a，令牌的好处：避免在使用中不断的输入账号和密码，比较安全
+b，如果要测试带token的接口，首先要进行登录，登录成功会有个token信息，向api接口发送请求的时候必须带上这个token，故需要做2次请求（1，登录，拿到token 2，正式对接口进行测试）
+
+7.JDK 1.8 新特性之Stream, Java8 和 lambda ,JDK 1.8 新特性之Date-Time
+
+8.SpringBoot中使用Spring Security实现权限控制,Spring Security（11）——匿名认证, 聊聊spring security的permitAll以及webIgnore
