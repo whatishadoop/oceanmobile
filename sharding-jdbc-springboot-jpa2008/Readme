@@ -1,0 +1,15 @@
+以下是验证sharding-jdbc相关功能
+1.分库分表
+2.读写分离
+3.yaml文件配置支持 待解决
+4.与druid配置结合支持  待解决
+5.Spring data jpa ,mybatis 与 sharding-jdbc的结合， 需要引入sharding-jdbc-spring-boot-starter，shard-jdbc相关
+  配置两者都是一样的
+6.开启shard-jdbc执行sql,需要加入logback-classic日志依赖，设置sharding.jdbc.config.sharding.props.sql.show=true
+7.默认数据源配置，解决我们有些表如果不需要进行分库分表的话，比如配置表config，配置default-data-source，
+  凡是在默认数据源中的表可以无需配置在分片规则中，Sharding-JDBC将在找不到分片数据源的情况下将表路由至默认数据源
+  配置默认数据源，sharding.jdbc.config.sharding.default-data-source-name=ds0
+8.Spring Boot 与 shard-jdbc的版本兼容问题，否则会报2.2 No such property: host_summary for class: Script296错误
+9.绑定表，解决多表关联查询效率就会比较低的笛卡尔积问题
+10.分页优化
+11.强制分片路由
