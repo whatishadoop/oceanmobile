@@ -1,7 +1,8 @@
 以下是验证sharding-jdbc相关功能
 1.分库分表
 2.读写分离
-3.yaml文件配置支持 待解决
+3.yaml文件配置支持 待解决  参看https://blog.csdn.net/sunqingzhong44/article/details/84791074
+
 4.与druid配置结合支持  待解决
 5.Spring data jpa ,mybatis 与 sharding-jdbc的结合， 需要引入sharding-jdbc-spring-boot-starter，shard-jdbc相关
   配置两者都是一样的

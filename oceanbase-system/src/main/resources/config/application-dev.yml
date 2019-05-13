@@ -1,5 +1,9 @@
 #配置数据源
 spring:
+#  main:
+#    allow-bean-definition-overriding: true
+#  profiles:
+#    active: application-sharding-databases
   datasource:
     druid:
       type: com.alibaba.druid.pool.DruidDataSource

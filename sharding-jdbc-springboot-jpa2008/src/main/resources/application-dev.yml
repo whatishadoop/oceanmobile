@@ -1,0 +1,42 @@
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1
+    ds0:
+      type: com.zaxxer.hikari.HikariDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/ds0?createDatabaseIfNotExist=true
+      username: root
+      password: 123456
+    ds1:
+      type: com.zaxxer.hikari.HikariDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/ds1?createDatabaseIfNotExist=true
+      username: root
+      password: 123456
+    config:
+      sharding:
+        default-database-strategy:
+          inline:
+            sharding-column: uid
+            algorithm-expression: ds$->{uid % 2}
+        tables:
+          order_info:
+            actual-data-nodes: ds$->{0..1}
+            key-generator-column-name: oid
+            table-strategy:
+              inline:
+                sharding-column: oid
+                algorithm-expression: order_info$->{oid % 2}
+          order_item:
+            actual-data-nodes: ds$->{0..1}.order_item$->{0..1}
+            key-generator-column-name: itemId
+            table-strategy:
+              inline:
+                sharding-column: oid
+                algorithm-expression: order_item$->{oid % 2}
+        binding-tables[0]: order_info,order_item
+        default-data-source-name: ds0
+        props:
+          sql:
+            show: true

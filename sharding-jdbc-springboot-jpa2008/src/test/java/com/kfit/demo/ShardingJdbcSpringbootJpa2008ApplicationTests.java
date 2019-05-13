@@ -1,7 +1,10 @@
 package com.kfit.demo;
 
-import java.util.List;
-
+import com.kfit.demo.bean.OrderInfo;
+import com.kfit.demo.repository.OrderInfoRepository;
+import com.kfit.demo.service.OrderInfoService;
+import com.kfit.demo.service.OrderItemService;
+import io.shardingsphere.api.HintManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +14,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.kfit.demo.bean.OrderInfo;
-import com.kfit.demo.repository.OrderInfoRepository;
-import com.kfit.demo.service.OrderInfoService;
-import com.kfit.demo.service.OrderItemService;
-
-import io.shardingsphere.core.api.HintManager;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -40,7 +36,7 @@ public class ShardingJdbcSpringbootJpa2008ApplicationTests {
 	public void testPageForce() {
         // 强制路由 设置后需要路由的表
 		HintManager hintManager = HintManager.getInstance();
-		hintManager.addDatabaseShardingValue("order_info","uid",0);
+		hintManager.addDatabaseShardingValue("order_info",0);
 		//page 是从0开始的.
 		Pageable pageable = PageRequest.of(1, 2, Sort.by("oid"));
 		Page<OrderInfo> page = orderInfoRepository.findAll(pageable);
@@ -84,8 +80,6 @@ public class ShardingJdbcSpringbootJpa2008ApplicationTests {
 			orderInfo.setStatus("save.jpa.sharding");
 			orderInfoService.save(orderInfo);
 		}
-		
 	}
-
 }
 

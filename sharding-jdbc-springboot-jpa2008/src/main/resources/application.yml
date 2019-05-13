@@ -1,0 +1,58 @@
+server:
+  port: 9900
+spring:
+  application:
+    name: shard-jdbc-starter
+  main:
+    allow-bean-definition-overriding: true
+  #配置 Jpa
+  jpa:
+    properties:
+      hibernate:
+        # 指定hibernate方言,jpa默认建表时用的引擎为MyISAM，而MyISAM却是不支持事务的，要想支持需要将表的存储引擎设为InnoDB
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        # 生产环境设置成 none，避免程序运行时自动更新数据库结构
+        hbm2ddl:
+          auto: update
+        show_sql: true
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ds0?createDatabaseIfNotExist=true
+        username: root
+        password: 123456
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ds1?createDatabaseIfNotExist=true
+        username: root
+        password: 123456
+    config:
+      sharding:
+        props:
+          sql.show: true
+        tables:
+          order_info:  #order_info表
+            key-generator-column-name: oid  #主键
+            actual-data-nodes: ds${0..1}.t_user${0..1}  #数据节点
+            database-strategy:  #分库策略
+              inline:
+                sharding-column: uid
+                algorithm-expression: ds$->{uid % 2}
+            table-strategy:  #分表策略
+              inline:
+                shardingColumn: oid
+                algorithm-expression: order_info$->{oid % 2}
+          order_item:
+            key-generator-column-name: itemId
+            actual-data-nodes: ds$->{0..1}.order_item$->{0..1}
+            database-strategy:
+              inline:
+                shardingColumn: oid
+                algorithm-expression: order_item$->{oid % 2}
+      binding-tables[0]: order_info,order_item
+      default-data-source-name: ds0
