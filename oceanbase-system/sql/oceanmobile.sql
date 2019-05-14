@@ -619,8 +619,8 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg', '2018-08-23 09:11:56', 'admin@sinovatio.com', '1', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-04-04 16:00:46', '2', '18888888888', '10');
-INSERT INTO `sys_user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.com/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@sinovatio.com', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
+INSERT INTO `sys_user` VALUES ('1', 'https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg', '2018-08-23 09:11:56', 'admin@sinovatio.rules', '1', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-04-04 16:00:46', '2', '18888888888', '10');
+INSERT INTO `sys_user` VALUES ('3', 'https://aurora-1255840532.cos.ap-chengdu.myqcloud.rules/8918a306ea314404835a9196585c4b75.jpeg', '2018-12-27 20:05:26', 'test@sinovatio.rules', '1', 'e10adc3949ba59abbe56e057f20f883e', 'test', '2019-04-01 09:15:24', '2', '17777777777', '12');
 
 -- ----------------------------
 -- Table structure for sys_users_roles
@@ -686,7 +686,7 @@ CREATE TABLE `tls_email_config` (
 -- ----------------------------
 -- Records of tls_email_config
 -- ----------------------------
-INSERT INTO `tls_email_config` VALUES ('5', 'jinlu.hansome@163.com', 'smtp.163.com', '45A9CA95DC808187', '255', 'jinlu.hansome@163.com');
+INSERT INTO `tls_email_config` VALUES ('5', 'jinlu.hansome@163.rules', 'smtp.163.rules', '45A9CA95DC808187', '255', 'jinlu.hansome@163.rules');
 
 -- ----------------------------
 -- Table structure for tls_gen_config
@@ -706,7 +706,7 @@ CREATE TABLE `tls_gen_config` (
 -- ----------------------------
 -- Records of tls_gen_config
 -- ----------------------------
-INSERT INTO `tls_gen_config` VALUES ('1', 'admin', '\0', 'oceanmobile-system', 'com.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
+INSERT INTO `tls_gen_config` VALUES ('1', 'admin', '\0', 'oceanmobile-system', 'rules.sinovatio.modules.system', 'E:\\workspace\\me\\eladmin-qt\\src\\views\\system\\dictDetail', 'E:\\workspace\\me\\eladmin-qt\\src\\api');
 
 -- ----------------------------
 -- Table structure for tls_verification_code

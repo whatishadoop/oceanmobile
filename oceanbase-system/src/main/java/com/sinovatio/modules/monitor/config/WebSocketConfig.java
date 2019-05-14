@@ -47,7 +47,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                         LogMessage log = LoggerQueue.getInstance().poll();
                         if(log!=null){
                             // 格式化异常堆栈信息
-                            if("ERROR".equals(log.getLevel()) && "com.sinovatio.common.exception.handler.GlobalExceptionHandler".equals(log.getClassName())){
+                            if("ERROR".equals(log.getLevel()) && "rules.sinovatio.common.exception.handler.GlobalExceptionHandler".equals(log.getClassName())){
                                 log.setBody("<pre>"+log.getBody()+"</pre>");
                             }
                             if(log.getClassName().equals("jdbc.resultsettable")){

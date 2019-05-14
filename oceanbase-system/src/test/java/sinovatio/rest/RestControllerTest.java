@@ -119,6 +119,14 @@ public class RestControllerTest {
                 .andExpect(status().isOk());
     }
 
+    // 测试规则
+    @Test
+    @WithMockUser(username="admin",roles={"ADMIN"},password = "123456")
+    public void testRules() throws Exception {
+        mockMvc.perform(get("/api/testrule")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk());
+    }
     /**
      * 文件上传测试
      *
