@@ -49,7 +49,7 @@ sharding:
     datasource:
       names: ds0,ds1
       ds0:
-        type: rules.alibaba.druid.pool.DruidDataSource
+        type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: rules.mysql.jdbc.Driver
         url: jdbc:mysql://localhost:3306/ds0?createDatabaseIfNotExist=true
         username: root
@@ -57,7 +57,7 @@ sharding:
         #最大连接数
         maxPoolSize: 20
       ds1:
-        type: rules.alibaba.druid.pool.DruidDataSource
+        type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: rules.mysql.jdbc.Driver
         url: jdbc:mysql://localhost:3306/ds1?createDatabaseIfNotExist=true
         username: root

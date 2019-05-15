@@ -96,14 +96,14 @@ public class RedisConfig extends CachingConfigurerSupport {
         template.setHashValueSerializer(fastJsonRedisSerializer);
 
         // 全局开启AutoType，不建议使用
-        // ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+        //ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
         // 建议使用这种方式，小范围指定白名单
-        ParserConfig.getGlobalInstance().addAccept("rules.sinovatio.domain");
-        ParserConfig.getGlobalInstance().addAccept("rules.sinovatio.modules.system.service.dto");
-        ParserConfig.getGlobalInstance().addAccept("rules.sinovatio.modules.system.domain");
-        ParserConfig.getGlobalInstance().addAccept("rules.sinovatio.modules.quartz.domain");
-        ParserConfig.getGlobalInstance().addAccept("rules.sinovatio.modules.monitor.domain");
-        ParserConfig.getGlobalInstance().addAccept("rules.sinovatio.modules.security.security");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.system.service.dto");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.system.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.quartz.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.monitor.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.sinovatio.modules.security.security");
         // key的序列化采用StringRedisSerializer
         template.setKeySerializer(new StringRedisSerializer());
         template.setHashKeySerializer(new StringRedisSerializer());
