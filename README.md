@@ -27,3 +27,5 @@ b，如果要测试带token的接口，首先要进行登录，登录成功会�
 8.SpringBoot中使用Spring Security实现权限控制,Spring Security（11）——匿名认证, 聊聊spring security的permitAll以及webIgnore
 
 9.Jackson序列化Java对象时注意
+10.spring boot+ Intellj idea devtools 设置热部署
+11.在spring security获取当前对象

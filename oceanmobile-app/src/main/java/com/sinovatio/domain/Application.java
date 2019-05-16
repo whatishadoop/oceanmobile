@@ -23,24 +23,27 @@ public class Application {
     @NotBlank
     private String name;
 
-    @NotBlank
+    //@NotBlank
     private String code;
     @NotBlank
     @Column(name = "busi_name")
     private String busiName;
 
-    @NotBlank
+    //@NotBlank
     private String creator;
 
     @CreationTimestamp
     @Column(name = "create_time")
     private Timestamp createTime;
 
-    @NotBlank
+    //@NotBlank
     private String description;
 
     @NotNull
     private Long sort;
+
+    @NotNull
+    private Boolean enabled;
 
     public interface  Update{}
 }

@@ -196,5 +196,10 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+        <!--支持修改代码热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
     </dependencies>
 </project>

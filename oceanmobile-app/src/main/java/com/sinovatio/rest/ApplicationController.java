@@ -12,8 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName: ApplicationController
@@ -45,10 +48,14 @@ public class ApplicationController {
     @Log("新增应用")
     @PostMapping(value="/application")
     //@PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity create( @Validated @RequestBody Application applicaion){
+    public ResponseEntity create(HttpServletRequest request, @Validated @RequestBody Application applicaion){
         if (applicaion.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
         }
+        SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+        String creatorName = securityContextImpl.getAuthentication().getName();
+        System.out.println(creatorName);
+        applicaion.setCreator(creatorName);
         return new ResponseEntity(applicationService.create(applicaion), HttpStatus.OK);
     }
 
