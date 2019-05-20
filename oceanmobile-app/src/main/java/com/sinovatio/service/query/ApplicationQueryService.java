@@ -54,8 +54,14 @@ public class ApplicationQueryService {
         public Predicate toPredicate(Root<Application> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
             List<Predicate> list = new ArrayList<>();
             // 拼接查询条件
-            if(!ObjectUtils.isEmpty(applicationDTO.getBusiName())){
-                list.add(cb.like(root.get("busiName").as(String.class),"%" + applicationDTO.getBusiName() + "%"));
+            if(!ObjectUtils.isEmpty(applicationDTO.getName())){
+                list.add(cb.like(root.get("name").as(String.class),"%" + applicationDTO.getName() + "%"));
+            }
+            if(!ObjectUtils.isEmpty(applicationDTO.getEnabled())){
+                /**
+                 * 精确
+                 */
+                list.add(cb.equal(root.get("enabled").as(Boolean.class),applicationDTO.getEnabled()));
             }
             Predicate[] p = new Predicate[list.size()];
             return cb.and(list.toArray(p));

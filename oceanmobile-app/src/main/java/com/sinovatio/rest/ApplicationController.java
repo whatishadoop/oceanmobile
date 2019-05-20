@@ -6,13 +6,14 @@ import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.service.ApplicationService;
 import com.sinovatio.service.dto.ApplicationDTO;
 import com.sinovatio.service.query.ApplicationQueryService;
+import com.sinovatio.utils.SecurityContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,22 +48,24 @@ public class ApplicationController {
 
     @Log("新增应用")
     @PostMapping(value="/application")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity create(HttpServletRequest request, @Validated @RequestBody Application applicaion){
-        if (applicaion.getId() != null) {
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity create(HttpServletRequest request, @Validated @RequestBody Application application){
+        if (application.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
         }
-        SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
-        String creatorName = securityContextImpl.getAuthentication().getName();
+        // 获取用户名字
+        String creatorName = SecurityContextHolder.getUserDetails().getUsername();
         System.out.println(creatorName);
-        applicaion.setCreator(creatorName);
-        return new ResponseEntity(applicationService.create(applicaion), HttpStatus.OK);
+        application.setCreator(creatorName);
+        return new ResponseEntity(applicationService.create(application), HttpStatus.OK);
     }
 
     @Log("修改应用")
     @PutMapping(value="/application")
     //@PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity update(@Validated(Application.Update.class) @RequestBody Application application){
+        String creatorName = SecurityContextHolder.getUserDetails().getUsername();
+        application.setCreator(creatorName);
         applicationService.update(application);
         return new ResponseEntity(HttpStatus.OK);
     }

@@ -27,4 +27,6 @@ public class ApplicationDTO {
     private Timestamp createTime;
 
     private String description;
+
+    private Boolean enabled;
 }

@@ -52,6 +52,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         tmpApplication.setCode(application.getCode());
         tmpApplication.setDescription(application.getDescription());
         tmpApplication.setCreator(application.getCreator());
+        tmpApplication.setEnabled(application.getEnabled());
         tmpApplication.setSort(application.getSort());
         applicationRepository.save(tmpApplication);
     }
