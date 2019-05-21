@@ -48,6 +48,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         ValidationUtil.isNull(applicationOptional, "Application", "id",application.getId());
         // 此处需修改相关属性信息
         Application tmpApplication = applicationOptional.get();
+        tmpApplication.setName(application.getName());
         tmpApplication.setBusiName(application.getBusiName());
         tmpApplication.setCode(application.getCode());
         tmpApplication.setDescription(application.getDescription());

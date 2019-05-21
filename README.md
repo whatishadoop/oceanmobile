@@ -29,3 +29,5 @@ b，如果要测试带token的接口，首先要进行登录，登录成功会�
 9.Jackson序列化Java对象时注意
 10.spring boot+ Intellj idea devtools 设置热部署
 11.在spring security获取当前对象
+12.数据权限概念设计
+13.hibernate映射关系

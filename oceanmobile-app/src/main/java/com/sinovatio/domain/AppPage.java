@@ -39,9 +39,8 @@ public class AppPage {
     @Column ( columnDefinition = "longtext")
     private String config;
 
-    @NotBlank
-    @Column
-    private String isEnable;
+    @NotNull
+    private Boolean enabled;
 
     @NotBlank
     @Column
