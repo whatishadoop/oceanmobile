@@ -11,16 +11,6 @@ import lombok.NoArgsConstructor;
 * @Date 2019/4/19 14:23
 * @Version 1.0
 */
-/**
- * 列的数据信息
- * @author jie
- * @date 2019-01-02
- */
-/**
- * 列的数据信息
- * @author jie
- * @date 2019-01-02
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

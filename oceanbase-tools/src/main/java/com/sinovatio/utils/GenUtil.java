@@ -22,11 +22,6 @@ import java.util.Map;
 * @Date 2019/4/19 14:27
 * @Version 1.0
 */
-/**
- * 代码生成
- * @author jie
- * @date 2019-01-02
- */
 @Slf4j
 public class GenUtil {
 
