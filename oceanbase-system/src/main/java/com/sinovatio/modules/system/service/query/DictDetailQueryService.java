@@ -64,8 +64,8 @@ public class DictDetailQueryService {
 
             if(!ObjectUtils.isEmpty(dictDetail.getLabel())){
                 /**
-                * 模糊
-                */
+                 * 模糊
+                 */
                 list.add(cb.like(root.get("label").as(String.class),"%"+dictDetail.getLabel()+"%"));
             }
 

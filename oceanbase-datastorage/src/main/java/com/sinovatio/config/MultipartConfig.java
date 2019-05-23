@@ -17,12 +17,12 @@ import java.io.File;
 public class MultipartConfig {
 
     /**
-     * 文件上传临时路径配置
+     * 文件上传临时路径
      */
     @Bean
     MultipartConfigElement multipartConfigElement() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
-        String location = System.getProperty("user.home") + "/.oceanmobile/file/tmp";
+        String location = System.getProperty("user.home") + "/.eladmin/file/tmp";
         File tmpFile = new File(location);
         if (!tmpFile.exists()) {
             tmpFile.mkdirs();

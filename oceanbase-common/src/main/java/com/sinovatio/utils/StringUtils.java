@@ -11,6 +11,9 @@ import java.util.Date;
 * @Date 2019/4/19 14:22
 * @Version 1.0
 */
+/**
+ * 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
+ */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     private static final char SEPARATOR = '_';
@@ -124,7 +127,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * @param request
      * @return
      */
-        public static String getIP(HttpServletRequest request) {
+    public static String getIP(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");

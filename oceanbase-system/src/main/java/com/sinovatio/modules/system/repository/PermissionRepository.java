@@ -1,12 +1,10 @@
 package com.sinovatio.modules.system.repository;
 
 import com.sinovatio.modules.system.domain.Permission;
-import com.sinovatio.modules.system.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
-import java.util.Set;
 
 /**
 * @ClassName: PermissionRepository
@@ -30,6 +28,4 @@ public interface PermissionRepository extends JpaRepository<Permission, Long>, J
      * @return
      */
     List<Permission> findByPid(long pid);
-
-    Set<Permission> findByRoles(Set<Role> roles);
 }

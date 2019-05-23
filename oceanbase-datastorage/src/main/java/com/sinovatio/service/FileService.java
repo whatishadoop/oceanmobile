@@ -15,23 +15,23 @@ import org.springframework.web.multipart.MultipartFile;
 * @Date 2019/4/19 16:17
 * @Version 1.0
 */
-@CacheConfig(cacheNames = "qiNiu")
+@CacheConfig(cacheNames = "file")
 public interface FileService {
 
     /**
      * 查配置
      * @return
      */
-    @Cacheable(key = "'1'")
+    @Cacheable(cacheNames = "fileConfig", key = "'1'")
     FileConfig find();
 
     /**
      * 修改配置
-     * @param fileConfig
+     * @param qiniuConfig
      * @return
      */
-    @CachePut(key = "'1'")
-    FileConfig update(FileConfig fileConfig);
+    @CachePut(cacheNames = "fileConfig", key = "'1'")
+    FileConfig update(FileConfig qiniuConfig);
 
     /**
      * 上传文件
@@ -39,7 +39,7 @@ public interface FileService {
      * @param fileConfig
      */
     @CacheEvict(allEntries = true)
-    FileContent upload(MultipartFile file, FileConfig fileConfig);
+     FileContent upload(MultipartFile file, FileConfig fileConfig);
 
     /**
      * 查询文件
@@ -72,4 +72,12 @@ public interface FileService {
      */
     @CacheEvict(allEntries = true)
     void synchronize(FileConfig config);
+
+    /**
+     * 删除文件
+     * @param ids
+     * @return
+     */
+    @CacheEvict(allEntries = true)
+    void deleteAll(Long[] ids, FileConfig config);
 }

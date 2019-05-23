@@ -1,6 +1,6 @@
 package com.sinovatio.modules.security.service;
 
-import com.sinovatio.exception.EntityNotFoundException;
+import com.sinovatio.exception.BadRequestException;
 import com.sinovatio.modules.security.security.JwtUser;
 import com.sinovatio.modules.system.domain.Dept;
 import com.sinovatio.modules.system.domain.Job;
@@ -37,7 +37,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
         User user = userService.findByName(username);
         if (user == null) {
-            throw new EntityNotFoundException(User.class, "name", username);
+            throw new BadRequestException("账号不存在");
         } else {
             return createJwtUser(user);
         }
@@ -53,7 +53,7 @@ public class JwtUserDetailsService implements UserDetailsService {
                 user.getPhone(),
                 Optional.ofNullable(user.getDept()).map(Dept::getName).orElse(null),
                 Optional.ofNullable(user.getJob()).map(Job::getName).orElse(null),
-                permissionService.mapToGrantedAuthorities(user),//将用户角色作为权限
+                permissionService.mapToGrantedAuthorities(user),
                 user.getEnabled(),
                 user.getCreateTime(),
                 user.getLastPasswordResetTime()

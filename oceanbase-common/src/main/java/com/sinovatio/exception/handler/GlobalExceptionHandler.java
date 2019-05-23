@@ -55,13 +55,13 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-	@ExceptionHandler(value = BadRequestException.class)
-	public ResponseEntity<ApiError> badRequestException(BadRequestException e) {
+    @ExceptionHandler(value = BadRequestException.class)
+    public ResponseEntity<ApiError> badRequestException(BadRequestException e) {
         // 打印堆栈信息
         log.error(ThrowableUtil.getStackTrace(e));
         ApiError apiError = new ApiError(e.getStatus(),e.getMessage());
         return buildResponseEntity(apiError);
-	}
+    }
 
     /**
      * 处理 EntityExist

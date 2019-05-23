@@ -11,6 +11,16 @@ import lombok.NoArgsConstructor;
 * @Date 2019/4/19 14:23
 * @Version 1.0
 */
+/**
+ * 列的数据信息
+ * @author jie
+ * @date 2019-01-02
+ */
+/**
+ * 列的数据信息
+ * @author jie
+ * @date 2019-01-02
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +40,9 @@ public class ColumnInfo {
 
     /** 数据库字段键类型 **/
     private Object columnKey;
+
+    /** 额外的参数 **/
+    private Object extra;
 
     /** 查询 1:模糊 2：精确 **/
     private String columnQuery;

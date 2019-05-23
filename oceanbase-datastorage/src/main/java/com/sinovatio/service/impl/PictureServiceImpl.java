@@ -89,4 +89,11 @@ public class PictureServiceImpl implements PictureService {
         }
 
     }
+
+    @Override
+    public void deleteAll(Long[] ids) {
+        for (Long id : ids) {
+            delete(findById(id));
+        }
+    }
 }

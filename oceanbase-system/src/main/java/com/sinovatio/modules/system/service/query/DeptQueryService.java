@@ -40,8 +40,8 @@ public class DeptQueryService {
     private DeptMapper deptMapper;
 
     /**
-    * 不分页
-    */
+     * 不分页
+     */
     @Cacheable(keyGenerator = "keyGenerator")
     public List queryAll(DeptDTO dept, Set<Long> deptIds){
         return deptMapper.toDto(deptRepository.findAll(new Spec(dept, deptIds)));
@@ -66,8 +66,8 @@ public class DeptQueryService {
 
             if(!ObjectUtils.isEmpty(dept.getName())){
                 /**
-                * 模糊
-                */
+                 * 模糊
+                 */
                 list.add(cb.like(root.get("name").as(String.class),"%"+dept.getName()+"%"));
             }
 

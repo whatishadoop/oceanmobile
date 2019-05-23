@@ -53,7 +53,7 @@ public class FileConfig implements Serializable {
     private String zone;
 
     /**
-     * 外链域名，可自定义，需在文件云绑定
+     * 外链域名，可自定义，需在七牛云绑定
      */
     @NotBlank
     private String host;

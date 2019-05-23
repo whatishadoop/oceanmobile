@@ -22,6 +22,11 @@ import java.util.Map;
 * @Date 2019/4/19 14:27
 * @Version 1.0
 */
+/**
+ * 代码生成
+ * @author jie
+ * @date 2019-01-02
+ */
 @Slf4j
 public class GenUtil {
 
@@ -30,6 +35,8 @@ public class GenUtil {
     private static final String BIGDECIMAL = "BigDecimal";
 
     private static final String PK = "PRI";
+
+    private static final String EXTRA = "auto_increment";
 
     /**
      * 获取后端代码模板名称
@@ -65,7 +72,7 @@ public class GenUtil {
     /**
      * 生成代码
      * @param columnInfos 表元数据
-     * @param genConfig 生成代码的参数配置，如包路径，作者
+     * @param genConfig 生成代码的参数配置，如包路径，开发者
      */
     public static void generatorCode(List<ColumnInfo> columnInfos, GenConfig genConfig, String tableName) throws IOException {
         Map<String,Object> map = new HashMap();
@@ -76,10 +83,12 @@ public class GenUtil {
         map.put("tableName",tableName);
         String className = StringUtils.toCapitalizeCamelCase(tableName);
         map.put("className", className);
+        map.put("upperCaseClassName", className.toUpperCase());
         map.put("changeClassName", StringUtils.toCamelCase(tableName));
         map.put("hasTimestamp",false);
         map.put("hasBigDecimal",false);
         map.put("hasQuery",false);
+        map.put("auto",false);
 
         List<Map<String,Object>> columns = new ArrayList<>();
         List<Map<String,Object>> queryColumns = new ArrayList<>();
@@ -89,8 +98,12 @@ public class GenUtil {
             listMap.put("columnKey",column.getColumnKey());
 
             String colType = ColUtil.cloToJava(column.getColumnType().toString());
+            String changeColumnName = StringUtils.toCamelCase(column.getColumnName().toString());
+            String capitalColumnName = StringUtils.toCapitalizeCamelCase(column.getColumnName().toString());
             if(PK.equals(column.getColumnKey())){
                 map.put("pkColumnType",colType);
+                map.put("pkChangeColName",changeColumnName);
+                map.put("pkCapitalColName",capitalColumnName);
             }
             if(TIMESTAMP.equals(colType)){
                 map.put("hasTimestamp",true);
@@ -98,12 +111,15 @@ public class GenUtil {
             if(BIGDECIMAL.equals(colType)){
                 map.put("hasBigDecimal",true);
             }
+            if(EXTRA.equals(column.getExtra())){
+                map.put("auto",true);
+            }
             listMap.put("columnType",colType);
             listMap.put("columnName",column.getColumnName());
             listMap.put("isNullable",column.getIsNullable());
             listMap.put("columnShow",column.getColumnShow());
-            listMap.put("changeColumnName",StringUtils.toCamelCase(column.getColumnName().toString()));
-            listMap.put("capitalColumnName",StringUtils.toCapitalizeCamelCase(column.getColumnName().toString()));
+            listMap.put("changeColumnName",changeColumnName);
+            listMap.put("capitalColumnName",capitalColumnName);
 
             if(!StringUtils.isBlank(column.getColumnQuery())){
                 listMap.put("columnQuery",column.getColumnQuery());
@@ -240,9 +256,5 @@ public class GenUtil {
         } finally {
             writer.close();
         }
-    }
-
-    public static void main(String[] args){
-        System.out.println(FileUtil.exist("E:\\1.5.txt"));
     }
 }

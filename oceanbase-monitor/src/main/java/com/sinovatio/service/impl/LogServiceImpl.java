@@ -5,15 +5,15 @@ import com.sinovatio.domain.Log;
 import com.sinovatio.repository.LogRepository;
 import com.sinovatio.service.LogService;
 import com.sinovatio.utils.RequestHolder;
-import com.sinovatio.utils.SecurityContextHolder;
+import com.sinovatio.utils.SecurityUtils;
 import com.sinovatio.utils.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
@@ -69,8 +69,7 @@ public class LogServiceImpl implements LogService {
         log.setRequestIp(StringUtils.getIP(request));
 
         if(!LOGINPATH.equals(signature.getName())){
-            UserDetails userDetails = SecurityContextHolder.getUserDetails();
-            username = userDetails.getUsername();
+            username = SecurityUtils.getUsername();
         } else {
             try {
                 JSONObject jsonObject = new JSONObject(argValues[0]);

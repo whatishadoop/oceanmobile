@@ -50,8 +50,8 @@ public class DictQueryService {
     }
 
     /**
-    * 不分页
-    */
+     * 不分页
+     */
     @Cacheable(keyGenerator = "keyGenerator")
     public Object queryAll(DictDTO dict){
         return dictMapper.toDto(dictRepository.findAll(new Spec(dict)));
@@ -72,14 +72,14 @@ public class DictQueryService {
 
             if(!ObjectUtils.isEmpty(dict.getName())){
                 /**
-                * 模糊
-                */
+                 * 模糊
+                 */
                 list.add(cb.like(root.get("name").as(String.class),"%"+dict.getName()+"%"));
             }
             if(!ObjectUtils.isEmpty(dict.getRemark())){
                 /**
-                * 模糊
-                */
+                 * 模糊
+                 */
                 list.add(cb.like(root.get("remark").as(String.class),"%"+dict.getRemark()+"%"));
             }
             Predicate[] p = new Predicate[list.size()];

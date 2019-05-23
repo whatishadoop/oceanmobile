@@ -1,8 +1,9 @@
 package com.sinovatio.modules.system.service.impl;
 
-import com.sinovatio.modules.system.domain.User;
 import com.sinovatio.exception.EntityExistException;
 import com.sinovatio.exception.EntityNotFoundException;
+import com.sinovatio.modules.monitor.service.RedisService;
+import com.sinovatio.modules.system.domain.User;
 import com.sinovatio.modules.system.repository.UserRepository;
 import com.sinovatio.modules.system.service.UserService;
 import com.sinovatio.modules.system.service.dto.UserDTO;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Date;
 import java.util.Optional;
 
@@ -31,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RedisService redisService;
 
     @Override
     public UserDTO findById(long id) {
@@ -53,7 +58,7 @@ public class UserServiceImpl implements UserService {
 
         // 默认密码 123456，此密码是加密后的字符
         resources.setPassword("e10adc3949ba59abbe56e057f20f883e");
-        resources.setAvatar("https://aurora-1255840532.cos.ap-chengdu.myqcloud.rules/8918a306ea314404835a9196585c4b75.jpeg");
+        resources.setAvatar("https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg");
         return userMapper.toDto(userRepository.save(resources));
     }
 
@@ -74,6 +79,14 @@ public class UserServiceImpl implements UserService {
 
         if(user2!=null&&!user.getId().equals(user2.getId())){
             throw new EntityExistException(User.class,"email",resources.getEmail());
+        }
+
+        // 如果用户的角色改变了，需要手动清理下缓存
+        if (!resources.getRoles().equals(user.getRoles())) {
+            String key = "role::loadPermissionByUser:" + user.getUsername();
+            redisService.delete(key);
+            key = "role::findByUsers_Id:" + user.getId();
+            redisService.delete(key);
         }
 
         user.setUsername(resources.getUsername());

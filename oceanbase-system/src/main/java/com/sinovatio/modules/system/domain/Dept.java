@@ -1,14 +1,13 @@
 package com.sinovatio.modules.system.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 import java.io.Serializable;
-import java.util.Set;
+import java.sql.Timestamp;
 
 /**
 * @ClassName: Dept
@@ -51,10 +50,6 @@ public class Dept implements Serializable {
     @Column(name = "create_time")
     @CreationTimestamp
     private Timestamp createTime;
-
-    @ManyToMany(mappedBy = "depts")
-    @JsonIgnore
-    private Set<Role> roles;
 
     public @interface Update {}
 }

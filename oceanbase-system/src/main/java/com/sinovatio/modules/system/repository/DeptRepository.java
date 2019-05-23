@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
-import java.util.Set;
 
 /**
 * @ClassName: DeptRepository
@@ -22,6 +21,4 @@ public interface DeptRepository extends JpaRepository<Dept, Long>, JpaSpecificat
      * @return
      */
     List<Dept> findByPid(Long id);
-
-    Set<Dept> findByRoles_Id(Long id);
 }

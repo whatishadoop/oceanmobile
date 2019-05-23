@@ -4,15 +4,15 @@ import com.sinovatio.aop.log.Log;
 import com.sinovatio.domain.Picture;
 import com.sinovatio.service.PictureService;
 import com.sinovatio.service.query.PictureQueryService;
-import com.sinovatio.utils.SecurityContextHolder;
+import com.sinovatio.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,8 +50,7 @@ public class PictureController {
     @PreAuthorize("hasAnyRole('ADMIN','PICTURE_ALL','PICTURE_UPLOAD')")
     @PostMapping(value = "/pictures")
     public ResponseEntity upload(@RequestParam MultipartFile file){
-        UserDetails userDetails = SecurityContextHolder.getUserDetails();
-        String userName = userDetails.getUsername();
+        String userName = SecurityUtils.getUsername();
         Picture picture = pictureService.upload(file,userName);
         Map map = new HashMap();
         map.put("errno",0);
@@ -70,6 +69,19 @@ public class PictureController {
     @DeleteMapping(value = "/pictures/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
         pictureService.delete(pictureService.findById(id));
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    /**
+     * 删除多张图片
+     * @param ids
+     * @return
+     */
+    @Log("删除图片")
+    @PreAuthorize("hasAnyRole('ADMIN','PICTURE_ALL','PICTURE_DELETE')")
+    @DeleteMapping(value = "/pictures")
+    public ResponseEntity deleteAll(@RequestBody Long[] ids) {
+        pictureService.deleteAll(ids);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

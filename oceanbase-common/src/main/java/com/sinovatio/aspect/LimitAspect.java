@@ -45,7 +45,7 @@ public class LimitAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method signatureMethod = signature.getMethod();
         Limit limit = signatureMethod.getAnnotation(Limit.class);
-        com.sinovatio.aspect.LimitType limitType = limit.limitType();
+        LimitType limitType = limit.limitType();
         String name = limit.name();
         String key = limit.key();
         if (StringUtils.isEmpty(key)) {

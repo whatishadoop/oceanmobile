@@ -34,7 +34,7 @@ public class RulersController {
     public ResponseEntity getRule() {
         KieHelper kieHelper = new KieHelper();
         //方式一: 通过kiehelper加载classpath路径下的drl，可以加载多个规则，而不是覆盖
-        //kieHelper.addResource(ResourceFactory.newClassPathResource("rules/chapter4.drl"), ResourceType.DRL);
+        //kieHelper.addResource(ResourceFactory.newClassPathResource("rules/test01.drl"), ResourceType.DRL);
         //方式二: 通过kiehelper加载直接加载drl内容,这里的内容可以存在数据库中，动态读取出来
 		kieHelper.addContent("package com.rules\n" +
 				"\n" +
@@ -64,7 +64,7 @@ public class RulersController {
         kieSession.fireAllRules();
 
         // 若要添加新的规则，则需要重新添加，构建再执行，旧的规则仍旧存在，是增量添加
-        kieHelper.addResource(ResourceFactory.newClassPathResource("rules/chapter5.drl"), ResourceType.DRL);
+        kieHelper.addResource(ResourceFactory.newClassPathResource("rules/test02.drl"), ResourceType.DRL);
         kieBase = kieHelper.build();
         kieSession = kieBase.newKieSession();
         kieSession.fireAllRules();

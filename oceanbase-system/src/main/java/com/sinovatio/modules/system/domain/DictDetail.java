@@ -44,7 +44,7 @@ public class DictDetail implements Serializable {
     /**
      * 字典id
      */
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "dict_id")
     private Dict dict;
 

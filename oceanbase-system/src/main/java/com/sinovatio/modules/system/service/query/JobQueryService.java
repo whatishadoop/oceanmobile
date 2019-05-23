@@ -78,8 +78,8 @@ public class JobQueryService {
 
             if(!ObjectUtils.isEmpty(job.getName())){
                 /**
-                * 模糊
-                */
+                 * 模糊
+                 */
                 list.add(cb.like(root.get("name").as(String.class),"%"+job.getName()+"%"));
             }
 

@@ -694,7 +694,7 @@ INSERT INTO `tls_email_config` VALUES ('5', 'jinlu.hansome@163.rules', 'smtp.163
 DROP TABLE IF EXISTS `tls_gen_config`;
 CREATE TABLE `tls_gen_config` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `author` varchar(255) DEFAULT NULL COMMENT '作者',
+  `author` varchar(255) DEFAULT NULL COMMENT '开发者',
   `cover` bit(1) DEFAULT NULL COMMENT '是否覆盖',
   `module_name` varchar(255) DEFAULT NULL COMMENT '模块名称',
   `pack` varchar(255) DEFAULT NULL COMMENT '至于哪个包下',

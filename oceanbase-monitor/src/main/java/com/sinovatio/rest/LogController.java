@@ -2,7 +2,7 @@ package com.sinovatio.rest;
 
 import com.sinovatio.domain.Log;
 import com.sinovatio.service.query.LogQueryService;
-import com.sinovatio.utils.SecurityContextHolder;
+import com.sinovatio.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -36,7 +36,7 @@ public class LogController {
     @GetMapping(value = "/logs/user")
     public ResponseEntity getUserLogs(Log log, Pageable pageable){
         log.setLogType("INFO");
-        log.setUsername(SecurityContextHolder.getUserDetails().getUsername());
+        log.setUsername(SecurityUtils.getUsername());
         return new ResponseEntity(logQueryService.queryAll(log,pageable), HttpStatus.OK);
     }
 

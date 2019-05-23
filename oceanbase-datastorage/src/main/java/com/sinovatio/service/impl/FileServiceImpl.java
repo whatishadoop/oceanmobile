@@ -182,4 +182,11 @@ public class FileServiceImpl implements FileService {
         }
 
     }
+
+    @Override
+    public void deleteAll(Long[] ids, FileConfig config) {
+        for (Long id : ids) {
+            delete(findByContentId(id), config);
+        }
+    }
 }

@@ -24,7 +24,7 @@ public class FileContent implements Serializable {
     private Long id;
 
     /**
-     * 文件名，如qiniu.jpg
+     * 文件名，如xxxx.jpg
      */
     @Column(name = "name",unique = false)
     private String key;

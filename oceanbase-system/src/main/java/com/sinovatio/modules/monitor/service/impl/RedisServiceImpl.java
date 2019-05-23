@@ -77,7 +77,6 @@ public class RedisServiceImpl implements RedisService {
                 jedis.close(); // 释放资源还给连接池
             }
         }
-
     }
 
     @Override

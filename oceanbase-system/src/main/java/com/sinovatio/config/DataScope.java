@@ -6,7 +6,7 @@ import com.sinovatio.modules.system.domain.User;
 import com.sinovatio.modules.system.service.DeptService;
 import com.sinovatio.modules.system.service.RoleService;
 import com.sinovatio.modules.system.service.UserService;
-import com.sinovatio.utils.SecurityContextHolder;
+import com.sinovatio.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,7 +38,7 @@ public class DataScope {
 
     public Set<Long> getDeptIds() {
 
-        User user = userService.findByName(SecurityContextHolder.getUserDetails().getUsername());
+        User user = userService.findByName(SecurityUtils.getUsername());
 
         // 用于存储部门id
         Set<Long> deptIds = new HashSet<>();
