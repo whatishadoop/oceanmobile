@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-* @ClassName: QiniuController
+* @ClassName: FileController
 * @Description: 文件云存储服务接口
 * @Author JinLu
 * @Date 2019/4/19 16:13
@@ -35,20 +35,20 @@ public class FileController {
     @Autowired
     private FileQueryService fileQueryService;
 
-    @GetMapping(value = "/qiNiuConfig")
+    @GetMapping(value = "/fileConfig")
     public ResponseEntity get(){
         return new ResponseEntity(fileService.find(), HttpStatus.OK);
     }
 
     @Log("配置文件云存储")
-    @PutMapping(value = "/qiNiuConfig")
+    @PutMapping(value = "/fileConfig")
     public ResponseEntity emailConfig(@Validated @RequestBody FileConfig fileConfig){
         fileService.update(fileConfig);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @Log("查询文件")
-    @GetMapping(value = "/qiNiuContent")
+    @GetMapping(value = "/fileContent")
     public ResponseEntity getRoles(FileContent resources, Pageable pageable){
         return new ResponseEntity(fileQueryService.queryAll(resources,pageable),HttpStatus.OK);
     }
@@ -59,7 +59,7 @@ public class FileController {
      * @return
      */
     @Log("上传文件")
-    @PostMapping(value = "/qiNiuContent")
+    @PostMapping(value = "/fileContent")
     public ResponseEntity upload(@RequestParam MultipartFile file){
         FileContent fileContent = fileService.upload(file,fileService.find());
         Map map = new HashMap();
@@ -74,9 +74,9 @@ public class FileController {
      * @return
      */
     @Log("同步文件云数据")
-    @PostMapping(value = "/qiNiuContent/synchronize")
+    @PostMapping(value = "/fileContent/synchronize")
     public ResponseEntity synchronize(){
-        log.warn("REST request to synchronize qiNiu : {}");
+        log.warn("REST request to synchronize file : {}");
         fileService.synchronize(fileService.find());
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -88,7 +88,7 @@ public class FileController {
      * @throws Exception
      */
     @Log("下载文件")
-    @GetMapping(value = "/qiNiuContent/download/{id}")
+    @GetMapping(value = "/fileContent/download/{id}")
     public ResponseEntity download(@PathVariable Long id){
         Map map = new HashMap();
         map.put("url", fileService.download(fileService.findByContentId(id),fileService.find()));
@@ -102,7 +102,7 @@ public class FileController {
      * @throws Exception
      */
     @Log("删除文件")
-    @DeleteMapping(value = "/qiNiuContent/{id}")
+    @DeleteMapping(value = "/fileContent/{id}")
     public ResponseEntity delete(@PathVariable Long id){
         fileService.delete(fileService.findByContentId(id),fileService.find());
         return new ResponseEntity(HttpStatus.OK);

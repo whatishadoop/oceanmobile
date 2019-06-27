@@ -6,7 +6,7 @@
       :on-error="handleError"
       :file-list="fileList"
       :headers="headers"
-      :action="qiNiuUploadApi"
+      :action="fileUploadApi"
       class="upload-demo"
       multiple>
       <el-button size="small" type="primary">点击上传</el-button>
@@ -20,7 +20,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { del } from '@/api/qiniu'
+import { del } from '@/api/file'
 import { getToken } from '@/utils/auth'
 export default {
   data() {
@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'qiNiuUploadApi'
+      'fileUploadApi'
     ])
   },
   methods: {

@@ -50,9 +50,9 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public FileConfig find() {
-        Optional<FileConfig> qiniuConfig = fileConfigRepository.findById(1L);
-        if(qiniuConfig.isPresent()){
-            return qiniuConfig.get();
+        Optional<FileConfig> fileConfig = fileConfigRepository.findById(1L);
+        if(fileConfig.isPresent()){
+            return fileConfig.get();
         } else {
             return new FileConfig();
         }
@@ -110,9 +110,9 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public FileContent findByContentId(Long id) {
-        Optional<FileContent> qiniuContent = fileContentRepository.findById(id);
-        ValidationUtil.isNull(qiniuContent,"FileContent", "id",id);
-        return qiniuContent.get();
+        Optional<FileContent> fileContent = fileContentRepository.findById(id);
+        ValidationUtil.isNull(fileContent,"FileContent", "id",id);
+        return fileContent.get();
     }
 
     @Override

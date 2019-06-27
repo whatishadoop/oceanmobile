@@ -20,14 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @ClassName: QiNiuQueryService
+* @ClassName: FileQueryService
 * @Description: 文件云查询服务
 * @Author JinLu
 * @Date 2019/4/19 16:16
 * @Version 1.0
 */
 @Service
-@CacheConfig(cacheNames = "qiNiu")
+@CacheConfig(cacheNames = "file")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class FileQueryService {
 

@@ -9,7 +9,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
-* @ClassName: QiNiuService
+* @ClassName: FileService
 * @Description: 文件云服务
 * @Author JinLu
 * @Date 2019/4/19 16:17
@@ -27,11 +27,11 @@ public interface FileService {
 
     /**
      * 修改配置
-     * @param qiniuConfig
+     * @param fileConfig
      * @return
      */
     @CachePut(cacheNames = "fileConfig", key = "'1'")
-    FileConfig update(FileConfig qiniuConfig);
+    FileConfig update(FileConfig fileConfig);
 
     /**
      * 上传文件
