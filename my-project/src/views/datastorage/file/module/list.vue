@@ -58,7 +58,7 @@
 <script>
 import checkPermission from '@/utils/permission' // 权限判断函数
 import initData from '@/mixins/initData'
-import { del, download } from '@/api/qiniu'
+import { del, download } from '@/api/file'
 import { parseTime } from '@/utils/index'
 import eHeader from './module/header'
 export default {
@@ -92,7 +92,7 @@ export default {
     parseTime,
     checkPermission,
     beforeInit() {
-      this.url = 'api/qiNiuContent'
+      this.url = 'api/fileContent'
       const sort = 'id,desc'
       const query = this.query
       const value = query.value

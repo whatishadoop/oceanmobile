@@ -7,7 +7,7 @@ module.exports = {
     // to edit target browsers: use "browserslist" field in package.json
     "autoprefixer": {},
     "postcss-plugin-px2rem": {
-      rootValue: 54,
+      rootValue: 134.9,
       unitPrecision: 2, // 保留2位rem精度
       mediaQuery: true,
       exclude:"/node_modules/",

@@ -31,7 +31,7 @@
 
 <script>
 import eForm from './form'
-import { sync, delAll } from '@/api/qiniu'
+import { sync, delAll } from '@/api/file'
 // 查询条件
 export default {
   components: { eForm },

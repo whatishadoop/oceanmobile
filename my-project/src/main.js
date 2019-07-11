@@ -26,10 +26,10 @@ import webAppPlugin from './views/appmanage/components'
 import i18n from './i18n'
 // 引入iview
 import './vendor/iview.js'
-import 'lib-flexible'
+// import 'lib-flexible'
 
 // rem h5 适配
-// import 'amfe-flexible/index.js'
+import 'amfe-flexible/index.js'
 
 Vue.prototype.$uuid = uuid
 Vue.prototype.$echarts = echarts

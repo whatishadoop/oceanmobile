@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { get, update } from '@/api/qiniu'
+import { get, update } from '@/api/file'
 export default {
   name: 'Config',
   data() {

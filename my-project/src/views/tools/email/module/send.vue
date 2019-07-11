@@ -46,8 +46,8 @@ export default {
     ...mapGetters([
       // sm.ms图床
       'imagesUploadApi',
-      // 七牛云 按需选择
-      'qiNiuUploadApi'
+      // 文件上传 按需选择
+      'fileUploadApi'
     ])
   },
   mounted() {
