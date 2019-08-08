@@ -42,6 +42,7 @@ public class AppPageController {
     @PostMapping(value = "/apppage")
     @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity create(@Validated @RequestBody AppPage appPage){
+        System.out.println("page ====================");
        return new ResponseEntity(appPageService.create(appPage),HttpStatus.CREATED);
     }
 

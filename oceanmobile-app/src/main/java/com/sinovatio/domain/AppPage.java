@@ -35,6 +35,7 @@ public class AppPage {
     @Column ( name = "content_parse", columnDefinition = "longtext")
     private String contentParse;
 
+    // 页面所有配置内容
     @NotBlank
     @Column ( columnDefinition = "longtext")
     private String config;
@@ -50,7 +51,7 @@ public class AppPage {
     @Column( name = "create_time")
     private Timestamp createTime;
 
-    @NotBlank
+    @NotNull
     @Column
     private Long sort;
 
