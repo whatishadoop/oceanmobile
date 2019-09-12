@@ -32,3 +32,7 @@ b，如果要测试带token的接口，首先要进行登录，登录成功会�
 12.数据权限概念设计
 13.hibernate映射关系
 14.支持修改代码热部署 --影响页面实时监控功能
+
+1.Redis集群的关闭、启动、重启等相关指令
+2.Redis集群管理  https://www.cnblogs.com/funyoung/p/10732399.html
+3.redis 集群分配哈希曹
